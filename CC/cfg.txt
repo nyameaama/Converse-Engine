@@ -1,0 +1,13 @@
+<b> Propellants </b>
+
+Fuel 
+- Ethanol 
+
+Oxidizer
+- Liquid Oxygen
+
+
+<b> Details </b>
+
+Thrust 
+- 400kn
