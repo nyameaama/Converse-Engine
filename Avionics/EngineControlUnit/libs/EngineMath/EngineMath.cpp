@@ -23,7 +23,7 @@
 	GNS 2014-05-18: added support for dynamic calculation of choked and non-choked gas flow
 */
 
-#include "Arduino.h"
+//#include "Arduino.h"
 #include "EngineMath.h"
 
 //Empty Constructor

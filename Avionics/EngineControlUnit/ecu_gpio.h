@@ -4,18 +4,30 @@
 #include "libs/stm32/spl/variants/stm32f4/src/stm32f4xx_gpio.c"
 
 //0x1
-#define CLOCK_A (uint32_t)
+#define CLOCK_A (RCC_AHB1Periph_GPIOA)
 //0x2
-#define CLOCK_B ((uint32_t)0x00000002)
+#define CLOCK_B (RCC_AHB1Periph_GPIOB)
 //0x4
-#define CLOCK_C ((uint32_t)0x00000004)
+#define CLOCK_C (RCC_AHB1Periph_GPIOC)
 //0x8
-#define CLOCK_D ((uint32_t)0x00000008)
+#define CLOCK_D (RCC_AHB1Periph_GPIOD)
 
+//SETUP STRUCT
 
-void SET_ECU_GPIO_HIGH(uint8_t PIN,CLOCK_A _clock_);
+typedef struct SETUP{
+    //Setup Function
+    void (*SETUP_GPIO)(uint8_t PIN,uint32_t _clock_);
 
-void SET_ECU_GPIO_LOW(uint8_t PIN);
+}SETUP;
+
+//MAIN GPIO STRUCT
+
+typedef struct GPIO {
+    void (*SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_);
+
+    void (*SET_ECU_GPIO_LOW)(uint8_t PIN);
+
+}GPIO;
 
 
 
