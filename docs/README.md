@@ -1,6 +1,9 @@
 ## Engine Docs
 
 <p align = "center">
-<img src = "https://github.com/nyameaama/Converse-Engine/blob/master/docs/assets/Diagram%201.png" width = "400" height = "500"/>
+<img src = "https://github.com/nyameaama/Converse-Engine/blob/master/docs/assets/Diagram%201.png" width = "500" height = "600"/>
 </p>
 
+See [Engine Abstracted](https://github.com/nyameaama/Converse-Engine/blob/master/docs/Engine%20Abstracted.pdf)
+
+Pumps Battery and spark igniter documented separately. [See document]()
