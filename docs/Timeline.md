@@ -14,10 +14,11 @@ Stage XX - General Design
 - Requirements Analysis (Propellants)
 - Nozzle Design
 - Combustion Chamber Design
+- Pintle injector
 - Design CAD
 
 
 Stage XXX - Piping and Plumbing
 
 - Components Analysis (Pumps, Solenoid Valves)
-- Pipe routing
+- Pipe routing (Avionics, Propellant)
