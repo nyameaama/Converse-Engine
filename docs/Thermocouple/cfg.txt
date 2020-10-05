@@ -1,0 +1,3 @@
+Thermocouple Information:
+
+https://www.seeedstudio.com/blog/2019/12/25/types-of-thermocouple-and-which-thermocouple-sensor-to-buy/
