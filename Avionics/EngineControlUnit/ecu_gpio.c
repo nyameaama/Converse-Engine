@@ -5,11 +5,8 @@
  //GPIO_InitTypeDef is a structure defined in gpio header file
 GPIO_InitTypeDef GPIO_STRUCT;
 
-struct SETUP s_obj;
-s_obj.SET_ECU_GPIO_HIGH = SET_ECU_GPIO_HIGH;
 
-
-void SET_ECU_GPIO_HIGH(uint8_t PIN,uint32_t _clock_){
+void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_){
     //Decide Port
 
     //Provide clock to the specific port being used.
@@ -29,6 +26,6 @@ void SET_ECU_GPIO_HIGH(uint8_t PIN,uint32_t _clock_){
    
 }
 
-void SET_ECU_GPIO_LOW(uint8_t PIN){
+void (SET_ECU_GPIO_LOW)(uint8_t PIN){
 
 }

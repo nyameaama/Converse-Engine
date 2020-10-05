@@ -13,22 +13,15 @@
 //0x8
 #define CLOCK_D (RCC_AHB1Periph_GPIOD)
 
-//SETUP STRUCT
+//Setup Function
 
-typedef struct SETUP{
-    //Setup Function
-    void (*SETUP_GPIO)(uint8_t PIN,uint32_t _clock_);
+void (SETUP_GPIO)(uint8_t PIN,uint32_t _clock_);
 
-}SETUP;
 
-//MAIN GPIO STRUCT
 
-typedef struct GPIO {
-    void (*SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_);
+void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_);
 
-    void (*SET_ECU_GPIO_LOW)(uint8_t PIN);
-
-}GPIO;
+void (SET_ECU_GPIO_LOW)(uint8_t PIN);
 
 
 
