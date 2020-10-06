@@ -1,6 +1,5 @@
 #include "ecu_gpio.h"
 
-
  //Pin number in port
  //GPIO_InitTypeDef is a structure defined in gpio header file
 GPIO_InitTypeDef GPIO_STRUCT;
