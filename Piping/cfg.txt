@@ -1,0 +1,12 @@
+Mdot = Density * Flow Rate * Cross Sectional Area
+
+Flow Rate:
+Q = A * V 
+
+where A = Cross Sectional Area
+      V = Velocity
+
+
+
+Pipe Diameter = sqrt(4) * Flow Rate / pi * velocity
+
