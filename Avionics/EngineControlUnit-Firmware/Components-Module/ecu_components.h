@@ -1,7 +1,7 @@
 #ifndef ECU_COMPONENTS_
 #define ECU_COMPONENTS_
 
-#include"../ecu_gpio.h"
+#include"../Utility/ecu_gpio.h"
 
 #define OPEN (uint8_t) 1
 #define CLOSE (uint8_t) 1

@@ -1,8 +1,8 @@
 #ifndef ECU_GPIO_
 #define ECU_GPIO_
 
-#include "libs/stm32/spl/variants/stm32f4/src/stm32f4xx_gpio.c"
-#include "libs/stm32/cmsis/variants/stm32f4/stm32f4xx.h"
+#include "../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_gpio.c"
+#include "../libs/stm32/cmsis/variants/stm32f4/stm32f4xx.h"
 
 //0x1
 #define CLOCK_A (RCC_AHB1Periph_GPIOA)
