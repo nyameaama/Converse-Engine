@@ -20,19 +20,38 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef TASKS_
-#define TASKS_
 
-#include"../Components-Module/ecu_components.h"
+#ifndef StopWatch_h
+#define StopWatch_h
 
-//Engine Startup Task 
-void (engineStartup)(void);
+#include"../libs/stm32/cmsis/variants/stm32f4/system_stm32f4xx.h"
+#define true 1
+#define false 0
 
-//Engine Shutdown Task
-void (engineShutdown)(void);
+typedef unsigned int uint32_t;
+typedef unsigned char uint8_t;
 
-//Engine Check Task
+unsigned long _startTime;
+unsigned long _stopTime;
+
+//increments a 32 bit counter at every tick.
+void SysTick_Handler();
 
 
+//Returns 
+uint32_t millis();
 
-#endif //TASKS_
+//Sets a timer to run for 'x' milliseconds
+void startTimer(unsigned long millisToTime);
+
+//Returns true if the timer is still active. False otherwise
+uint8_t timerStatus();
+
+//Returns the elapsed time since the timer was started. 
+unsigned long timeElapsed();
+
+//A sleep without delay function
+void millisToSleep(unsigned long sleepTime);
+		
+
+#endif

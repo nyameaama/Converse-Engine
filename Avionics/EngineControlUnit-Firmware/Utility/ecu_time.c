@@ -20,19 +20,49 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef TASKS_
-#define TASKS_
+#include "ecu_time.h"
 
-#include"../Components-Module/ecu_components.h"
+//increments a 32 bit counter at every tick.
+void SysTick_Handler(){
 
-//Engine Startup Task 
-void (engineStartup)(void);
+}
 
-//Engine Shutdown Task
-void (engineShutdown)(void);
+uint32_t millis(){
+    RCC_ClocksTypeDef RCC_Clocks;
+    RCC_GetClocksFreq(&RCC_Clocks);
+    uint32_t desired_freq_for_timer = 1000; // <- For (ms)
+    (void)SysTick_Config(RCC_Clocks.HCLK_Frequency / desired_freq_for_timer);
+    
+}
 
-//Engine Check Task
+//sets a timer to run for 'x' milliseconds
+void startTimer (unsigned long millisToTime){
+  _startTime = millis();
+  _stopTime = _startTime + millisToTime;
+}
 
+//Returns true if the timer is still active. False otherwise
+uint8_t timerStatus (){
+  if ( (millis() >= _startTime) && (millis() <= _stopTime) )
+    return true;
+  else
+    return false;
+}
 
+//Returns the elapsed time since the timer was started. 
+unsigned long timeElapsed ()
+{
+  return millis() - _startTime;
+}
 
-#endif //TASKS_
+//A sleep without delay function
+void millisToSleep (unsigned long sleepTime)
+{
+  unsigned long wakeupTime = millis() + sleepTime;
+  
+  while(1)
+  {
+    if (millis() >= wakeupTime)
+      break;
+  }
+}
