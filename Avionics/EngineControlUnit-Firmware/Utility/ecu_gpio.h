@@ -25,6 +25,7 @@ SOFTWARE.*/
 
 #include "../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_gpio.c"
 #include "../libs/stm32/cmsis/variants/stm32f4/stm32f4xx.h"
+#include"definitions.h"
 
 //0x1
 #define CLOCK_A (RCC_AHB1Periph_GPIOA)

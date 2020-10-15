@@ -24,6 +24,7 @@ SOFTWARE.*/
 #define TASKS_
 
 #include"../Components-Module/ecu_components.h"
+#include"../Utility/definitions.h"
 
 //Engine Startup Task 
 void (engineStartup)(void);

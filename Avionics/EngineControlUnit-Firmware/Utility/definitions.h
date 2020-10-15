@@ -20,27 +20,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef ECU_COMPONENTS_
-#define ECU_COMPONENTS_
+//DEFINITIONS FILE 
 
-#include"../Utility/ecu_gpio.h"
-#include"../Utility/definitions.h"
+#ifndef DEFINITIONS_
 
-#define OPEN (uint8_t) 1
-#define CLOSE (uint8_t) 1
+#include<stdint.h>
 
-typedef unsigned char uint8_t;
+//typedef unsigned char uint8_t;
 
-//Component driver for pressure transducer
-uint8_t (pressureTransducer)(uint8_t transducerPin);
+//typedef unsigned int uint32_t;
 
-//Component driver for solenoid valve (Open, close)
-uint8_t (valveState)(uint8_t valvePin, uint8_t state);
-
-//Component driver for thermocouple
-uint8_t (readThermocouple)(uint8_t thermocouplePin);
-
-
-
-
-#endif //ECU_COMPONENTS_
+#endif //DEFINITIONS_
