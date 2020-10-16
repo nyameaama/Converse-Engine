@@ -1,0 +1,11 @@
+Log(TO-DO):
+
+Finish Individual Component Circuits
+- Valve
+- Thermocouple
+- Pressure Transducer
+- Spark Igniter
+
+Create Scaled circuit 
+
+Prototype CAD piping 

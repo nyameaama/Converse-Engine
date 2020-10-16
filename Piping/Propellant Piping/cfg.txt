@@ -10,3 +10,14 @@ where A = Cross Sectional Area
 
 Pipe Diameter = sqrt(4) * Flow Rate / pi * velocity
 
+
+Log(TO-DO):
+
+Calculate pipe diameter proportional to appropriate pressure and mass Flow for:
+- Inlet Pipes
+- Pre-Pump Pipes
+- Post-Pump Pipes
+
+Prototype CAD
+
+Run Simulations
