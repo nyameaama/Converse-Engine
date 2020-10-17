@@ -26,26 +26,37 @@ SOFTWARE.*/
  //GPIO_InitTypeDef is a structure defined in gpio header file
 GPIO_InitTypeDef GPIO_STRUCT;
 
-
+//Set GPIO Pin register to HIGH
 void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_){
     SET_GPIO_MODE(PIN,OUT,_clock_);
-    //GPIO speed and Push Pull configuration. Configuring speed of GPIO 
-    //and Push pull register of the pin
-    GPIO_STRUCT.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_STRUCT.GPIO_PuPd = GPIO_OType_PP;
     //SET HIGH
-     GPIO_WriteBit(GPIOD,PIN,Bit_SET);
-   
+    GPIO_WriteBit(GPIOD,PIN,Bit_SET);
 }
 
-void (SET_ECU_GPIO_LOW)(uint8_t PIN){
+//Set GPIO Pin register to LOW
+void (SET_ECU_GPIO_LOW)(uint8_t PIN,uint32_t _clock_){
+    SET_GPIO_MODE(PIN,OUT,_clock_);
+    //SET LOW
+    GPIO_WriteBit(GPIOD,PIN,Bit_RESET);
+}
+
+void (GPIO_READ_DIGITAL)(uint8_t PIN,uint32_t _clock_){
+    SET_GPIO_MODE(PIN,IN,_clock_);
+    //GPIO_ReadInputData()
 
 }
 
+void (GPIO_READ_ANALOG)(uint8_t PIN,uint32_t _clock_){
 
+}
+
+void (GPIO_WRITE)(uint8_t PIN,uint32_t _clock_){
+
+}
+
+//Set GPIO-Mode (IN,OUT,Analog,Alternate function)
 void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_){
     //Decide Port
-
     //Provide clock to the specific port being used.
     //Parameter refernece
     RCC_AHB1PeriphClockCmd(_clock_,ENABLE);
@@ -53,5 +64,10 @@ void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_){
     //Specifies the GPIO pins to be configured.
     GPIO_STRUCT.GPIO_Pin = PIN;
     //Configure it as output pin.
-    GPIO_STRUCT.GPIO_Mode = GPIO_Mode_OUT;
+    GPIO_STRUCT.GPIO_Mode = mode;
+    //GPIO speed and Push Pull configuration - configure speed of  GPIO and Push pull register of the pin
+    GPIO_STRUCT.GPIO_Speed=GPIO_Speed_50MHz;
+    GPIO_STRUCT.GPIO_PuPd=GPIO_OType_PP;
+    //GPIO Initialization
+    GPIO_Init(GPIOD,&GPIO_STRUCT);
 }

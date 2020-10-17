@@ -30,6 +30,17 @@ Measurement:
 -  Compile transducer and thermocouple data and send comms
 
 
+## Engine Setup
+
+- State
+* ARMED -> 1 minute timer |  
+* PREP -> 
+* IDLE -> NO PROCESS
+
+- Engine Chill
+* Check pipe temps
+* if temps < (t(nominal)) -> Start chill
+
 
 
 

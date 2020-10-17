@@ -36,18 +36,28 @@ SOFTWARE.*/
 //0x8
 #define CLOCK_D (RCC_AHB1Periph_GPIOD)
 
-#define IN 0
+#define IN (GPIO_Mode_IN)
 
-#define OUT 1
+#define OUT (GPIO_Mode_OUT)
 
 //Setup Function
 
-void (SETUP_GPIO)(uint8_t PIN,uint32_t _clock_);
-
+//Set GPIO Pin register to HIGH
 void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_);
 
-void (SET_ECU_GPIO_LOW)(uint8_t PIN);
+//Set GPIO Pin register to LOW
+void (SET_ECU_GPIO_LOW)(uint8_t PIN,uint32_t _clock_);
 
+//
+void (GPIO_READ_DIGITAL)(uint8_t PIN,uint32_t _clock_);
+
+//
+void (GPIO_READ_ANALOG)(uint8_t PIN,uint32_t _clock_);
+
+//
+void (GPIO_WRITE)(uint8_t PIN,uint32_t _clock_);
+
+//Set GPIO-Mode (IN,OUT,Analog,Alternate function)
 void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_);
 
 
