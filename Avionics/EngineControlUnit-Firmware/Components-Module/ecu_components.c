@@ -30,11 +30,18 @@ uint8_t (pressureTransducer)(uint8_t transducerPin){
 //Component driver for solenoid valve (Open, close)
 uint8_t (valveState)(uint8_t valvePin, uint8_t state){
     //PinMode
-
     //Digitial Write To PIN
+    //HIGH or LOW
+    switch(state){
+        case OUT:
+            SET_ECU_GPIO_HIGH(valvePin,CLOCK_A); //<- Assume CLOCK PORT A - CHANGE
+        case IN:
+            SET_ECU_GPIO_LOW(valvePin,CLOCK_A); //<- Assume CLOCK PORT A - CHANGE
+    }
+    return 0;
 }
 
 //Component driver for thermocouple
 uint8_t (readThermocouple)(uint8_t thermocouplePin){
-    
+
 }

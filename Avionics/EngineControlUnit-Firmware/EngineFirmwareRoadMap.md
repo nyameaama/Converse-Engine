@@ -35,7 +35,9 @@ Measurement:
 - State
 * ARMED -> 1 minute timer |  
 * PREP -> 
-* IDLE -> NO PROCESS
+* IDLE -> NO PROCESS | init terminal connection
+
+** IF CONNECTION TO TERMINAL-CONTROLLER BREAKS, ENGINE OPERATION STOPS
 
 - Engine Chill
 * Check pipe temps
