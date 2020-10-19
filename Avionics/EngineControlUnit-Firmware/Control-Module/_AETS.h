@@ -23,6 +23,17 @@ SOFTWARE.*/
 #ifndef AETS_
 #define AETS_
 
+#include"../Utility/definitions.h"
+
+//AETS V1 prog wil be based on monitoring test data 
+//ranges without continuous assesment of all data
+// AETS will check if (data) < thresh: 
+
+
+uint32_t measuedData[50][50]; // Data stored in heap is temporary. Will overflow if not chnaged
+
+//AETS driver
+uint8_t aets(char* dataChannel,uint32_t data, uint32_t time);
 
 
 

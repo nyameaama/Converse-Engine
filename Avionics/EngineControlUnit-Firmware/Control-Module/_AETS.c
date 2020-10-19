@@ -22,3 +22,10 @@ SOFTWARE.*/
 
 #include"_AETS.h"
 
+//AETS driver
+uint8_t aets(char* dataChannel,uint32_t data, uint32_t time){
+    //Store data point
+
+    //
+}
+

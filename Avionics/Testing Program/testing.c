@@ -20,19 +20,69 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef TELEMETRY_
-#define TELEMETRY_
-
-#include"../libs/EngineMath/EngineMath.h"
-#include"../Utility/definitions.h"
-
-uint32_t TELEMETRY_FEED(uint32_t*(*compiledData)(void));
-
-uint32_t LOG_THRUST();
-
-uint32_t LOG_FUEL_MASS_FLOW();
-
-uint32_t LOG_OXIDIZER_MASS_FLOW();
+#ifndef MAIN_
+#define MAIN_
 
 
-#endif //TELEMETRY_
+#include"interrupts.h"
+
+void _init_();
+void _IDLE_();
+void _PREP_();
+void _ARMED_();
+
+//Interrupts will change engine state flags
+//RF interrupt -> handler -> parse RF data -> change flag according go data instruction
+
+#define ENGINE_STATE 0
+
+int main(){
+    _init_();
+    while(1){
+        #if ENGINE_STATE == 0 // IDLE
+        _IDLE_();
+        if(/*  rf_connect()  */){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 1
+        }
+        #endif
+
+        #if ENGINE_STATE == 1 // PREP
+        _init_();
+        _PREP_();
+        if(/*  interrup */){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 2
+        }
+        #endif
+
+        #if ENGINE_STATE == 2 // ARMED
+        _ARMED_();
+        if(/*  rf_connect()  */){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 0
+        }
+        #endif
+
+    }
+}
+
+void _init_(){
+    //Attach RF interrupt 
+}
+
+void _IDLE_(){
+    //IDLE -> NO PROCESS | init terminal connection
+
+}
+
+void _PREP_(){
+
+}
+
+void _ARMED_(){
+
+}
+
+
+#endif // MAIN_

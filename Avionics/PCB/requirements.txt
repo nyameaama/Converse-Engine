@@ -1,0 +1,15 @@
+PCB Requirements
+
+GPIO 
+- x32
+
+LED_BUZZER
+- x1
+
+External_Flash
+- x1
+
+IMU 
+- (TVC check support - Non priority)
+
+
