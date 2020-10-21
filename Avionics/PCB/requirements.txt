@@ -1,8 +1,5 @@
 PCB Requirements
 
-GPIO 
-- x32
-
 LED_BUZZER
 - x1
 
@@ -12,4 +9,9 @@ External_Flash
 IMU 
 - (TVC check support - Non priority)
 
-
+Component-Support
+- Valves x2
+- Thermocouple x3
+- Pressure transducer x2
+- Igniter x1
+- Pumps x2

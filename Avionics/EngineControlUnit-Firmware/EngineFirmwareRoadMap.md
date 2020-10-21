@@ -42,6 +42,8 @@ Measurement:
 - Engine Chill
 * Check pipe temps
 * if temps < (t(nominal)) -> Start chill
+* Open LOX valves
+* Pipe temp Feedback Control
 
 
 
