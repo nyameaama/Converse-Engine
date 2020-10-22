@@ -39,11 +39,16 @@ Measurement:
 
 ** IF CONNECTION TO TERMINAL-CONTROLLER BREAKS, ENGINE OPERATION STOPS
 
+Pre-conditioning Systems
+
 - Engine Chill
 * Check pipe temps
 * if temps < (t(nominal)) -> Start chill
 * Open LOX valves
 * Pipe temp Feedback Control
+
+- Engine Purging
+* Remove residual propellant through gas flow
 
 
 
