@@ -30,14 +30,14 @@ GPIO_InitTypeDef GPIO_STRUCT;
 void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_){
     SET_GPIO_MODE(PIN,OUT,_clock_);
     //SET HIGH
-    GPIO_WriteBit(GPIOD,PIN,Bit_SET);
+    GPIO_WriteBit(_clock_,PIN,Bit_SET);
 }
 
 //Set GPIO Pin register to LOW
 void (SET_ECU_GPIO_LOW)(uint8_t PIN,uint32_t _clock_){
     SET_GPIO_MODE(PIN,OUT,_clock_);
     //SET LOW
-    GPIO_WriteBit(GPIOD,PIN,Bit_RESET);
+    GPIO_WriteBit(_clock_,PIN,Bit_RESET);
 }
 
 void (GPIO_READ_DIGITAL)(uint8_t PIN,uint32_t _clock_){

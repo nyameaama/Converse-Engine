@@ -23,9 +23,21 @@ SOFTWARE.*/
 #include"_AETS.h"
 
 //AETS driver
-uint8_t aets(char* dataChannel,uint32_t data, uint32_t time){
+uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time){
     //Store data point
 
     //
 }
 
+//Function to lookup simulated data for channel and return data array
+uint32_t *lookup(uint8_t dataChannel){
+    //Shift data from flash to heap (RAM)
+
+}
+
+//Function to compare channel data
+uint8_t compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32_t timestamp_2){
+    //Compare two data sets to their corresponding timestamps
+    //Check timestamps
+    
+}
