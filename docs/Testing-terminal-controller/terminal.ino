@@ -32,7 +32,6 @@ Simple state machine for terminal controller consisting of three states
 #define STATE 0
 
 void setup(){
-  
     Serial.begin(9600);	  // Serial Communication
     if (!driver.init())
         Serial.println("init failed");
@@ -40,27 +39,33 @@ void setup(){
 
 void loop(){ 
     //INIT - IDLE
-    Serial.println("Idle");
-    //IDLE MODE = Rapid Blinking
+    outputOnce("IDLE");
+
+    //IDLE MODE = Slow Blinking
     LED_STATE(1);
+    delay(1000);
+    LED_STATE(0);
+
     //WAIT FOR TRANSITION TO SETUP
     if(Serial.available() > 0){
-        if(prompt() == ){
+        if(prompt() == "Setup"){
             #undef STATE
             #define STATE 1
         }
     }
     #if STATE == 1
-    //SETUP
-    //
-    Serial.println("Setup");
+    //SETUP = Rapid Blinking
+    LED_STATE(1);
+    delay(250);
+    LED_STATE(0);
+    
 
     
 
 
     #if STATE == 2
-    //ACTIVE
-    Serial.println("Active");
+    //ACTIVE = Constant LED On
+    LED_STATE(1);
 
      
 

@@ -28,6 +28,8 @@ SOFTWARE.*/
 
 #define LED_PIN 0
 
+uint8_t outputted = false;
+
 RH_ASK driver;
 
 typedef unsigned char uint8_t;
@@ -85,6 +87,15 @@ char *prompt(){
         }
     }                   
     return comm_str;
+}
+
+void outputOnce(char* data){
+    if(outputted == 0){
+        Serial.println(data);
+        outputted = 1;
+    }else if(outputted != 0){
+        //Do nothing
+    }
 }
 
 #endif //FUNCTIONS
