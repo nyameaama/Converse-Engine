@@ -32,6 +32,12 @@ void (engineStartup)(void);
 //Engine Shutdown Task
 void (engineShutdown)(void);
 
+//Engine Purging
+void (enginePurge)(void);
+
+//Engine Chill
+void (engineChill)(void);
+
 //Engine Check Task
 
 

@@ -39,7 +39,7 @@ uint8_t RUN_PROG_CYCLE(){
 }
 
 //Function to compile sensor data from (driver functions)
-uint32_t *COMPILE_SENSOR_DATA(){
+uint32_t *compile_sensor_data(){
     const uint8_t transducerPin;
     const uint8_t thermocouplePin;
     uint32_t compiled[5]; // <- CHANGE TO SENSOR SUITE NUMBER
@@ -52,6 +52,52 @@ uint32_t *COMPILE_SENSOR_DATA(){
 
 /*Function to return AETS to module router
 This data is moved to main */
-uint8_t RETURN_AETS_STATE(){
+uint8_t return_AETS_state(){
 
+}
+
+//Function to return pressure 
+uint32_t returnPressure(){
+
+}
+
+//Function to return pressure 
+uint32_t returnTemp(){
+
+}
+
+//Fuel Pump task function (ON, OFF)
+uint8_t FuelPump_task(uint8_t task){
+    //Pump init
+}
+
+//Liquid Oxygen Pump task function (ON, OFF)
+uint8_t LOXPump_task(uint8_t task){
+    //Pump Init
+}
+
+//Main Fuel Valve task function (OPEN, CLOSED)
+uint8_t MFV_task(uint8_t task){
+    //Valve GPIO Pin
+    uint8_t FuelValvePin; // <- Valve Pin
+    //valve init
+    if(task == OPEN){
+        valveState(FuelValvePin, OPEN);
+    }else if(task == CLOSE){
+        valveState(FuelValvePin,CLOSE);
+    }
+    return 0;
+}
+
+//Main Oxygen Valve function (OPEN, CLOSED)
+uint8_t MOV_task(uint8_t task){
+    //Valve GPIO Pin
+    uint8_t OxygenValvePin; // <- Valve Pin
+    //valve init
+    if(task == OPEN){
+        valveState(OxygenValvePin, OPEN);
+    }else if(task == CLOSE){
+        valveState(OxygenValvePin,CLOSE);
+    }
+    return 0;
 }

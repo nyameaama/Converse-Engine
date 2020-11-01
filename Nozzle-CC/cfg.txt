@@ -10,4 +10,4 @@ Oxidizer
 <b> Details </b>
 
 Thrust 
-- 400kn
+- 100kn

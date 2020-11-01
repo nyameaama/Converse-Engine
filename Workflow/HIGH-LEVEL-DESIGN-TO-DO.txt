@@ -1,0 +1,20 @@
+HIGH-LEVEL-DESIGN
+
+Previous
+
+
+
+
+Current
+
+- complete Engine equations
+- nozzle expansion ratio lookover
+- Regen cooling analysis
+- Avionics placement analysis
+- injector analysis
+- pump analysis
+- finish component circuits
+- create scaled circuit
+- Propellant piping analysis (Material, sizing)
+- Electrical Piping analysis
+- Begin ECU PCB design 

@@ -28,8 +28,11 @@ SOFTWARE.*/
 #include"../Utility/ecu_gpio.h"
 #include"../Utility/definitions.h"
 
+#define OPEN 1
+#define CLOSE 0
+
 /*PROG_CYCLE:
-    -COMPILE SENSOR DATA 
+    -COMPILE SENSOR DATA (Pressure, Temp,)
     -DIRECT FEED COMPILED DATA TO TELEMETRY/ANALYSIS MODULE
     -MOVE DATA TO CONTROL - AETS MODULE
     -NOMINAL? -> RETURN TRUE TO MAIN | ELSE -> RETURN FALSE
@@ -42,11 +45,34 @@ SOFTWARE.*/
 uint8_t RUN_PROG_CYCLE();
 
 //Function to compile sensor data from (driver functions)
-uint32_t *COMPILE_SENSOR_DATA();
+uint32_t *compile_sensor_data();
 
 /*Function to return AETS to module router
 This data is moved to main */
-uint8_t RETURN_AETS_STATE();
+uint8_t return_AETS_state();
+
+uint8_t telemetry_send();
+
+/*Module Router Independent functions*/
+
+//Function to return pressure 
+uint32_t returnPressure();
+
+//Function to return pressure 
+uint32_t returnTemp();
+
+//Fuel Pump task function (ON, OFF)
+uint8_t FuelPump_task(uint8_t task);
+
+//Liquid Oxygen Pump task function (ON, OFF)
+uint8_t LOXPump_task(uint8_t task);
+
+//Main Fuel Valve task function (OPEN, CLOSED)
+uint8_t MFV_task(uint8_t task);
+
+//Main Oxygen Valve function (OPEN, CLOSED)
+uint8_t MOV_task(uint8_t task);
+
 
 
 #endif //MODULE_ROUTER

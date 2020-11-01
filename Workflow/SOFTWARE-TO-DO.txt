@@ -1,0 +1,13 @@
+SOFTWARE
+
+Previous
+
+
+
+Current
+
+- Write AETS
+- Finish and Debug Terminal Controller software
+- Module router look-over
+- write testing software
+- write production software
