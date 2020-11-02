@@ -26,6 +26,19 @@ SOFTWARE.*/
 #include"../Components-Module/ecu_components.h"
 #include"../Utility/definitions.h"
 
+/*PROG_CYCLE:
+    -COMPILE SENSOR DATA (Pressure, Temp,)
+    -DIRECT FEED COMPILED DATA TO TELEMETRY/ANALYSIS MODULE
+    -MOVE DATA TO CONTROL - AETS MODULE
+    -NOMINAL? -> RETURN TRUE TO MAIN | ELSE -> RETURN FALSE
+*/
+
+/* PROG_CYCLE represents the full feedback cycle of engine control. PROG_CYCLE
+ runs the module router tasks and AETS. AETS is first checked to determine
+ engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
+ fasle to main which terminates engine */
+uint8_t RUN_PROG_CYCLE();
+
 //Engine Startup Task 
 void (engineStartup)(void);
 
@@ -39,6 +52,10 @@ void (enginePurge)(void);
 void (engineChill)(void);
 
 //Engine Check Task
+
+void (engineCheck)(void){
+
+}
 
 
 

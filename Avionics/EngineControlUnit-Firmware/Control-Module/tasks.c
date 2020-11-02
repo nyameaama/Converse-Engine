@@ -22,6 +22,35 @@ SOFTWARE.*/
 
 #include"tasks.h"
 
+
+/* PROG_CYCLE represents the full feedback cycle of engine control. PROG_CYCLE
+ runs the module router tasks and AETS. AETS is first checked to determine
+ engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
+ fasle to main which terminates engine */
+
+uint8_t RUN_PROG_CYCLE(){
+   // -COMPILE SENSOR DATA 
+    uint32_t *sensorData = COMPILE_SENSOR_DATA();
+    //-DIRECT FEED COMPILED DATA TO TELEMETRY/ANALYSIS MODULE
+    TELEMETRY_FEED(COMPILE_SENSOR_DATA);
+   // -MOVE DATA TO CONTROL - AETS MODULE
+
+   // -NOMINAL? -> RETURN TRUE TO MAIN | ELSE -> RETURN FALSE
+
+}
+
+//Function to compile sensor data from (driver functions)
+uint32_t *compile_sensor_data(){
+    const uint8_t transducerPin;
+    const uint8_t thermocouplePin;
+    uint32_t compiled[5]; // <- CHANGE TO SENSOR SUITE NUMBER
+    //Pressure
+    compiled[0] = (pressureTransducer)(transducerPin);
+    //Thermocouple
+    compiled[1] = (readThermocouple)(thermocouplePin);
+    return compiled;
+}
+
 //Engine Startup Task 
 void (engineStartup)(void){
     //

@@ -40,7 +40,8 @@ uint8_t (valveState)(uint8_t valvePin, uint8_t state);
 //Component driver for thermocouple
 uint8_t (readThermocouple)(uint8_t thermocouplePin);
 
-
+//Component driver for chamber igniter
+uint8_t (chamberIgniter)(uint64_t igniterPin, uint8_t state);
 
 
 #endif //ECU_COMPONENTS_
