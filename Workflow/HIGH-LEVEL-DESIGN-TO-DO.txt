@@ -2,6 +2,7 @@ HIGH-LEVEL-DESIGN
 
 Previous
 
+- Begin detailing of purge system
 
 
 
@@ -18,3 +19,4 @@ Current
 - Propellant piping analysis (Material, sizing)
 - Electrical Piping analysis
 - Begin ECU PCB design 
+- Detailing of vent system
