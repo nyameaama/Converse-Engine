@@ -2,11 +2,11 @@ DOCS
 
 Previous
 
+- Engine Purging Diagram
 
 Current
 
 - Engine Startup Diagram
 - Engine Shutdown Diagram
-- Engine Purging Diagram
 - Engine Chill Diagram
 - Component Log (++)

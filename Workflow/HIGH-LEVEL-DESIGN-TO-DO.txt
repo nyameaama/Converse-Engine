@@ -3,8 +3,8 @@ HIGH-LEVEL-DESIGN
 Previous
 
 - Begin detailing of purge system
-
-
+- Jumper Wire detailing
+- Electrical Piping analysis
 
 Current
 
@@ -17,6 +17,6 @@ Current
 - finish component circuits
 - create scaled circuit
 - Propellant piping analysis (Material, sizing)
-- Electrical Piping analysis
 - Begin ECU PCB design 
 - Detailing of vent system
+- Pipe Break detailing
