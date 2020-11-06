@@ -27,7 +27,12 @@ Simple state machine for terminal controller consisting of three states
 - idle
 - setup
 - active
+
+* Active takes commands
 */
+
+//Global for controller Mode
+char* input;
 
 #define STATE 0
 
@@ -53,20 +58,42 @@ void loop(){
             #define STATE 1
         }
     }
+
     #if STATE == 1
     //SETUP = Rapid Blinking
     LED_STATE(1);
     delay(250);
     LED_STATE(0);
-    
+    //Determine "Command" Mode or "Telemetry" Mode
+    //prompt
 
-    
+    //Input
+    input = prompt();
 
+    //TRANSITION TO ACTIVE
+    if(input != ""){
+        #undef STATE
+        #define STATE 2
+    }
 
     #if STATE == 2
     //ACTIVE = Constant LED On
     LED_STATE(1);
+    //
+     if(input == "Command" || input == "command"){
+        //Route telemetry to storage
 
-     
+
+    }else if(input == "Telemetry" || input == "telemetry"){
+        //Route telemetry to Serial
+
+        //Send Commands if prompted
+        
+
+    }else{
+        #undef STATE 
+        #define STATE 1
+        loop();
+    }
 
 }

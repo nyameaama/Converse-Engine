@@ -98,4 +98,8 @@ void outputOnce(char* data){
     }
 }
 
+void AppendToStorage(uint8_t telemetry){
+    
+}
+
 #endif //FUNCTIONS
