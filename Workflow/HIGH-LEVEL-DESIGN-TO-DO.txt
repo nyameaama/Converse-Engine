@@ -10,13 +10,19 @@ Previous
 
 Current
 
+- Detailing of vent system
+- Thermocouple component casing
+- Valve component casing
+- Pressure Transducer component casing
 - complete Engine equations
 - nozzle expansion ratio lookover
+- finish component circuits
+
+- Propellant piping analysis (Material, sizing)
 - Regen cooling analysis
 - Avionics placement analysis
 - injector analysis
 - pump analysis
-- finish component circuits
-- Propellant piping analysis (Material, sizing)
 - Begin ECU PCB design 
-- Detailing of vent system
+
+
