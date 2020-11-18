@@ -20,65 +20,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef MAIN_
-#define MAIN_
+#ifndef _ECU_FLASH
+#define _ECU_FLASH
 
-void _init_();
-void _IDLE_();
-void _PREP_();
-void _ARMED_();
+#include"definitions.h"
 
-//Through spi interface, ECU recieves instructions from main computer
-//through module router
+uint32_t Flash_Write_Data (uint32_t StartPageAddress, uint32_t * DATA_32);
 
-#define ENGINE_STATE 0
+void Flash_Read_Data (uint32_t StartPageAddress, __IO uint32_t * DATA_32);
 
-int main(){
-    _init_();
-    while(1){
-        #if ENGINE_STATE == 0 // IDLE
-        _IDLE_();
-        if(/*  rf_connect()  */){
-            #undef ENGINE_STATE
-            #define ENGINE_STATE 1
-        }
-        #endif
-
-        #if ENGINE_STATE == 1 // PREP
-        _init_();
-        _PREP_();
-        if(/*  interrup */){
-            #undef ENGINE_STATE
-            #define ENGINE_STATE 2
-        }
-        #endif
-
-        #if ENGINE_STATE == 2 // ARMED
-        _ARMED_();
-        if(/*  rf_connect()  */){
-            #undef ENGINE_STATE
-            #define ENGINE_STATE 0
-        }
-        #endif
-
-    }
-}
-
-void _init_(){
-    //Attach RF interrupt 
-}
-hb
-void _IDLE_(){
-
-}
-
-void _PREP_(){
-
-}
-
-void _ARMED_(){
-
-}
-
-
-#endif // MAIN_
+#endif 

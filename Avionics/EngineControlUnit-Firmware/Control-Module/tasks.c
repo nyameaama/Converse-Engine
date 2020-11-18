@@ -52,11 +52,11 @@ uint32_t *compile_sensor_data(){
 }
 
 //Engine Startup Task 
-void (engineStartup)(void){
+uint8_t (engineStartup)(uint32_t duration_secs){
     //
 }
 
 //Engine Shutdown Task
-void (engineShutdown)(void){
+uint8_t (engineShutdown)(void){
 
 }

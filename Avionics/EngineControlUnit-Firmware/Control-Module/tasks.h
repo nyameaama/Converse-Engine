@@ -40,22 +40,19 @@ SOFTWARE.*/
 uint8_t RUN_PROG_CYCLE();
 
 //Engine Startup Task 
-void (engineStartup)(void);
+uint8_t (engineStartup)(uint32_t duration_secs);
 
 //Engine Shutdown Task
-void (engineShutdown)(void);
+uint8_t (engineShutdown)(void);
 
 //Engine Purging
-void (enginePurge)(void);
+uint8_t (enginePurge)(void);
 
 //Engine Chill
-void (engineChill)(void);
+uint8_t (engineChill)(void);
 
 //Engine Check Task
-
-void (engineCheck)(void){
-
-}
+uint8_t (engineCheck)(void);
 
 
 

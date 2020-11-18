@@ -25,6 +25,7 @@ SOFTWARE.*/
 #ifndef DEFINITIONS_
 
 #include<stdint.h>
+#include"../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_flash.c"
 
 //typedef unsigned char uint8_t;
 
