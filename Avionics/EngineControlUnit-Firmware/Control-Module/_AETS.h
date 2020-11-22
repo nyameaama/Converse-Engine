@@ -24,6 +24,11 @@ SOFTWARE.*/
 #define AETS_
 
 #include"../Utility/definitions.h"
+#include"../Utility/ecu_xx_flash.h"
+
+typedef uint8_t AETS_FLAG;
+#define NO_FLAG (uint8_t) 0
+#define FLAG (uint8_t) 1
 
 //AETS VERSION 1
 
@@ -39,8 +44,11 @@ uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time);
 //Function to lookup simulated data for channel and return data array
 uint32_t *lookup(uint8_t dataChannel);
 
+//From simulation data array, get simulation data at timestamp 
+uint8_t *separateDataTimestamp(uint8_t *dataArray,uint32_t timestamp);
+
 //Function to compare channel data
-uint8_t compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32_t timestamp_2);
+AETS_FLAG compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32_t timestamp_2);
 
 
 #endif

@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include "ecu_gpio.h"
+#include "ecu_xx_gpio.h"
 
  //Pin number in port
  //GPIO_InitTypeDef is a structure defined in gpio header file
