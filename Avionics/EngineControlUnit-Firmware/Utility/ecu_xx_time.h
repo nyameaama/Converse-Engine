@@ -25,8 +25,13 @@ SOFTWARE.*/
 #define StopWatch_h
 
 #include"../libs/stm32/cmsis/variants/stm32f4/system_stm32f4xx.h"
+
 #define true 1
 #define false 0
+
+#define SECS_MICROS 0
+#define SECS_MILLIS 1
+
 
 typedef unsigned int uint32_t;
 typedef unsigned char uint8_t;
@@ -53,5 +58,10 @@ unsigned long timeElapsed();
 //A sleep without delay function
 void millisToSleep(unsigned long sleepTime);
 		
+//Overload + 1
+//Utility friendly program time function
+uint32_t time(uint8_t unit);
+
+uint32_t time();
 
 #endif

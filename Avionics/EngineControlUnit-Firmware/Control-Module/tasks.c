@@ -53,10 +53,18 @@ uint32_t *compile_sensor_data(){
 
 //Engine Startup Task 
 uint8_t (engineStartup)(uint32_t duration_secs){
-    //
+    //Engine Startup Procedure
+
+    //Process
+    uint32_t start = time(SECS_MILLIS);
+    //Second to milliseconds
+    uint32_t secs_to_millis = duration_secs * 1000;
+    while((time(SECS_MILLIS) - start) < duration_secs){
+        
+    }
 }
 
 //Engine Shutdown Task
 uint8_t (engineShutdown)(void){
-
+    //Shutdown Procedure
 }

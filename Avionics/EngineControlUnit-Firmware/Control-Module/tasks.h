@@ -25,6 +25,7 @@ SOFTWARE.*/
 
 #include"../Components-Module/ecu_components.h"
 #include"../Utility/definitions.h"
+#include"../Utility/ecu_xx_time.h"
 
 /*PROG_CYCLE:
     -COMPILE SENSOR DATA (Pressure, Temp,)

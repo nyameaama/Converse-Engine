@@ -66,3 +66,25 @@ void millisToSleep (unsigned long sleepTime)
       break;
   }
 }
+
+uint32_t time(uint8_t unit)
+{
+  uint32_t timeSinceControllerBoot = millis();
+
+  uint32_t returned = timeSinceControllerBoot;
+
+  if(unit == SECS_MICROS)
+  {
+    returned = timeSinceControllerBoot * 1000;
+  }else if(unit == SECS_MILLIS)
+  {
+    //Nothing
+  }
+
+  return returned;
+}
+
+uint32_t time(){
+  uint32_t timeSinceControllerBoot = millis();
+  return timeSinceControllerBoot / 1000;
+}
