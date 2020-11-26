@@ -75,6 +75,7 @@ void loop(){
         #undef STATE
         #define STATE 2
     }
+    #endif
 
     #if STATE == 2
     //ACTIVE = Constant LED On
@@ -95,5 +96,5 @@ void loop(){
         #define STATE 1
         loop();
     }
-
+    #endif
 }
