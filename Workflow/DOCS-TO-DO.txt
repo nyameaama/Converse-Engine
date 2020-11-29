@@ -6,8 +6,8 @@ Previous
 
 Current
 
-- Engine Startup Diagram
-- Engine Shutdown Diagram
+- Engine Startup Brief
+- Engine Shutdown Brief
 - Engine Chill Diagram
 - Component Log (++)
 - AETS v2 analysis doc

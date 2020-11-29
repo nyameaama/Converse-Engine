@@ -10,19 +10,16 @@ Previous
 
 Current
 
+- Updated Pressure Fed Cycle Design
 - Detailing of vent system
-- Thermocouple component casing
-- Valve component casing
-- Pressure Transducer component casing
 - complete Engine equations
 - nozzle expansion ratio lookover
-- finish component circuits
+- Nitrogen Gas Tank Design(Purge Sys)
+- Helium Gas Tanka
 
 - Propellant piping analysis (Material, sizing)
 - Regen cooling analysis
-- Avionics placement analysis
 - injector analysis
-- pump analysis
-- Begin ECU PCB design 
-- Purge Valves (Pre-Pump route , Post-Pump route)
-- 2 way pipe 
+- pump analysis (Electric Pump Version)
+- Purge Valves (route)
+- 2 way pipe (Purge Piping)
