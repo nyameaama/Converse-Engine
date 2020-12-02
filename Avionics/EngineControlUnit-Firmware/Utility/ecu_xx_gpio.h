@@ -61,5 +61,4 @@ void (GPIO_WRITE)(uint8_t PIN,uint32_t _clock_);
 void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_);
 
 
-
 #endif //ECU_GPIO
