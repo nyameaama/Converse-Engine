@@ -1,0 +1,12 @@
+The friction factor itself is dependent on internal pipe diameter, the 
+internal pipe roughness and the Reynold's number which is in turn calculated from 
+the fluid viscosity, fluid density, fluid velocity and the internal pipe diameter.
+
+Fluid density
+
+
+Fluid Viscosity
+
+Fluid Viscosity, sometimes referred to as dynamic viscosity or absolute viscosity, 
+is the fluid's resistance to flow, which is caused by a shearing stress within a flowing
+fluid and between a flowing fluid and its container.

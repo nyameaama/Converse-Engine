@@ -21,3 +21,7 @@ Calculate pipe diameter proportional to appropriate pressure and mass Flow for:
 Prototype CAD
 
 Run Simulations
+
+Pressure Loss Factor 
+
+reference : https://www.pipeflow.com/pipe-pressure-drop-calculations
