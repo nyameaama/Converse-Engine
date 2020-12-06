@@ -23,14 +23,18 @@ SOFTWARE.*/
 #ifndef FUNCTIONS
 #define FUNCTIONS
 
-#include <RadioHead-master/RH_ASK.h>
+//#include <RH_ASK.h>
 //#include <SPI.h> // Not actually used but needed to compile
 
-#define LED_PIN 0
+#define LED_PIN LED_BUILTIN
+#define SILENT 0 
+
+String inputString = "";         // a String to hold incoming data
+bool serialevent = false;
 
 uint8_t outputted = false;
 
-RH_ASK driver;
+/*RH_ASK driver;
 
 typedef unsigned char uint8_t;
 
@@ -54,39 +58,41 @@ void receive(){
       Serial.println((char*)buf); 
     }    
 }
+*/
+uint8_t search(String x, String *arr){
+  for(uint8_t i = 0; i < 3;++i){
+    if (x.equals(arr[i])){return i;}
+  }
+}
 
 //Function to change LED state
 void LED_STATE(uint8_t state){
+    pinMode(LED_PIN,OUTPUT);
     switch(state){
         case 0:
         digitalWrite(LED_PIN,LOW);
-
+        break;
+        
         case 1:
         digitalWrite(LED_PIN,HIGH);
+        break;
     }
 }
 
 //Function to read from the serial monitor 
-char *prompt(){
-    char comm_byte;
-    char comm_str[32];
-    //Call prompt
-    //Read characters from Serial Monitor
-    uint8_t comm_index;
-    while(comm_byte != '\n'){
-        if (Serial.available() > 0) {  
-            comm_byte = Serial.read();// get the character
-        }
-        if (comm_byte != '\n') {
-        // a character of the string was received
-        comm_str[comm_index] = comm_byte;
-        comm_index++;
-        }
-        else{
-      
-        }
-    }                   
-    return comm_str;
+//+1 Overload
+String prompt(String text){
+   Serial.println(text);  
+    String command = Serial.readString(); //Reading the Input string from Serial port.
+    return command;
+}
+String prompt(uint8_t x){
+  inputString = Serial.readString(); //Reading the Input string from Serial port.
+}
+
+void serialEvent(){
+  serialevent = true;
+  prompt(SILENT);
 }
 
 void outputOnce(char* data){
