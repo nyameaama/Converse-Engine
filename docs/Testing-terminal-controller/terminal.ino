@@ -33,68 +33,74 @@ Simple state machine for terminal controller consisting of three states
 
 //Global for controller Mode
 char* input;
+#include"functions.h"
+
+String taskstable[3] = {"cmd idle","cmd setup","cmd active"};
+//N = Undefined | C = Command | T = telemetry
+String Mode;
 
 #define STATE 0
 
 void setup(){
     Serial.begin(9600);	  // Serial Communication
-    if (!driver.init())
-        Serial.println("init failed");
+    //if (!driver.init())
+      //  Serial.println("init failed");
+      
+  //reserve 200 bytes for the inputString:
+  inputString.reserve(1000);
 }
 
-void loop(){ 
+void loop(){
+    if(serialevent){
+      //Search input string against tasks table and switch state
+      uint8_t index = search(inputString,taskstable);
+      Serial.println(index);
+      #undef STATE
+      #define STATE index
+      serialevent = false; 
+    }
+
+    #if STATE == 0
     //INIT - IDLE
-    outputOnce("IDLE");
+    Serial.println("IDLE");
 
     //IDLE MODE = Slow Blinking
     LED_STATE(1);
-    delay(1000);
+    delay(250);
     LED_STATE(0);
 
-    //WAIT FOR TRANSITION TO SETUP
-    if(Serial.available() > 0){
-        if(prompt() == "Setup"){
-            #undef STATE
-            #define STATE 1
-        }
-    }
+    #endif
 
     #if STATE == 1
     //SETUP = Rapid Blinking
     LED_STATE(1);
-    delay(250);
+    delay(50);
     LED_STATE(0);
     //Determine "Command" Mode or "Telemetry" Mode
     //prompt
-
-    //Input
-    input = prompt();
-
-    //TRANSITION TO ACTIVE
-    if(input != ""){
-        #undef STATE
-        #define STATE 2
+    if(Mode.equals("N"){
+      // Set mode
+      Mode = prompt("Set Mode");
+    }else{
+      // Use assigned mode / Change mode
+      
     }
+
     #endif
 
-    #if STATE == 2
+     #if STATE == 2
     //ACTIVE = Constant LED On
     LED_STATE(1);
     //
-     if(input == "Command" || input == "command"){
+     if(Mode == "C"){
         //Route telemetry to storage
 
-
-    }else if(input == "Telemetry" || input == "telemetry"){
+      }else if(Mode = "T" ){
         //Route telemetry to Serial
 
         //Send Commands if prompted
-        
-
-    }else{
-        #undef STATE 
-        #define STATE 1
-        loop();
-    }
-    #endif
+      }
+     #endif
+    //Serial.print(prompt());
+    
 }
