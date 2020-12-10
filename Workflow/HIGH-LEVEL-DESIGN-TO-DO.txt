@@ -17,7 +17,7 @@ Current
 - nozzle expansion ratio lookover
 - Nitrogen Gas Tank Design(Purge Sys)
 - Helium Gas Tanks
-- 
+- Power Assemblies
 
 - Propellant piping analysis (Material, sizing)
 - Regen cooling analysis

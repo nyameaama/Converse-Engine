@@ -39,17 +39,22 @@ uint8_t telemetry_send();
 
 /*Module Router Independent functions*/
 
+/////////////////////////////////
+
 //Function to return pressure 
 uint32_t returnPressure();
 
 //Function to return pressure 
 uint32_t returnTemp();
 
-//Fuel Pump task function (ON, OFF)
-uint8_t FuelPump_task(uint8_t task);
+//Chamber Igniter function (ON, OFF)
+uint8_t igniter_task(uint8_t task);
 
-//Liquid Oxygen Pump task function (ON, OFF)
-uint8_t LOXPump_task(uint8_t task);
+
+/////////////////////////////////
+
+//Purge Valve task function (OPEN, CLOSED)
+uint8_t PV_task(uint8_t task);
 
 //Main Fuel Valve task function (OPEN, CLOSED)
 uint8_t MFV_task(uint8_t task);
@@ -57,9 +62,20 @@ uint8_t MFV_task(uint8_t task);
 //Main Oxygen Valve function (OPEN, CLOSED)
 uint8_t MOV_task(uint8_t task);
 
-//Chamber Igniter function (ON, OFF)
-uint8_t igniter_task(uint8_t task);
+//Oxygen Purge Vent function (OPEN, CLOSED)
+uint8_t OPV_task(uint8_t task);
 
+//Fuel Purge Vent function (OPEN, CLOSED)
+uint8_t FPV_task(uint8_t task);
+
+///////////////EF////////////////
+
+
+//Fuel Pump task function (ON, OFF)
+uint8_t FuelPump_task(uint8_t task);
+
+//Liquid Oxygen Pump task function (ON, OFF)
+uint8_t LOXPump_task(uint8_t task);
 
 
 #endif //MODULE_ROUTER
