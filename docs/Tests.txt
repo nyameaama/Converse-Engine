@@ -4,7 +4,7 @@ PROTOCOL
 
 Test Suite:
 
-- Spark Igniter
+- Custom Spark Igniter
 - Pressure Transducers
 - 
 
