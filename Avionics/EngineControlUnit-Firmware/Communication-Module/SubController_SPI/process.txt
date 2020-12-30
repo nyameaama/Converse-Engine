@@ -1,0 +1,39 @@
+The communication system between the ECU and sub controllers which control valves and other 
+peripherals is done using a simple coded system which implements a string of characters indicating 
+peripheral type, number and task.
+This is called the "Working ID". The "Working ID" consists of two sections. The base ID and the 
+control assignment.
+
+Each subcontroller carries a unique base ID related to the system.
+Below are examples of base IDs
+
+Controller 1 ID = "SBC01"
+Controller 2 ID = "SBC02"
+
+The base ID's consist of two parts. The "SBC" tag and the number preceeding it.
+The SBC is used to indicate the ECU that it is a sub controller and the 
+numbers preceeding it indicate the unique number corresponding to the controller.
+
+The second section of each Working ID is the control assignment. The control assignment is a number
+appended to the base ID which corresponds to a certain action. The actions vary depending on the 
+peripheral type.
+
+Below is a list denoting peripheral action to control assignment number.
+
+Valve |OPEN| - "1"
+Valve |CLOSE| - "0"
+Measuring device |Reading| = "2" 
+
+Principle of operation
+
+ECU
+- System request for communication with a controller
+- Retrieval of base ID of destination controller 
+- Appending of control assignment to base ID to create "Working ID"
+- Sending of Working ID to destination controller
+
+Sub Controller
+- Sub Controller receives Working ID
+- Sub Controller parses Working ID
+- Sub Controller verifies base ID
+- Sub Controller executes control assignment

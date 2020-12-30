@@ -20,21 +20,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-//DEFINITIONS FILE 
+#ifndef REQUEST
+#define REQUEST
 
-#ifndef DEFINITIONS_
+#include"../Utility/definitions.h"
+#include<string.h>
 
-#include<stdint.h>
-#include"../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_flash.c"
-#include"../libs/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
+//Function executes request for communication with a controller
+void controllerRequest(char* baseID,uint8_t control_assignment);
 
-//typedef unsigned char uint8_t;
+//Function verifies base ID
+uint8_t verifyBaseID(char* baseID);
 
-//typedef unsigned int uint32_t;
+//Function creates Working ID
+char* createWorkingID(char* baseID, char* control_assignment);
 
-#define OXYGEN_VALVE_ID 0
-#define FUEL_VALVE_ID 0
-#define PURGE_VALVE_ID 0
+//Function executes sending of Working ID to destination controller
+void transmitWorkingID(char* WorkingID);
 
 
-#endif //DEFINITIONS_
+#endif

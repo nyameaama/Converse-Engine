@@ -42,13 +42,13 @@ uint8_t telemetry_send();
 /////////////////////////////////
 
 //Function to return pressure 
-uint32_t returnPressure();
+uint32_t returnPressure(char* controllerID);
 
 //Function to return pressure 
-uint32_t returnTemp();
+uint32_t returnTemp(char* controllerID);
 
 //Chamber Igniter function (ON, OFF)
-uint8_t igniter_task(uint8_t task);
+uint8_t igniter_task(char* controllerID, uint8_t task);
 
 
 /////////////////////////////////
