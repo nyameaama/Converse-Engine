@@ -32,9 +32,12 @@ SOFTWARE.*/
 
 //typedef unsigned int uint32_t;
 
-#define OXYGEN_VALVE_ID 0
-#define FUEL_VALVE_ID 0
-#define PURGE_VALVE_ID 0
+#define OXYGEN_VALVE_BASE_ID 0
+#define FUEL_VALVE_BASE_ID 0
+#define PURGE_VALVE_BASE_ID 0
+#define TAP_OFF_VALVE_BASE_ID 0
+
+#define CHAMBER_IGNITER_BASE_ID 0
 
 
 #endif //DEFINITIONS_

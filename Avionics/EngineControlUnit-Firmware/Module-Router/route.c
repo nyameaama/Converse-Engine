@@ -28,55 +28,34 @@ uint8_t return_AETS_state(){
 
 }
 
-//Function to return pressure 
-uint32_t returnPressure(){
+//Component driver for pressure transducer
+//Return peripheral
+uint8_t (pressureTransducer)(char* controllerID){
+    //Init request to transducer controller
+    controllerRequest(controllerID,READ);
+    //return value
 
 }
 
-//Function to return pressure 
-uint32_t returnTemp(){
+//Component driver for solenoid valve (Open, close)
+//Non-return peripheral
+void (valveState)(char* controllerID, uint8_t state){
+    //Init request to valve controller
+    controllerRequest(controllerID,state);
+}
+
+//Component driver for thermocouple
+//Return peripheral
+uint8_t (readThermocouple)(char* controllerID){
+    //Init request to thermocouple controller
+    controllerRequest(controllerID,READ);
+    //return value
 
 }
 
-//Fuel Pump task function (ON, OFF)
-uint8_t FuelPump_task(uint8_t task){
-    //Pump init
+//Component driver for chamber igniter
+uint8_t (chamberIgniter)(char* controllerID, uint8_t state){
+    //Init request to igniter controller
+    controllerRequest(controllerID,state);
 }
 
-//Liquid Oxygen Pump task function (ON, OFF)
-uint8_t LOXPump_task(uint8_t task){
-    //Pump Init
-}
-
-//Main Fuel Valve task function (OPEN, CLOSED)
-uint8_t MFV_task(uint8_t task){
-    //Valve GPIO Pin
-    uint8_t FuelValvePin; // <- Valve Pin
-    //valve init
-    if(task == OPEN){
-        valveState(FuelValvePin, OPEN);
-    }else if(task == CLOSE){
-        valveState(FuelValvePin,CLOSE);
-    }
-    return 0;
-}
-
-//Main Oxygen Valve function (OPEN, CLOSED)
-uint8_t MOV_task(uint8_t task){
-    //Oxygen valve controller ID
-
-    //Valve GPIO Pin
-    uint8_t OxygenValvePin; // <- Valve Pin
-    //valve init
-    if(task == OPEN){
-        valveState(OxygenValvePin, OPEN);
-    }else if(task == CLOSE){
-        valveState(OxygenValvePin,CLOSE);
-    }
-    return 0;
-}
-
-//Chamber Igniter function (ON, OFF)
-uint8_t igniter_task(uint8_t task){
-    
-}

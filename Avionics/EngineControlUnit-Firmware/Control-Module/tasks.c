@@ -28,17 +28,6 @@ SOFTWARE.*/
  engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
  fasle to main which terminates engine */
 
-uint8_t RUN_PROG_CYCLE(){
-   // -COMPILE SENSOR DATA 
-    uint32_t *sensorData = COMPILE_SENSOR_DATA();
-    //-DIRECT FEED COMPILED DATA TO TELEMETRY/ANALYSIS MODULE
-    TELEMETRY_FEED(COMPILE_SENSOR_DATA);
-   // -MOVE DATA TO CONTROL - AETS MODULE
-
-   // -NOMINAL? -> RETURN TRUE TO MAIN | ELSE -> RETURN FALSE
-
-}
-
 //Function to compile sensor data from (driver functions)
 uint32_t *compile_sensor_data(){
     const uint8_t transducerPin;
@@ -51,20 +40,32 @@ uint32_t *compile_sensor_data(){
     return compiled;
 }
 
-//Engine Startup Task 
+//Engine Startup Task - !! Separate timer from opening sequence !!
 uint8_t (engineStartup)(uint32_t duration_secs){
     //Engine Startup Procedure
-
     //Process
     uint32_t start = time(SECS_MILLIS);
     //Second to milliseconds
     uint32_t secs_to_millis = duration_secs * 1000;
-    while((time(SECS_MILLIS) - start) < duration_secs){
-        
+    //Start
+    if((time(SECS_MILLIS) - start) < duration_secs){
+        //Open Main Fuel Valve
+        valveState(FUEL_VALVE_BASE_ID,OPEN);
+        //Open Main Oxidizer Valve
+        valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+        //Activate Igniter
+        chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
+
+    }else{
+        engineShutdown();
     }
 }
 
 //Engine Shutdown Task
 uint8_t (engineShutdown)(void){
     //Shutdown Procedure
+    //Close fuel valve
+    valveState(FUEL_VALVE_BASE_ID,CLOSE);
+    //Close oxidizer valve
+    valveState(OXYGEN_VALVE_BASE_ID,CLOSE);
 }

@@ -27,9 +27,13 @@ SOFTWARE.*/
 #include"../Communication-Module/_telemetry.h"
 #include"../Utility/ecu_gpio.h"
 #include"../Utility/definitions.h"
+#include"../Communication-Module/SubController_SPI/requests.h"
 
-#define OPEN 1
-#define CLOSE 0
+#define OPEN (uint8_t) 1
+#define CLOSE (uint8_t) 0
+
+#define READ (uint8_t) 2
+
 
 /*Function to return AETS to module router
 This data is moved to main */
@@ -37,39 +41,21 @@ uint8_t return_AETS_state();
 
 uint8_t telemetry_send();
 
-/*Module Router Independent functions*/
-
 /////////////////////////////////
 
-//Function to return pressure 
-uint32_t returnPressure(char* controllerID);
+//Component driver for pressure transducer
+uint8_t (pressureTransducer)(char* controllerID);
 
-//Function to return pressure 
-uint32_t returnTemp(char* controllerID);
+//Component driver for solenoid valve (Open, close)
+void (valveState)(char* controllerID, uint8_t state);
 
-//Chamber Igniter function (ON, OFF)
-uint8_t igniter_task(char* controllerID, uint8_t task);
+//Component driver for thermocouple
+uint8_t (readThermocouple)(char* controllerID);
 
-
-/////////////////////////////////
-
-//Purge Valve task function (OPEN, CLOSED)
-uint8_t PV_task(uint8_t task);
-
-//Main Fuel Valve task function (OPEN, CLOSED)
-uint8_t MFV_task(uint8_t task);
-
-//Main Oxygen Valve function (OPEN, CLOSED)
-uint8_t MOV_task(uint8_t task);
-
-//Oxygen Purge Vent function (OPEN, CLOSED)
-uint8_t OPV_task(uint8_t task);
-
-//Fuel Purge Vent function (OPEN, CLOSED)
-uint8_t FPV_task(uint8_t task);
+//Component driver for chamber igniter
+uint8_t (chamberIgniter)(char* controllerID, uint8_t state);
 
 ///////////////EF////////////////
-
 
 //Fuel Pump task function (ON, OFF)
 uint8_t FuelPump_task(uint8_t task);
