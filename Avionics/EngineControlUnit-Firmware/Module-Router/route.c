@@ -30,7 +30,7 @@ uint8_t return_AETS_state(){
 
 //Component driver for pressure transducer
 //Return peripheral
-uint8_t (pressureTransducer)(char* controllerID){
+double (pressureTransducer)(char* controllerID){
     //Init request to transducer controller
     controllerRequest(controllerID,READ);
     //return value
@@ -46,7 +46,7 @@ void (valveState)(char* controllerID, uint8_t state){
 
 //Component driver for thermocouple
 //Return peripheral
-uint8_t (readThermocouple)(char* controllerID){
+double (readThermocouple)(char* controllerID){
     //Init request to thermocouple controller
     controllerRequest(controllerID,READ);
     //return value
@@ -59,3 +59,19 @@ uint8_t (chamberIgniter)(char* controllerID, uint8_t state){
     controllerRequest(controllerID,state);
 }
 
+uint8_t telemetry_send(){
+
+    LOG_FUEL_MASS_FLOW()
+
+    LOG_OXIDIZER_MASS_FLOW();
+
+    LOG_TEMP_1();
+
+    LOG_TEMP_2();
+
+    LOG_PRESSURE_1();
+
+    LOG_PRESSURE_2();
+
+    LOG_COMMANDS();
+}

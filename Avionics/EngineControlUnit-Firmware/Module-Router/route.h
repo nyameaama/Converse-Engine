@@ -24,7 +24,7 @@ SOFTWARE.*/
 #define MODULE_ROUTER
 
 #include"../Components-Module/ecu_components.h"
-#include"../Communication-Module/_telemetry.h"
+#include"../MEA-Module/_telemetry.h"
 #include"../Utility/ecu_gpio.h"
 #include"../Utility/definitions.h"
 #include"../Communication-Module/SubController_SPI/requests.h"
@@ -41,16 +41,18 @@ uint8_t return_AETS_state();
 
 uint8_t telemetry_send();
 
+char* call(char* methodID);
+
 /////////////////////////////////
 
 //Component driver for pressure transducer
-uint8_t (pressureTransducer)(char* controllerID);
+double (pressureTransducer)(char* controllerID);
 
 //Component driver for solenoid valve (Open, close)
 void (valveState)(char* controllerID, uint8_t state);
 
 //Component driver for thermocouple
-uint8_t (readThermocouple)(char* controllerID);
+double (readThermocouple)(char* controllerID);
 
 //Component driver for chamber igniter
 uint8_t (chamberIgniter)(char* controllerID, uint8_t state);

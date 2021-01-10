@@ -26,13 +26,26 @@ SOFTWARE.*/
 #include"../libs/EngineMath/EngineMath.h"
 #include"../Utility/definitions.h"
 
-uint32_t TELEMETRY_FEED(uint32_t*(*compiledData)(void));
+void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
 
-uint32_t LOG_THRUST();
+void LOG_THRUST();
 
-uint32_t LOG_FUEL_MASS_FLOW();
+void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp);
 
-uint32_t LOG_OXIDIZER_MASS_FLOW();
+void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp);
+
+void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp);
+
+void LOG_TEMP_1(double reading, uint32_t timestamp);
+
+void LOG_TEMP_2(double reading, uint32_t timestamp);
+
+void LOG_PRESSURE_1(double reading, uint32_t timestamp);
+
+void LOG_PRESSURE_2(double reading, uint32_t timestamp);
+
+char* LOG_COMMANDS();
+
 
 
 #endif //TELEMETRY_

@@ -22,3 +22,67 @@ SOFTWARE.*/
 
 #include"_telemetry.h"
 
+void LOG_THRUST(){
+
+}
+
+void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
+    double cd;
+    double ethanol_density;
+    double orfice_area;
+    double mdot = LiquidMassFlow(cd,ethanol_density,inletPressure,pressure2,orfice_area);
+    //Store in flash
+
+    //Send to terminal controller
+}
+void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
+    double cd;
+    double LOX_density;
+    double orfice_area;
+    double mdot = LiquidMassFlow(cd,LOX_density,inletPressure,pressure2,orfice_area);
+    //Store in flash
+
+    //Send to terminal controller
+} 
+
+void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp){
+    double cd;
+    double gravity;
+    double ratioSpecificHeats;
+    double GasCompressabilityFactor;
+    double molecularMass;
+    double orficeArea;
+    double mdot = GasMassFlow(cd,gravity,ratioSpecificHeats,GasCompressabilityFactor,outlettemp,molecularMass,inletPressure,pressure2,orficeArea);
+    //Store in flash
+
+    //Send to terminal controller
+}
+
+void LOG_TEMP_1(double reading, uint32_t timestamp){
+    //Store in flash
+
+    //Send to terminal controller
+}
+
+void LOG_TEMP_2(double reading, uint32_t timestamp){
+    //Store in flash
+
+    //Send to terminal controller
+}
+
+void LOG_PRESSURE_1(double reading, uint32_t timestamp){
+    //Store in flash
+
+    //Send to terminal controller
+}
+
+void LOG_PRESSURE_2(double reading, uint32_t timestamp){
+    //Store in flash
+
+    //Send to terminal controller
+}
+
+char* LOG_COMMANDS(){
+
+}
+
