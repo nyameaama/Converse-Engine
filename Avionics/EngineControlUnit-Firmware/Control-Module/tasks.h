@@ -38,22 +38,25 @@ SOFTWARE.*/
  runs the module router tasks and AETS. AETS is first checked to determine
  engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
  fasle to main which terminates engine */
-uint8_t RUN_PROG_CYCLE();
+void RUN_PROG_CYCLE();
 
 //Engine Startup Task 
-uint8_t (engineStartup)(uint32_t duration_secs);
+void (engineStartup)(void);
 
 //Engine Shutdown Task
-uint8_t (engineShutdown)(void);
+void (engineShutdown)(void);
 
 //Engine Purging
-uint8_t (enginePurge)(void);
+void (enginePurge)(void);
 
 //Engine Chill
-uint8_t (engineChill)(void);
+void (engineChill)(void);
 
 //Engine Check Task
-uint8_t (engineCheck)(void);
+void (engineCheck)(void);
+
+//Engine telemetry check
+void (commsCheck)(char* data);
 
 
 

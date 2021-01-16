@@ -41,31 +41,25 @@ uint32_t *compile_sensor_data(){
 }
 
 //Engine Startup Task - !! Separate timer from opening sequence !!
-uint8_t (engineStartup)(uint32_t duration_secs){
-    //Engine Startup Procedure
-    //Process
-    uint32_t start = time(SECS_MILLIS);
-    //Second to milliseconds
-    uint32_t secs_to_millis = duration_secs * 1000;
-    //Start
-    if((time(SECS_MILLIS) - start) < duration_secs){
-        //Open Main Fuel Valve
-        valveState(FUEL_VALVE_BASE_ID,OPEN);
-        //Open Main Oxidizer Valve
-        valveState(OXYGEN_VALVE_BASE_ID,OPEN);
-        //Activate Igniter
-        chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
+void (engineStartup)(void){
+    //Open Gas flow route
 
-    }else{
-        engineShutdown();
-    }
+    //Open Main Fuel Valve
+    valveState(FUEL_VALVE_BASE_ID,OPEN);
+    //Open Main Oxidizer Valve
+    valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    //Activate Igniter
+    chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
 }
 
 //Engine Shutdown Task
-uint8_t (engineShutdown)(void){
+void (engineShutdown)(void){
     //Shutdown Procedure
     //Close fuel valve
     valveState(FUEL_VALVE_BASE_ID,CLOSE);
     //Close oxidizer valve
     valveState(OXYGEN_VALVE_BASE_ID,CLOSE);
 }
+
+//Runs t
+void engine_run_tasks();

@@ -29,7 +29,7 @@ void _PREP_();
 void _ARMED_();
 
 //Through spi interface, ECU recieves instructions from main computer
-//through module router
+
 
 #define ENGINE_STATE 0
 
@@ -67,7 +67,7 @@ int main(){
 void _init_(){
     //Attach RF interrupt 
 }
-hb
+
 void _IDLE_(){
 
 }

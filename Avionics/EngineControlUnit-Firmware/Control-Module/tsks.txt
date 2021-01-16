@@ -1,0 +1,11 @@
+ //Timer Process Loop Structure
+ 
+    uint32_t start = time(SECS_MILLIS);
+    //Second to milliseconds
+    uint32_t secs_to_millis = duration_secs * 1000;
+    //Start
+    if((time(SECS_MILLIS) - start) < duration_secs){
+
+    }else{
+        engineShutdown();
+    }

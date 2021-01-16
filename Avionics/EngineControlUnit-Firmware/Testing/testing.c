@@ -41,7 +41,7 @@ int main(){
     while(1){
         #if ENGINE_STATE == 0 // IDLE
         _IDLE_();
-        if(/*  rf_connect()  */){
+        if(/*  rf_connect()  */1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 1
         }
@@ -50,7 +50,7 @@ int main(){
         #if ENGINE_STATE == 1 // PREP
         _init_();
         _PREP_();
-        if(/*  interrup */){
+        if(/*  interrup */1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 2
         }
@@ -58,7 +58,7 @@ int main(){
 
         #if ENGINE_STATE == 2 // ARMED
         _ARMED_();
-        if(/*  rf_connect()  */){
+        if(/*  rf_connect()  */1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 0
         }
