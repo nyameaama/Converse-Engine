@@ -12,7 +12,6 @@ Previous
 Current
 
 - Updated Pressure Fed Cycle Design
-- Detailing of vent system
 - complete Engine equations
 - nozzle expansion ratio lookover
 - Nitrogen Gas Tank Design(Purge Sys)
@@ -22,6 +21,6 @@ Current
 - Propellant piping analysis (Material, sizing)
 - Regen cooling analysis
 - injector analysis
-- pump analysis (Elect ric Pump Variant)
+- pump analysis (Electric Pump Variant)
 - Purge Valves (route)
 - 2 way pipe (Purge Piping)
