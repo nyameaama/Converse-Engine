@@ -41,22 +41,32 @@ SOFTWARE.*/
 void RUN_PROG_CYCLE();
 
 //Engine Startup Task 
-void (engineStartup)(void);
+void engineStartup(void);
 
 //Engine Shutdown Task
-void (engineShutdown)(void);
+void engineShutdown(void);
 
 //Engine Purging
-void (enginePurge)(void);
+void enginePurge(void);
 
 //Engine Chill
-void (engineChill)(void);
-
-//Engine Check Task
-void (engineCheck)(void);
+void engineChill(void);
 
 //Engine telemetry check
-void (commsCheck)(char* data);
+void commsCheck(char* data);
+
+//Verify Operation of valve suite
+void valveCheck();
+
+//Verify sensor peripherals
+void spCheck();
+
+
+uint32_t* testSPOperation(char* base_id);
+
+
+
+
 
 
 
