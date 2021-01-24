@@ -29,7 +29,7 @@ void controllerRequest(char* baseID,uint8_t control_assignment){
       Appending of control assignment to base ID to create "Working ID"
       Sending of Working ID to destination controller*/
     char* WorkingID;
-    if(verifyBaseID(baseID) != 0){
+    if(verifyBaseID(baseID) == 0){
         WorkingID = createWorkingID(baseID,control_assignment);
     }else{
         //Error Handling
@@ -37,18 +37,25 @@ void controllerRequest(char* baseID,uint8_t control_assignment){
     transmitWorkingID(WorkingID);
 }
 
-//Function verifies base ID
+//Function verifies base ID.
+//Return 0 = Verified | Return 1 = failed
 uint8_t verifyBaseID(char* baseID){
     //The base ID's consist of two parts. The "SBC" tag and the number preceeding it.
     //The SBC is used to indicate the ECU that it is a sub controller and the 
     //numbers preceeding it indicate the unique number corresponding to the controller.
-
+    uint8_t failed = 0; 
     //Validate Length
     uint8_t baseLength = strlen(baseID);
-    if(baseLength != 6){return 0}
+    if(baseLength != 6){return 0;}
 
     //Verify existence
-    //if(baseID != )
+    //Search ID data structure for base ID
+    for(uint8_t i = 0; i < ID_LEN;++i){
+        if(IDS[i][1]!= baseID){
+            failed = 1;
+        }else{break;}
+    }
+    return failed;
 }
 
 //Function creates Working ID

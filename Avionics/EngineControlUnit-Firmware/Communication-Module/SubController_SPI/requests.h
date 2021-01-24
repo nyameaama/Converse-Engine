@@ -29,7 +29,7 @@ SOFTWARE.*/
 //Function executes request for communication with a controller
 void controllerRequest(char* baseID,uint8_t control_assignment);
 
-//Function verifies base ID
+//Function verifies base ID. Return 0 = Verified | Return 1 = failed
 uint8_t verifyBaseID(char* baseID);
 
 //Function creates Working ID

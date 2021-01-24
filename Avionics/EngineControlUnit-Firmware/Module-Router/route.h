@@ -23,9 +23,8 @@ SOFTWARE.*/
 #ifndef MODULE_ROUTER
 #define MODULE_ROUTER
 
-#include"../Components-Module/ecu_components.h"
 #include"../MEA-Module/_telemetry.h"
-#include"../Utility/ecu_gpio.h"
+#include"../Utility/ecu_xx_gpio.h"
 #include"../Utility/definitions.h"
 #include"../Communication-Module/SubController_SPI/requests.h"
 

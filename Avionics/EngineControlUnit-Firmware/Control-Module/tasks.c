@@ -42,8 +42,7 @@ uint32_t *compile_sensor_data(){
 
 //Engine Startup Task - !! Separate timer from opening sequence !!
 void (engineStartup)(void){
-    //Open Gas flow route
-
+    //Open Gas flow route <- Tank computer
     //Open Main Fuel Valve
     valveState(FUEL_VALVE_BASE_ID,OPEN);
     //Open Main Oxidizer Valve
