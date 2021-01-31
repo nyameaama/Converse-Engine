@@ -26,6 +26,7 @@ SOFTWARE.*/
 #include"../Module-Router/route.h"
 #include"../Utility/definitions.h"
 #include"../Utility/ecu_xx_time.h"
+#include"control/PID.h"
 
 /*PROG_CYCLE:
     -COMPILE SENSOR DATA (Pressure, Temp,)

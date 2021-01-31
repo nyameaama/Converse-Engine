@@ -20,7 +20,8 @@ Current
 
 - Propellant piping analysis (Material, sizing)
 - Regen cooling analysis
-- injector analysis
+- injector assembly 
+
 - pump analysis (Electric Pump Variant)
 - Purge Valves (route)
 - 2 way pipe (Purge Piping)
