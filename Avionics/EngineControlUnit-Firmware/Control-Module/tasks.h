@@ -28,6 +28,11 @@ SOFTWARE.*/
 #include"../Utility/ecu_xx_time.h"
 #include"control/PID.h"
 
+#define ARMED
+#define DISARMED
+
+char* e_abort = "disarmed";
+
 /*PROG_CYCLE:
     -COMPILE SENSOR DATA (Pressure, Temp,)
     -DIRECT FEED COMPILED DATA TO TELEMETRY/ANALYSIS MODULE
@@ -62,12 +67,9 @@ void valveCheck();
 //Verify sensor peripherals
 void spCheck();
 
-
 uint32_t* testSPOperation(char* base_id);
 
-
-
-
+void abortStatus(char* status);
 
 
 

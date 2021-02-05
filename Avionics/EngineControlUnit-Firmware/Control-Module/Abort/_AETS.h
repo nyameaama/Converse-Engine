@@ -23,12 +23,17 @@ SOFTWARE.*/
 #ifndef AETS_
 #define AETS_
 
-#include"../Utility/definitions.h"
-#include"../Utility/ecu_xx_flash.h"
+#include"../../Utility/definitions.h"
+#include"../../Utility/ecu_xx_flash.h"
 
 typedef uint8_t AETS_FLAG;
 #define NO_FLAG (uint8_t) 0
 #define FLAG (uint8_t) 1
+
+#define PRESSURE_RANGE_LOW 0
+#define PRESSURE_RANGE_HIGH 0
+#define TEMP_RANGE_LOW 0
+#define TEMP_RANGE_HIGH 0
 
 //AETS VERSION 1
 
@@ -36,10 +41,13 @@ typedef uint8_t AETS_FLAG;
 //ranges without continuous assesment of all data
 // AETS will check if (data) < thresh: 
 
-uint32_t measuedData[50][50]; // Data stored in heap is temporary. Will overflow if not chnaged
+uint32_t measuredData[50][50]; // Data stored in heap is temporary. Will overflow if not chnaged
 
 //AETS driver
+//+1 Overload
 uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time);
+
+uint8_t aets();
 
 //Function to lookup simulated data for channel and return data array
 uint32_t *lookup(uint8_t dataChannel);
@@ -49,6 +57,9 @@ uint8_t *separateDataTimestamp(uint8_t *dataArray,uint32_t timestamp);
 
 //Function to compare channel data
 AETS_FLAG compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32_t timestamp_2);
+
+//Function to check if measured value is in nominal bounds
+uint8_t check_if_in_range(uint32_t actual_value,uint32_t rangeLow,uint32_t rangeHigh);
 
 
 #endif

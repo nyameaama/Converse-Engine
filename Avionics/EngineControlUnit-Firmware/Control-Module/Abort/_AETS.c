@@ -23,12 +23,17 @@ SOFTWARE.*/
 #include"_AETS.h"
 
 //AETS driver
+//+1 Overload
 uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time){
     //Simulation data array
     uint8_t *dataArray = lookup(dataChannel);
     //get precise 
     uint8_t *pr = separateDataTimestamp(dataArray,time);
     return compare(data,time,pr[0],pr[1]);
+}
+
+uint8_t aets(){
+    
 }
 
 //Function to lookup simulated data for channel and return data array
@@ -63,4 +68,13 @@ AETS_FLAG compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32
         //no flag. In bounds
     }
     return flag;
+}
+
+//Function to check if measured value is in nominal bounds
+uint8_t check_if_in_range(uint32_t actual_value,uint32_t rangeLow,uint32_t rangeHigh){
+    uint8_t nominal = 1;
+    if(actual_value < rangeLow || actual_value > rangeHigh){
+        nominal = 0;
+    }
+    return nominal;
 }

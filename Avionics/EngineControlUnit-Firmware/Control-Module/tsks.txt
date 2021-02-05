@@ -12,3 +12,6 @@
 
     Automated Valve testing
     https://www.fluke.com/en/learn/blog/calibration/valve-testing-710-loop-calibrator
+
+    Verify data of Dangerous Real time system 
+    - 
