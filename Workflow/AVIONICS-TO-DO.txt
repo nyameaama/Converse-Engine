@@ -14,7 +14,7 @@ Current
 - Avionics placement analysis
 - Begin ECU PCB design
 
-- Update AETS doc to include "basic abort circumstances" and predicted/simulated circumstances
+- Update AETS doc to include "predefined comparison based circumstances" and predicted/simulated circumstances
 - Minimize SC code blocking by preparing data before request
 - Finish and Debug Terminal Controller software
 - Module router look-over
