@@ -23,7 +23,7 @@ Sub Controller Telemetry:
 
 ECU Controller Telemetry:
 
-- Engine Current Task (timestamp-begin, timestamp-end)
+- Engine Current Task (timestamp-begin)
 - Errors
 
 - Sub Controller Comm identifier
@@ -32,6 +32,18 @@ ECU Controller Telemetry:
 
 - Ground RF Comm Instruction recieved time
 - Ground RF Comm Instruction response time
+
+
+
+MEASURED DATA
+
+- ethanol mass flow (through pipes)
+- lox mass flow (through pipes)
+- inlet lox pressure
+- inlet ethanol pressure
+- chamber pressure
+- thrust 
+
 
 
 

@@ -27,7 +27,10 @@ SOFTWARE.*/
 #include<stdint.h>
 #include"../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_flash.c"
 #include"../libs/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
-#include"../libs/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"  
+include"../libs/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"  
+
+
+#include"ecu_xx_time.h"
 
 //typedef unsigned char uint8_t;
 
@@ -63,10 +66,10 @@ SOFTWARE.*/
 
 
 #define ID_LEN 13
-char IDS[ID_LEN][2] = {
+char* IDS[ID_LEN][2] = {
                     {"OXYGEN_VALVE_BASE_ID","SBC02"},
                     {"FUEL_VALVE_BASE_ID","SBC01"},
-                    {"PURGE_VALVE_BASE_ID"."SBC04"},
+                    {"PURGE_VALVE_BASE_ID","SBC04"},
                     {"TAP_OFF_LINE_VALVE_BASE_ID","SBC03"},
                     {"TAP_OFF_A_VALVE_BASE_ID","SBC05"},
                     {"TAP_OFF_B_VALVE_BASE_ID","SBC06"},
@@ -77,6 +80,6 @@ char IDS[ID_LEN][2] = {
                     {"PRE_CHAMBER_LOX_TRANSDUCER_BASE_ID","SBC10"},
                     {"PRE_CHAMBER_FUEL_THERMOCOUPLE_BASE_ID","SBC11"},
                     {"PRE_CHAMBER_LOX_THERMOCOUPLE_BASE_ID","SBC12"}
-                }
+                };
 
 #endif //DEFINITIONS_

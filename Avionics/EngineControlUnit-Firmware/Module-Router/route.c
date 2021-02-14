@@ -32,9 +32,20 @@ uint8_t return_AETS_state(){
 //Return peripheral
 double (pressureTransducer)(char* controllerID){
     //Init request to transducer controller
-    controllerRequest(controllerID,READ);
+    double request = controllerRequest(controllerID,READ);
+    //log value
+    //get identifier
+    char* identifier;
+    for(int i = 0; i < ID_LEN;++i){
+        if(controllerID == IDS[i][1]){
+            identifier = IDS[i][0];
+        }
+    }
+    //time
+    char *time;
+    log(identifier,time,request);
     //return value
-
+    return request;
 }
 
 //Component driver for solenoid valve (Open, close)
@@ -48,30 +59,24 @@ void (valveState)(char* controllerID, uint8_t state){
 //Return peripheral
 double (readThermocouple)(char* controllerID){
     //Init request to thermocouple controller
-    controllerRequest(controllerID,READ);
+    double request = controllerRequest(controllerID,READ);
+    //log value
+    //get identifier
+    char* identifier;
+    for(int i = 0; i < ID_LEN;++i){
+        if(controllerID == IDS[i][1]){
+            identifier = IDS[i][0];
+        }
+    }
+    //time
+    char *time;
+    log(identifier,time,request);
     //return value
-
+    return request;
 }
 
 //Component driver for chamber igniter
 uint8_t (chamberIgniter)(char* controllerID, uint8_t state){
     //Init request to igniter controller
     controllerRequest(controllerID,state);
-}
-
-uint8_t telemetry_send(){
-
-    LOG_FUEL_MASS_FLOW()
-
-    LOG_OXIDIZER_MASS_FLOW();
-
-    LOG_TEMP_1();
-
-    LOG_TEMP_2();
-
-    LOG_PRESSURE_1();
-
-    LOG_PRESSURE_2();
-
-    LOG_COMMANDS();
 }

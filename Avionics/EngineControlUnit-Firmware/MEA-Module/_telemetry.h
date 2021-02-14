@@ -20,31 +20,43 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
+//Raw Data sent to memory and measured data sent to ground
+
 #ifndef TELEMETRY_
 #define TELEMETRY_
 
 #include"../libs/EngineMath/EngineMath.h"
 #include"../Utility/definitions.h"
 
+//+2 Overload 
+//Raw telemetry data logged and sent to memory
+void log(char* label,char* timestamp,char* data);
+
+void log(char* label,char* timestamp,int data);
+
+void log(char* label,char* timestamp,double data);
+
 void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
 
-void LOG_THRUST();
+//Thrust calculation function
+void log_thrust();
 
-void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp);
+//Function to measure Engine Chamber Pressure and send to ground
+void log_chamber_pressure();
 
-void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp);
+//Function to log inlet oxygen pressure and send to ground
+void log_inlet_lox_pressure();
 
-void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp);
+//Function to measure ethanol mass flow and send to ground
+//using inlet and pre chamber transducer data
+void log_fuel_mass_flow(double inletPressure, double pressure2, uint32_t timestamp);
 
-void LOG_TEMP_1(double reading, uint32_t timestamp);
+//Function to measure oxygen mass flow and send to ground
+//using inlet and pre chamber transducer data
+void log_oxidizer_mass_flow(double inletPressure, double pressure2, uint32_t timestamp);
 
-void LOG_TEMP_2(double reading, uint32_t timestamp);
+void log_gas_mass_flow(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp);
 
-void LOG_PRESSURE_1(double reading, uint32_t timestamp);
-
-void LOG_PRESSURE_2(double reading, uint32_t timestamp);
-
-char* LOG_COMMANDS();
 
 
 

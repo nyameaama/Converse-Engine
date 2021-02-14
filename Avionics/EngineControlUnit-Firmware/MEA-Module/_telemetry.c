@@ -22,10 +22,28 @@ SOFTWARE.*/
 
 #include"_telemetry.h"
 
+//+2 Overload 
+//Raw telemetry data logged and sent to memory
+void log(char* label,char* timestamp,char* data){
+    //Package Data
+
+}
+
+void log(char* label,char* timestamp,int data){
+    
+}
+
+void log(char* label,char* timestamp,double data){
+
+}
+
+//Thrust calculation function
 void LOG_THRUST(){
 
 }
 
+//Function to measure ethanol mass flow and send to ground
+//using inlet and pre chamber transducer data
 void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
     double cd;
     double ethanol_density;
@@ -35,6 +53,9 @@ void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timesta
 
     //Send to terminal controller
 }
+
+//Function to measure oxygen mass flow and send to ground
+//using inlet and pre chamber transducer data
 void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
     double cd;
     double LOX_density;
@@ -56,33 +77,5 @@ void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp,
     //Store in flash
 
     //Send to terminal controller
-}
-
-void LOG_TEMP_1(double reading, uint32_t timestamp){
-    //Store in flash
-
-    //Send to terminal controller
-}
-
-void LOG_TEMP_2(double reading, uint32_t timestamp){
-    //Store in flash
-
-    //Send to terminal controller
-}
-
-void LOG_PRESSURE_1(double reading, uint32_t timestamp){
-    //Store in flash
-
-    //Send to terminal controller
-}
-
-void LOG_PRESSURE_2(double reading, uint32_t timestamp){
-    //Store in flash
-
-    //Send to terminal controller
-}
-
-char* LOG_COMMANDS(){
-
 }
 

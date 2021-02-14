@@ -23,7 +23,7 @@ SOFTWARE.*/
 #include "requests.h"
 
 //Function executes request for communication with a controller
-void controllerRequest(char* baseID,uint8_t control_assignment){
+double controllerRequest(char* baseID,uint8_t control_assignment){
     /*System request for communication with a controller
       Retrieval of base ID of destination controller 
       Appending of control assignment to base ID to create "Working ID"
@@ -35,6 +35,8 @@ void controllerRequest(char* baseID,uint8_t control_assignment){
         //Error Handling
     }
     transmitWorkingID(WorkingID);
+    //Return
+
 }
 
 //Function verifies base ID.
@@ -68,5 +70,6 @@ char* createWorkingID(char* baseID, char* control_assignment){
 
 //Function executes sending of Working ID to destination controller
 void transmitWorkingID(char* WorkingID){
-
+    //Log transmission
+    log("Sub Controller Comm send-time",time(),WorkingID);
 }
