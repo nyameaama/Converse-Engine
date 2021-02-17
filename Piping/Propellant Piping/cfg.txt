@@ -25,3 +25,5 @@ Run Simulations
 Pressure Loss Factor 
 
 reference : https://www.pipeflow.com/pipe-pressure-drop-calculations
+
+Calculate pressure drop from inlet flow of 12.5 CFM and pressure of 100 psi

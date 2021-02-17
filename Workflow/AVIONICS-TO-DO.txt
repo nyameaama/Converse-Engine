@@ -18,5 +18,5 @@ Current
 - Minimize SC code blocking by preparing data before request
 - Finish and Debug Terminal Controller software
 - Module router look-over
-- write testing software 
+- write unit tests
 - write production software
