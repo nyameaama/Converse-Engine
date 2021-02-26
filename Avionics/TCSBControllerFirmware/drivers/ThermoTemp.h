@@ -27,7 +27,7 @@ double getVoltage(double analogSignal);
 
 double getCelsius(double voltage);
 
-double getKelvin(double clesius);
+double getKelvin(double celsius);
 
 double getFahrenheit(double celsius);
 
