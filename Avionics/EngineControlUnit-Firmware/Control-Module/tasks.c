@@ -48,6 +48,8 @@ void (engineStartup)(void){
     valveState(FUEL_VALVE_BASE_ID,OPEN);
     //Open Main Oxidizer Valve
     valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    //Timing for igniter start dependent on mass flow and pipe distance
+    //See igniter docs
     //Activate Igniter
     chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
 }

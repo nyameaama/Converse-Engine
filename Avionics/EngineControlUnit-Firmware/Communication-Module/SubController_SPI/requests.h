@@ -37,7 +37,7 @@ uint8_t verifyBaseID(char* baseID);
 char* createWorkingID(char* baseID, char* control_assignment);
 
 //Function executes sending of Working ID to destination controller
-void transmitWorkingID(char* WorkingID);
+char* transmitWorkingID(char* WorkingID);
 
 
 #endif

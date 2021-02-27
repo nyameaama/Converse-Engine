@@ -20,6 +20,8 @@
 #ifndef ThermoTemp_h
 #define ThermoTemp_h
 
+//Return analog signal from thermocouple
+double thermocoupleAnalog();
 
 void getTemps(int analogSignalF, double tempsF[]);
 

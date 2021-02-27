@@ -69,7 +69,7 @@ char* createWorkingID(char* baseID, char* control_assignment){
 }
 
 //Function executes sending of Working ID to destination controller
-void transmitWorkingID(char* WorkingID){
+char* transmitWorkingID(char* WorkingID){
     //Log transmission
     log("Sub Controller Comm send-time",time(),WorkingID);
 }
