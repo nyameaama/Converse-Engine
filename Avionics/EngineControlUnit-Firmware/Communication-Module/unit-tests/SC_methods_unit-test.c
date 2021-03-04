@@ -29,8 +29,8 @@ SOFTWARE.*/
 */
 
 void testOutput(char* method,char* result, bool status);
-bool testWorkingID();
-bool testVerifyBaseID();
+void testWorkingID();
+void testVerifyBaseID();
 
 
 int main(){
@@ -47,11 +47,11 @@ void testOutput(char* method,char* result,bool status){
     printf("%s", "RESULT:");
     printf("%s\n", result);
     printf("%s", "STATUS:");
-    if(status){printf("%s", "PASS");}else{printf("%s", "FAIL");}
+    if(status){printf("%s", "PASS");}else{printf("%s", "UNDEF");}
 }
 
-bool testWorkingID(){
-    //Method NAme
+void testWorkingID(){
+    //Method Name
     char* method = "createWorkingID";
     //Test data
     char* test_baseID = "baseTEST";
@@ -65,6 +65,6 @@ bool testWorkingID(){
     testOutput(method,methodTest,status);
 }
 
-bool testVerifyBaseID(){
+void testVerifyBaseID(){
 
 }

@@ -31,8 +31,8 @@ SOFTWARE.*/
 */
 
 int main(){
-
-
+    //Test
+    test_check_in_range();
 
 }
 
@@ -43,5 +43,14 @@ void testOutput(char* method,char* result,bool status){
     printf("%s", "RESULT:");
     printf("%s\n", result);
     printf("%s", "STATUS:");
-    if(status){printf("%s", "PASS");}else{printf("%s", "FAIL");}
+    if(status){printf("%s", "PASS");}else{printf("%s", "UNDEF");}
+}
+
+void test_check_in_range(){
+    //Test data
+    uint32_t testRangeHigh = 70;
+    uint32_t testRangeLow = 40;
+    uint32_t test_values[4] = {0,63,79,13};
+    
+    
 }
