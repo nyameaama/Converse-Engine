@@ -73,6 +73,9 @@ void _IDLE_(){
 }
 
 void _PREP_(){
+    //Telemetry checks, peripheral checks
+    //Engine preconditioning
+    //Purge, Chill
 
 }
 

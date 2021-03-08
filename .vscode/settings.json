@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.ino": "arduino-output",
+        "stm32f4xx_hal_flash.c": "cpp"
+    }
+}
