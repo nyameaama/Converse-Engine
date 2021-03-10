@@ -36,6 +36,9 @@ uint8_t aets(){
     
 }
 
+
+//AETS VERSION 1
+
 //Function to lookup simulated data for channel and return data array
 uint32_t *lookup(uint8_t dataChannel){
     //Shift data from flash to heap (RAM)

@@ -82,4 +82,29 @@ char* IDS[ID_LEN][2] = {
                     {"PRE_CHAMBER_LOX_THERMOCOUPLE_BASE_ID","SBC12"}
                 };
 
+//Engine Constants - Changeable
+uint32_t ENGINE_THRUST_LIMIT;
+
+
+//Engine Constants - 
+uint32_t AimedThrustCapacity;
+uint32_t ChamberPressure;
+uint32_t Inletflow;
+uint32_t OxidizerFlowRate;
+uint32_t FuelFlowRate;
+uint32_t ExitVelocity;
+
+//Engine Constants - Dimensions
+uint32_t ThroatDiameter;
+uint32_t ThroatArea;
+uint32_t ExitArea;
+uint32_t ExitDiameter;
+uint32_t NozzleLength;
+uint32_t ConvergentLength;
+uint32_t DivergentLength;
+uint32_t ChamberVolume;
+uint32_t ChamberDiameter; 
+uint32_t ChamberArea;
+uint32_t ChamberLength;
+
 #endif //DEFINITIONS_

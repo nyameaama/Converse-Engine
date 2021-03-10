@@ -118,8 +118,3 @@ uint8_t checkforInstance(char* tag){
     }
     return instanceTrue;
 }
-
-int main(){
-    createPIDinstance("test",1,1,1);
-    
-}

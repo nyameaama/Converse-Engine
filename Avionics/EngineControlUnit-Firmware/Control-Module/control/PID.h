@@ -30,7 +30,7 @@ SOFTWARE.
 
 typedef unsigned char uint8_t;
 
-#include<stdio.h>
+//#include<stdio.h>
 
 //Different instances of PID computation will be called from this class so each unique process will
 //need to have constants stored so individual processes can be continued after end of class call

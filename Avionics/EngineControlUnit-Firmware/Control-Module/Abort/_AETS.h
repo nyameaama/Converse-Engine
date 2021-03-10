@@ -35,7 +35,7 @@ typedef uint8_t AETS_FLAG;
 #define TEMP_RANGE_LOW 0
 #define TEMP_RANGE_HIGH 0
 
-//AETS VERSION 1
+//AETS VERSION 0
 
 //AETS V1 prog wil be based on monitoring test data 
 //ranges without continuous assesment of all data
@@ -48,6 +48,12 @@ uint32_t measuredData[50][50]; // Data stored in heap is temporary. Will overflo
 uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time);
 
 uint8_t aets();
+
+
+
+
+
+//AETS VERSION 1
 
 //Function to lookup simulated data for channel and return data array
 uint32_t *lookup(uint8_t dataChannel);

@@ -58,6 +58,9 @@ void enginePurge(void);
 //Engine Chill
 void engineChill(void);
 
+//Safe Engine
+void safeEngine(void);
+
 //Engine telemetry check
 void commsCheck(char* data);
 

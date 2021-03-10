@@ -65,20 +65,27 @@ void (engineShutdown)(void){
     valveState(OXYGEN_VALVE_BASE_ID,CLOSE);
 }
 
-//Engine Purging
-//Purging of the main feed lines (Igniter Tap Off Line not purged)
+//Engine Pre-Purging
+//Purging of the main feed lines (Igniter Tap Off Line purged)
 void enginePurge(void){
     log("EVENT-ENGINE-PURGE",time(),"-");
     //Request gas tank valve open
     //Open purge inlet valve
     valveState(PURGE_VALVE_BASE_ID,OPEN);
+    //Delay
     //Open all feed valves
     valveState(FUEL_VALVE_BASE_ID,OPEN);
     valveState(OXYGEN_VALVE_BASE_ID,OPEN);
-    valveState(TAP_OFF_A_VALVE_BASE_ID);
-    //valveState(TAP_OFF_B_VALVE_BASE_ID);
-    //valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
-    //chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
+    valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
+    //Delay
+    //Purge tap-off line seq
+    //Close tap-off A and open tap-Off B valve
+     valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
+     valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
+     //Delay
+    //Open the tap-off line valve
+     valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
+     //Delay
 }
 
 //Engine Chill
@@ -88,7 +95,30 @@ void engineChill(void){
     //Melting Point = -114
     //Boiling Point
     //Open Oxidizer Valves for --- time
+    double kp,kd,ki;
+    createPIDinstance("LOX-CHILL",kp,ki,kd);
+    //PID_MAIN("LOX-CHILL,")
 }
 
-//Runs t
-void engine_run_tasks();
+
+//Safe Engine - Post-Purge residual fuel
+void safeEngine(void){
+    log("EVENT-ENGINE-SAFE",time(),"-");
+    //Vent gas tank and propellant tanks
+    //Open purge inlet valve
+   valveState(PURGE_VALVE_BASE_ID,OPEN);
+    //Delay
+    //Open all feed valves
+    valveState(FUEL_VALVE_BASE_ID,OPEN);
+    valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
+    //Delay
+    //Purge tap-off line seq
+    //Close tap-off A and open tap-Off B valve
+     valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
+     valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
+     //Delay
+    //Open the tap-off line valve
+     valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
+     //Delay
+}

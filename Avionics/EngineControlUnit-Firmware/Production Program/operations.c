@@ -23,6 +23,9 @@ SOFTWARE.*/
 #ifndef MAIN_
 #define MAIN_
 
+uint8_t prep;
+
+
 void _init_();
 void _IDLE_();
 void _PREP_();
@@ -45,7 +48,6 @@ int main(){
         #endif
 
         #if ENGINE_STATE == 1 // PREP
-        _init_();
         _PREP_();
         if(/*  interrup */){
             #undef ENGINE_STATE
