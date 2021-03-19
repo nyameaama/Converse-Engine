@@ -23,13 +23,7 @@ SOFTWARE.*/
 #ifndef MAIN_
 #define MAIN_
 
-uint8_t prep;
-
-
-void _init_();
-void _IDLE_();
-void _PREP_();
-void _ARMED_();
+#include"../Control-Module/controller_tasks.h"
 
 //Through spi interface, ECU recieves instructions from main computer
 
@@ -41,7 +35,7 @@ int main(){
     while(1){
         #if ENGINE_STATE == 0 // IDLE
         _IDLE_();
-        if(/*  rf_connect()  */){
+        if(SWITCH2PREP()){
             #undef ENGINE_STATE
             #define ENGINE_STATE 1
         }
@@ -49,7 +43,7 @@ int main(){
 
         #if ENGINE_STATE == 1 // PREP
         _PREP_();
-        if(/*  interrup */){
+        if(SWITCH2ARMED()){
             #undef ENGINE_STATE
             #define ENGINE_STATE 2
         }
@@ -57,32 +51,13 @@ int main(){
 
         #if ENGINE_STATE == 2 // ARMED
         _ARMED_();
-        if(/*  rf_connect()  */){
+        if(SWITCH2IDLE()){
             #undef ENGINE_STATE
             #define ENGINE_STATE 0
         }
         #endif
 
     }
-}
-
-void _init_(){
-    //Attach RF interrupt 
-}
-
-void _IDLE_(){
-
-}
-
-void _PREP_(){
-    //Telemetry checks, peripheral checks
-    //Engine preconditioning
-    //Purge, Chill
-
-}
-
-void _ARMED_(){
-
 }
 
 

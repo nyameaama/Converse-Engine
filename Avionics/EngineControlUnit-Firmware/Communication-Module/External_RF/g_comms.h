@@ -20,24 +20,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef REQUEST
-#define REQUEST
+#ifndef G_COMMS
+#define G_COMMS
 
-#include"../Utility/definitions.h"
-#include"../MEA-Module/_telemetry.h"
-#include<string.h>
 
-//Function executes request for communication with a controller
-double controllerRequest(char* baseID,uint8_t control_assignment);
+void transmit_telemetry(char* data);
 
-//Function verifies base ID. Return 0 = Verified | Return 1 = failed
-uint8_t verifyBaseID(char* baseID);
+char* recieve_telemetry();
 
-//Function creates Working ID
-char* createWorkingID(char* baseID, char* control_assignment);
-
-//Function executes sending of Working ID to destination controller
-char* transmitWorkingID(char* WorkingID);
-
+void checksumData();
 
 #endif

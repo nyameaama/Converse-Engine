@@ -1,3 +1,6 @@
+#ifndef CONTROLLER_TASKS
+#define CONTROLLER_TASKS
+
 /*MIT License
 
 Copyright (c) 2020 Nyameaama Gambrah
@@ -20,24 +23,54 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef REQUEST
-#define REQUEST
-
 #include"../Utility/definitions.h"
-#include"../MEA-Module/_telemetry.h"
-#include<string.h>
+#include"../Communication-Module/External_RF/g_comms.h"
+#include"engine_tasks.h"
+#include"../Module-Router/route.h"
+#include"../Communication-Module/SubController_SPI/requests.h"
 
-//Function executes request for communication with a controller
-double controllerRequest(char* baseID,uint8_t control_assignment);
+//Attach RF interrupt 
+void _init_();
 
-//Function verifies base ID. Return 0 = Verified | Return 1 = failed
-uint8_t verifyBaseID(char* baseID);
+void _IDLE_();
 
-//Function creates Working ID
-char* createWorkingID(char* baseID, char* control_assignment);
+//Telemetry checks, peripheral checks
+//Engine preconditioning
+//Purge, Chill
+void _PREP_();
 
-//Function executes sending of Working ID to destination controller
-char* transmitWorkingID(char* WorkingID);
+void _ARMED_();
 
+//For manual testing, implement bypass to respond to sensor and valve
+//comms without additional processes.
+//+1 Overload
+void _bypass_(char* sbc_id);
+void _bypass_(char* sbc_id,uint8_t peripheral_type=1);
+
+//Controller loop statemachine change functions
+
+//Change state to idle
+uint8_t SWITCH2IDLE();
+
+//Change state to prep
+uint8_t SWITCH2PREP();
+
+//Change state to armed
+uint8_t SWITCH2ARMED();
+
+//Change state to bypass
+uint8_t SWITCH2BYPASS();
+
+//Change engine state definition 
+//Used for interrupt handlers to change engine state
+void CHANGE_STATE_DEFINITON();
+
+//Utility
+
+//Reset all tag so engine can be preconditioned for another fire
+void reset_();
+
+//If output = 1, strings match
+uint8_t compare(char* a, char* b);
 
 #endif
