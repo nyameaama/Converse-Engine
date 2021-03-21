@@ -29,7 +29,7 @@ SOFTWARE.*/
 #include"../Module-Router/route.h"
 #include"../Communication-Module/SubController_SPI/requests.h"
 
-//Attach RF interrupt 
+//Start comms and attach RF interrupt 
 void _init_();
 
 void _IDLE_();

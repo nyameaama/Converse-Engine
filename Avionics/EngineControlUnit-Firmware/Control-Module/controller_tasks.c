@@ -30,9 +30,10 @@ uint8_t engineStarted;
 //Engine Burn time
 double engine_burn_duration_secs;
 
-//Attach RF interrupt 
+//Start comms and attach RF interrupt 
 void _init_(){
-
+    
+    
 }
 
 void _IDLE_(){

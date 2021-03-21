@@ -35,7 +35,7 @@ int main(){
     while(1){
         #if ENGINE_STATE == 0 // IDLE
         _IDLE_();
-        if(SWITCH2PREP()){
+        if(SWITCH2PREP() == 1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 1
         }
@@ -43,7 +43,7 @@ int main(){
 
         #if ENGINE_STATE == 1 // PREP
         _PREP_();
-        if(SWITCH2ARMED()){
+        if(SWITCH2ARMED() == 1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 2
         }
@@ -51,10 +51,13 @@ int main(){
 
         #if ENGINE_STATE == 2 // ARMED
         _ARMED_();
-        if(SWITCH2IDLE()){
+        if(SWITCH2IDLE() == 1){
             #undef ENGINE_STATE
             #define ENGINE_STATE 0
         }
+
+        #if ENGINE_STATE == 3 // ARMED
+        _bypass_();
         #endif
 
     }
