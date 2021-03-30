@@ -27,14 +27,17 @@ SOFTWARE.*/
 
 #include"../libs/EngineMath/EngineMath.h"
 #include"../Utility/definitions.h"
+#include"../Communication-Module/External_RF/g_comms.h"
 
 //+2 Overload 
-//Raw telemetry data logged and sent to memory
-void log(char* label,char* timestamp,char* data);
+//Raw telemetry data logged
+//Log to memory only (data_destination = 1)
+//Log to memory and ground (data_destination = 2)
+void log(char* label,char* timestamp,char* data,uint8_t data_destination);
 
-void log(char* label,char* timestamp,int data);
+void log(char* label,char* timestamp,int data,uint8_t data_destination);
 
-void log(char* label,char* timestamp,double data);
+void log(char* label,char* timestamp,double data,uint8_t data_destination);
 
 void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
 
@@ -43,9 +46,6 @@ void log_thrust();
 
 //Function to measure Engine Chamber Pressure and send to ground
 void log_chamber_pressure();
-
-//Function to log inlet oxygen pressure and send to ground
-void log_inlet_lox_pressure();
 
 //Function to measure ethanol mass flow and send to ground
 //using inlet and pre chamber transducer data

@@ -149,3 +149,13 @@ void reset_(){
     //Reset engine started tag
     engineStarted = 0;
 }
+
+//If output = 1, strings match
+uint8_t compareX(char* x, char* y){
+    if (x != y){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}

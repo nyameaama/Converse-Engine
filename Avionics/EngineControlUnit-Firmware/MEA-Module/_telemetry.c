@@ -24,16 +24,29 @@ SOFTWARE.*/
 
 //+2 Overload 
 //Raw telemetry data logged and sent to memory
-void log(char* label,char* timestamp,char* data){
+void log(char* label,char* timestamp,char* data,uint8_t data_destination){
+    switch (data_destination)
+    {
+    case 1:
+        //Log to memory only
+
+        break;
+    case 2:
+        //Log to memory and ground
+
+        break;
+    default:
+        break;
+    }
     //Package Data
 
 }
 
-void log(char* label,char* timestamp,int data){
+void log(char* label,char* timestamp,int data,uint8_t data_destination){
     
 }
 
-void log(char* label,char* timestamp,double data){
+void log(char* label,char* timestamp,double data,uint8_t data_destination){
 
 }
 
@@ -44,29 +57,31 @@ void LOG_THRUST(){
 
 //Function to measure ethanol mass flow and send to ground
 //using inlet and pre chamber transducer data
-void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
+void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, char* timestamp){
     double cd;
     double ethanol_density;
     double orfice_area;
     double mdot = LiquidMassFlow(cd,ethanol_density,inletPressure,pressure2,orfice_area);
     //Store in flash
-
+    log("FUEL_MASS_FLOW",timestamp,mdot);
     //Send to terminal controller
+    transmit_telemetry(mdot);
 }
 
 //Function to measure oxygen mass flow and send to ground
 //using inlet and pre chamber transducer data
-void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, uint32_t timestamp){
+void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, char* timestamp){
     double cd;
     double LOX_density;
     double orfice_area;
     double mdot = LiquidMassFlow(cd,LOX_density,inletPressure,pressure2,orfice_area);
     //Store in flash
-
+    log("OX_MASS_FLOW",timestamp,mdot);
     //Send to terminal controller
+    transmit_telemetry(mdot);
 } 
 
-void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp){
+void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, char* timestamp){
     double cd;
     double gravity;
     double ratioSpecificHeats;

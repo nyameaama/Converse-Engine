@@ -71,6 +71,6 @@ void CHANGE_STATE_DEFINITON();
 void reset_();
 
 //If output = 1, strings match
-uint8_t compare(char* a, char* b);
+uint8_t compareX(char* x, char* y);
 
 #endif

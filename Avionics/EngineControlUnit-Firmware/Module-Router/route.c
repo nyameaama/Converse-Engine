@@ -43,7 +43,7 @@ double (pressureTransducer)(char* controllerID){
     }
     //time
     char *time;
-    log(identifier,time,request);
+    log(identifier,time,request,2);
     //return value
     return request;
 }
@@ -70,7 +70,7 @@ double (readThermocouple)(char* controllerID){
     }
     //time
     char *time;
-    log(identifier,time,request);
+    log(identifier,time,request,2);
     //return value
     return request;
 }
