@@ -56,7 +56,7 @@ int main(){
             #define ENGINE_STATE 0
         }
 
-        #if ENGINE_STATE == 3 // ARMED
+        #if ENGINE_STATE == 3 // BYPASS
         _bypass_();
         #endif
 
