@@ -43,6 +43,8 @@ uint8_t compareX(char* x, char* y){
 int main(){
     //Test
     test_check_in_range();
+    char* h = "no";
+    assert(h == "yes");
     printf("%d",compareX("yes","yes"));
 }
 

@@ -47,7 +47,7 @@ void _PREP_(){
     if(prep != 1){
         //PURGE
         enginePurge();
-        //Delay 1 second for possible ground interrupt
+        //Delay 30 seconds for possible ground interrupt
 
         //ENGINE CHILL
         engineChill();

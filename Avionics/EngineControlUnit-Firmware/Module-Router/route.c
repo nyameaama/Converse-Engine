@@ -43,7 +43,8 @@ double (pressureTransducer)(char* controllerID){
     }
     //time
     char *time;
-    log(identifier,time,request,2);
+    //Log to PTAM
+    PTAM_ADD_BASE_DOUBLE(identifier,request);
     //return value
     return request;
 }
@@ -70,7 +71,8 @@ double (readThermocouple)(char* controllerID){
     }
     //time
     char *time;
-    log(identifier,time,request,2);
+   //Log to PTAM
+    PTAM_ADD_BASE_DOUBLE(identifier,request);
     //return value
     return request;
 }

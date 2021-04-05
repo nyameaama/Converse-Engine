@@ -24,6 +24,7 @@ SOFTWARE.*/
 #include<stdint.h>
 #include<stdbool.h>
 #include<string.h>
+#include<assert.h>
 
 typedef uint8_t AETS_FLAG;
 #define NO_FLAG (uint8_t) 0

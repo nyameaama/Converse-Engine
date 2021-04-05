@@ -28,6 +28,7 @@ SOFTWARE.*/
 #include"../libs/EngineMath/EngineMath.h"
 #include"../Utility/definitions.h"
 #include"../Communication-Module/External_RF/g_comms.h"
+#include"../PTAM/temp_access_mem.h"
 
 //+2 Overload 
 //Raw telemetry data logged
@@ -49,11 +50,11 @@ void log_chamber_pressure();
 
 //Function to measure ethanol mass flow and send to ground
 //using inlet and pre chamber transducer data
-void log_fuel_mass_flow(double inletPressure, double pressure2, uint32_t timestamp);
+void log_fuel_mass_flow(char* timestamp);
 
 //Function to measure oxygen mass flow and send to ground
 //using inlet and pre chamber transducer data
-void log_oxidizer_mass_flow(double inletPressure, double pressure2, uint32_t timestamp);
+void log_oxidizer_mass_flow(char* timestamp);
 
 void log_gas_mass_flow(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp);
 

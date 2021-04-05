@@ -36,6 +36,7 @@ void log(char* label,char* timestamp,char* data,uint8_t data_destination){
 
         break;
     default:
+        //Log to memory only
         break;
     }
     //Package Data
@@ -57,11 +58,14 @@ void LOG_THRUST(){
 
 //Function to measure ethanol mass flow and send to ground
 //using inlet and pre chamber transducer data
-void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, char* timestamp){
+void LOG_FUEL_MASS_FLOW(char* timestamp){
     double cd;
     double ethanol_density;
     double orfice_area;
-    double mdot = LiquidMassFlow(cd,ethanol_density,inletPressure,pressure2,orfice_area);
+    //Get inletPressure, pre chamber pressure
+    double inletPressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC07");
+    double pre_chamber_pressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC09");
+    double mdot = LiquidMassFlow(cd,ethanol_density,inletPressure,pre_chamber_pressure,orfice_area);
     //Store in flash
     log("FUEL_MASS_FLOW",timestamp,mdot);
     //Send to terminal controller
@@ -70,11 +74,14 @@ void LOG_FUEL_MASS_FLOW(double inletPressure, double pressure2, char* timestamp)
 
 //Function to measure oxygen mass flow and send to ground
 //using inlet and pre chamber transducer data
-void LOG_OXIDIZER_MASS_FLOW(double inletPressure, double pressure2, char* timestamp){
+void LOG_OXIDIZER_MASS_FLOW(char* timestamp){
     double cd;
     double LOX_density;
     double orfice_area;
-    double mdot = LiquidMassFlow(cd,LOX_density,inletPressure,pressure2,orfice_area);
+    //Get inletPressure, pre chamber pressure
+    double inletPressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC08");
+    double pre_chamber_pressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC10");
+    double mdot = LiquidMassFlow(cd,LOX_density,inletPressure,pre_chamber_pressure,orfice_area);
     //Store in flash
     log("OX_MASS_FLOW",timestamp,mdot);
     //Send to terminal controller
