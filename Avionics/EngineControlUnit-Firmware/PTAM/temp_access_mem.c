@@ -45,7 +45,7 @@ uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data){
 
 uint8_t PTAM_ADD_BASE_32(char* baseID,uint32_t data){
     //Convert data to char*
-    char converted;
+    char converted = (char*)&data;
     //Add to thirtytwo_bit array
     thirtytwo_bit[0] = baseID;
     thirtytwo_bit[1] = converted;
