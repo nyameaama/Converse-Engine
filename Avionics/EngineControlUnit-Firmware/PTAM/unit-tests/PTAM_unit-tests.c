@@ -34,8 +34,8 @@ SOFTWARE.*/
 int main(){
     //Test 
     testValueAddRetrieveCHAR();
-    testValueAddRetrieveFLOAT();
-    testValueAddRetrieveINT();
+    //testValueAddRetrieveFLOAT();
+    //testValueAddRetrieveINT();
 }
 
 void testOutput(char* method,char* result, bool status){
