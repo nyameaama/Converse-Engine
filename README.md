@@ -1,4 +1,5 @@
 # Converse-Engine
+
 Pressure-Fed Cycle Based Liquid Rocket Engine
 
 <p align = "center">
@@ -6,4 +7,3 @@ Pressure-Fed Cycle Based Liquid Rocket Engine
 </p>
 
 [A-OneSpace](https://github.com/A-OneSpace)
-[Connect with me!](https://discord.gg/H5mhE8HB)
