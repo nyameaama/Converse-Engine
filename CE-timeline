@@ -1,17 +1,27 @@
 Converse - A
 
-Small
+*Small*
+Semi-integrated (Primarily Avionics)
 Pathfinder for engine electronics and software. 
-Testing viability of suite of sensors, valves and all hardware controlled and based on subcontrollers. 
+Testing viability of suite of sensors, valves and all hardware, controlled and based on subcontrollers. 
+Non throttleable
 
 * Thrust TBD
 * Thrust Chamber Specs TBD
 
+
 Converse - B 
 
-Medium
+*Medium*
+Fully Hardware integrated
 Performance based upgrades (Injector changes, thrust chamber changes, cooling).
-Pathfinder for entry TVC design 
+
+!!Unconfirmed !!
+- Hardware/Software in place for engine throttling -> Switching main flow valves types, control sys
+- Pathfinder for entry TVC design 
+
+
+Final Engine Specs:
 
 * Thrust TBD
 * Thrust Chamber Specs TBD
@@ -19,8 +29,6 @@ Pathfinder for entry TVC design
 
 Converse - C
 
-Flight capabale
+*Flight capabale*
+Fully Hardware integrated
 Electronics and Software suite operation ready
-
-* Thrust TBD
-* Thrust Chamber Specs TBD
