@@ -21,12 +21,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
 #include "ecu_xx_time.h"
-
+/*
 //increments a 32 bit counter at every tick.
 void SysTick_Handler(){
 
 }
-
 uint32_t millis(){
     RCC_ClocksTypeDef RCC_Clocks;
     RCC_GetClocksFreq(&RCC_Clocks);
@@ -34,6 +33,7 @@ uint32_t millis(){
     (void)SysTick_Config(RCC_Clocks.HCLK_Frequency / desired_freq_for_timer);
     
 }
+*/
 
 //sets a timer to run for 'x' milliseconds
 void startTimer (unsigned long millisToTime){

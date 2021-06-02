@@ -25,10 +25,7 @@ SOFTWARE.*/
 #ifndef DEFINITIONS_
 
 #include<stdint.h>
-#include"../libs/stm32/spl/variants/stm32f4/src/stm32f4xx_flash.c"
-#include"../libs/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"
-#include"../libs/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"  
-
+//#include<Arduino.h>
 
 #include"ecu_xx_time.h"
 

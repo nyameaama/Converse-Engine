@@ -24,7 +24,7 @@ SOFTWARE.*/
 #ifndef StopWatch_h
 #define StopWatch_h
 
-#include"../libs/stm32/cmsis/variants/stm32f4/system_stm32f4xx.h"
+#include"definitions.h"
 
 #define true 1
 #define false 0

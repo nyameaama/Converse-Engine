@@ -24,7 +24,6 @@ SOFTWARE.*/
 #define MODULE_ROUTER
 
 #include"../PTAM/temp_access_mem.h"
-#include"../Utility/ecu_xx_gpio.h"
 #include"../Utility/definitions.h"
 #include"../Communication-Module/SubController_SPI/requests.h"
 #define OPEN (uint8_t) 1

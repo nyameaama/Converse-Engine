@@ -37,3 +37,30 @@ Sub Controller
 - Sub Controller parses Working ID
 - Sub Controller verifies base ID
 - Sub Controller executes control assignment
+
+
+
+
+
+Sending Data request
+- encode -> receiving controller ID, data
+- checksum
+- data transmission process (specialized request module-on demand)
+
+Recieving Data from request
+- checksum
+- decode
+- data sent to PTAM
+- data sent to calling process
+
+Recieving Data - General (GSE, tank controllers)
+- interrupt
+- checksum
+- decode
+- data sent to PTAM
+- hold until General receiving data process parses Information 
+
+Data Passthrough
+- interrupt
+- data sent to transmission queue
+- hold until data transmission process (general process-batch)
