@@ -27,17 +27,41 @@ SOFTWARE.*/
 #include"../MEA-Module/_telemetry.h"
 #include<string.h>
 
+//Main
+
 //Function executes request for communication with a controller
 double controllerRequest(char* baseID,uint8_t control_assignment);
+
+//Interrupt handler for comms passtrhrough
+double dPassthroughInterrupt();
+
+//Interrupt handler for general comms
+double controllerReceiveInterrupt();
+
+
+//Trans + rec
+
 
 //Function verifies base ID. Return 0 = Verified | Return 1 = failed
 uint8_t verifyBaseID(char* baseID);
 
-//Function creates Working ID
+//Function creates Working ID (See comms doc)
 char* createWorkingID(char* baseID, char* control_assignment);
+
+//Function decodes Working ID (See comms doc)
+char* decWorkingID(char* workingID);
 
 //Function executes sending of Working ID to destination controller
 char* transmitWorkingID(char* WorkingID);
+
+//FUnction executes checksum
+char* checksum(char* data);
+
+
+
+
+
+
 
 
 #endif

@@ -39,6 +39,30 @@ double controllerRequest(char* baseID,uint8_t control_assignment){
 
 }
 
+//Interrupt handler for comms passthrough
+double dPassthroughInterrupt(){
+    //interrupt
+
+    //data sent to transmission queue
+
+    //hold until data transmission process (general process-batch)
+}
+
+//Interrupt handler for general comms
+double controllerReceiveInterrupt(){
+    //interrupt
+
+    //checksum
+
+    //decode
+    char* dec = {""};
+
+    //data sent to PTAM
+    
+    //hold until General receiving data process parses Information 
+
+}
+
 //Function verifies base ID.
 //Return 0 = Verified | Return 1 = failed
 uint8_t verifyBaseID(char* baseID){
