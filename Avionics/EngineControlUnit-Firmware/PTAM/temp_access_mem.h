@@ -22,6 +22,8 @@ SOFTWARE.*/
 
 #ifndef PTAM
 #define PTAM
+
+#include<Arduino.h>
 /*
     PTAM implementation is a series of statically allocated 1D arrays
     which correspond to their respective data type
@@ -29,12 +31,9 @@ SOFTWARE.*/
     Each data pair has two values
 */
 
-typedef unsigned char uint8_t;
-typedef unsigned int uint32_t;
-
 //Arrays declared
 //SPACE DECLARED FOR 5 PAIRS (~10)
-const uint8_t length = 10;
+#define length 10
 //!!! OVERFLOW UNLIKELY AS THERE IS A SINGLE SENSOR REQUEST EVERY CYCLE !!!
 
 char* floatingP[length];

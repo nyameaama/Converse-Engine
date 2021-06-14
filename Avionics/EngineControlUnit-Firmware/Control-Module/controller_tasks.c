@@ -31,9 +31,11 @@ uint8_t engineStarted;
 double engine_burn_duration_secs;
 
 //Start comms and attach RF interrupt 
+//ATTACH PIN NUMBERS
 void _init_(){
-    
-    
+    interrupts();
+    attachInterrupt(digitalPinToInterrupt(0),dPassthroughInterrupt,HIGH);
+    attachInterrupt(digitalPinToInterrupt(0),controllerReceiveInterrupt,HIGH);
 }
 
 void _IDLE_(){
@@ -86,19 +88,24 @@ void _ARMED_(){
 //comms without additional processes.
 //+1 Overload
 
-//Valve bypass
+//Bypass
+//No function overloading possible so search SBC table to 
+//determine if return or non-return peripheral !! needs attention !!
 void _bypass_(char* sbc_id){
-    //Open valve
-    controllerRequest(sbc_id,1);
-    //Close valve
-    controllerRequest(sbc_id,0);
+    if(sbc_id){
+        //Valve bypass
+        //Open valve
+        controllerRequest(sbc_id,1);
+        //Close valve
+        controllerRequest(sbc_id,0);
+    }else{
+        //Sensor bypass
+        //Request sensor data
+        double data = controllerRequest(sbc_id,2);
+        transmit_telemetry(data);
+    }
 }
  //Sensor bypass
-void _bypass_(char* sbc_id,uint8_t peripheral_type=1){
-    //Request sensor data
-    double data = controllerRequest(sbc_id,2);
-    transmit_telemetry(data);
-}
 
 //CHange state to idle
 uint8_t SWITCH2IDLE(){

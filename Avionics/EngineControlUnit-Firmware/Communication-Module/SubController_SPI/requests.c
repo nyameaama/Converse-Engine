@@ -76,11 +76,11 @@ uint8_t verifyBaseID(char* baseID){
 
     //Verify existence
     //Search ID data structure for base ID
-    for(uint8_t i = 0; i < ID_LEN;++i){
+    /*for(uint8_t i = 0; i < ID_LEN;++i){
         if(IDS[i][1]!= baseID){
             failed = 1;
         }else{break;}
-    }
+    }*/
     return failed;
 }
 
@@ -95,5 +95,5 @@ char* createWorkingID(char* baseID, char* control_assignment){
 //Function executes sending of Working ID to destination controller
 char* transmitWorkingID(char* WorkingID){
     //Log transmission
-    log("Sub Controller Comm send-time",time(),WorkingID);
+    //log("Sub Controller Comm send-time",time(),WorkingID);
 }

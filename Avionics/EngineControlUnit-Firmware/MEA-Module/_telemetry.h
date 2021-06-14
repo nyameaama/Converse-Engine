@@ -34,11 +34,11 @@ SOFTWARE.*/
 //Raw telemetry data logged
 //Log to memory only (data_destination = 1)
 //Log to memory and ground (data_destination = 2)
-void log(char* label,char* timestamp,char* data,uint8_t data_destination);
+void logCHAR(char* label,char* timestamp,char* data,uint8_t data_destination);
 
-void log(char* label,char* timestamp,int data,uint8_t data_destination);
+void logINT(char* label,char* timestamp,int data,uint8_t data_destination);
 
-void log(char* label,char* timestamp,double data,uint8_t data_destination);
+void logDOUBLE(char* label,char* timestamp,double data,uint8_t data_destination);
 
 void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
 

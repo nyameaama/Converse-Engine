@@ -26,17 +26,11 @@
 //#include "Arduino.h"
 #include "EngineMath.h"
 
-//Empty Constructor
-EngineMath::EngineMath()
-{
-
-}
-
 /*
 	Note that the array mf is passed by reference so
 	the calling function should use this to view results.
 */
-void EngineMath::MassFlowConvert (	float mf[])	// Mass Flow array
+void MassFlowConvert (	float mf[])	// Mass Flow array
 {
   mf[0] = mf[0];				// kg/sec
   mf[1] = mf[0] * 60.0;  		// kg/min
@@ -44,7 +38,7 @@ void EngineMath::MassFlowConvert (	float mf[])	// Mass Flow array
   mf[3] = mf[2] * 60;			// lbs/min
 }
 
-float EngineMath::LiquidMassFlow ( float cd,   	// Coefficient of Discharge (Dimensionless)
+float LiquidMassFlow ( float cd,   	// Coefficient of Discharge (Dimensionless)
 									float den,  	// Liquid Density (kg/m^3)
 									float p1,  	// Inlet Pressure (psi) 
 									float p2,  	// Outlet Pressure (psi)
@@ -62,7 +56,7 @@ float EngineMath::LiquidMassFlow ( float cd,   	// Coefficient of Discharge (Dim
 	Function determines whether flow is choked (or not) and then 
 	calculates flow appropriately.
 */
-float EngineMath::GasMassFlow (	float cd,  		// Coefficient of Discharge (Dimensionless)
+float GasMassFlow (	float cd,  		// Coefficient of Discharge (Dimensionless)
 								float g,    	// Gravity 9.80665 (m/sec^2)
 								float k,   		// Gas Specific Heat Ratio (Dimensionless)
 								float z,    	// Gas Compressability Factor (Dimensionless) 
@@ -90,7 +84,7 @@ float EngineMath::GasMassFlow (	float cd,  		// Coefficient of Discharge (Dimens
 /*
 	Returns thrust in lbf given the below inputs
 */
-float EngineMath::thrustCalc (	float k,		// specific heat ratio for the engine
+float thrustCalc (	float k,		// specific heat ratio for the engine
 								float p1PSI, 	// chamber pressure (PSI)
 								float p2PSI, 	// exit pressure (PSI)
 								float p3PSI, 	// atmospheric pressure (PSI)

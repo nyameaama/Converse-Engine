@@ -42,7 +42,7 @@ uint32_t *compile_sensor_data(){
 
 //Engine Startup Task - !! Separate timer from opening sequence !!
 void (engineStartup)(void){
-    log("EVENT-ENGINE-STARTUP",time(),"-");
+    //logCHAR("EVENT-ENGINE-STARTUP",millis(),"-",0);
     //Open Gas flow route <- Tank computer
     //Open Main Fuel Valve
     valveState(FUEL_VALVE_BASE_ID,OPEN);
@@ -57,7 +57,7 @@ void (engineStartup)(void){
 //Engine Shutdown Task
 void (engineShutdown)(void){
     //Log Event
-    log("EVENT-ENGINE-SHUTDOWN",time(),"-");
+    //logCHAR("EVENT-ENGINE-SHUTDOWN",millis(),"-",0);
     //Shutdown Procedure
     //Close fuel valve
     valveState(FUEL_VALVE_BASE_ID,CLOSE);
@@ -68,7 +68,7 @@ void (engineShutdown)(void){
 //Engine Pre-Purging
 //Purging of the main feed lines (Igniter Tap Off Line purged)
 void enginePurge(void){
-    log("EVENT-ENGINE-PURGE",time(),"-");
+    //logCHAR("EVENT-ENGINE-PURGE",millis(),"-",0);
     //Request gas tank valve open
     
     //Open purge inlet valve
@@ -91,7 +91,7 @@ void enginePurge(void){
 
 //Engine Chill
 void engineChill(void){
-    log("EVENT-ENGINE-CHILL",time(),"-");
+    //logCHAR("EVENT-ENGINE-CHILL",millis(),"-",0);
     //LOX
     //Melting Point = -114
     //Boiling Point
@@ -104,7 +104,7 @@ void engineChill(void){
 
 //Safe Engine - Post-Purge residual fuel
 void safeEngine(void){
-    log("EVENT-ENGINE-SAFE",time(),"-");
+    //logCHAR("EVENT-ENGINE-SAFE",millis(),"-",0);
     //Vent gas tank and propellant tanks
     //Open purge inlet valve
    valveState(PURGE_VALVE_BASE_ID,OPEN);

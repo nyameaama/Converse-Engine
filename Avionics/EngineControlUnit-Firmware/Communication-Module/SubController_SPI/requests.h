@@ -23,8 +23,8 @@ SOFTWARE.*/
 #ifndef REQUEST
 #define REQUEST
 
-#include"../Utility/definitions.h"
-#include"../MEA-Module/_telemetry.h"
+#include"../../Utility/definitions.h"
+#include"../../MEA-Module/_telemetry.h"
 #include<string.h>
 
 //Main

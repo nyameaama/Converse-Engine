@@ -26,16 +26,12 @@ SOFTWARE.*/
 //+1 Overload
 //RF driver to send data
 void transmit_telemetry(double data);
-void transmit_telemetry(char* data);
 
 char* recieve_telemetry();
 
 void checksumData();
 
 char* packageData(double data);
-char* packageData(uint8_t data);
-char* packageData(uint16_t data);
-char* packageData(uint32_t data);
 
 
 #endif

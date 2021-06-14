@@ -45,7 +45,7 @@ void _ARMED_();
 //comms without additional processes.
 //+1 Overload
 void _bypass_(char* sbc_id);
-void _bypass_(char* sbc_id,uint8_t peripheral_type=1);
+//void _bypass_(char* sbc_id,uint8_t peripheral_type=1);
 
 //Controller loop statemachine change functions
 

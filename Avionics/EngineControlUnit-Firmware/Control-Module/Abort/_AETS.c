@@ -32,11 +32,6 @@ uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time){
     return compare(data,time,pr[0],pr[1]);
 }
 
-uint8_t aets(){
-    
-}
-
-
 //AETS VERSION 1
 
 //Function to lookup simulated data for channel and return data array

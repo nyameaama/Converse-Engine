@@ -24,7 +24,7 @@ SOFTWARE.*/
 
 //+2 Overload 
 //Raw telemetry data logged and sent to memory
-void log(char* label,char* timestamp,char* data,uint8_t data_destination){
+void logCHAR(char* label,char* timestamp,char* data,uint8_t data_destination){
     switch (data_destination)
     {
     case 1:
@@ -43,11 +43,11 @@ void log(char* label,char* timestamp,char* data,uint8_t data_destination){
 
 }
 
-void log(char* label,char* timestamp,int data,uint8_t data_destination){
+void logINT(char* label,char* timestamp,int data,uint8_t data_destination){
     
 }
 
-void log(char* label,char* timestamp,double data,uint8_t data_destination){
+void logDOUBLE(char* label,char* timestamp,double data,uint8_t data_destination){
 
 }
 
@@ -67,7 +67,7 @@ void LOG_FUEL_MASS_FLOW(char* timestamp){
     double pre_chamber_pressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC09");
     double mdot = LiquidMassFlow(cd,ethanol_density,inletPressure,pre_chamber_pressure,orfice_area);
     //Store in flash
-    log("FUEL_MASS_FLOW",timestamp,mdot);
+    logDOUBLE("FUEL_MASS_FLOW",timestamp,mdot,0);
     //Send to terminal controller
     transmit_telemetry(mdot);
 }
@@ -83,7 +83,7 @@ void LOG_OXIDIZER_MASS_FLOW(char* timestamp){
     double pre_chamber_pressure = PTAM_RETRIEVE_BASE_DOUBLE("SBC10");
     double mdot = LiquidMassFlow(cd,LOX_density,inletPressure,pre_chamber_pressure,orfice_area);
     //Store in flash
-    log("OX_MASS_FLOW",timestamp,mdot);
+    logDOUBLE("OX_MASS_FLOW",timestamp,mdot,0);
     //Send to terminal controller
     transmit_telemetry(mdot);
 } 

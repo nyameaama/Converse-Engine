@@ -25,9 +25,7 @@ SOFTWARE.*/
 #ifndef DEFINITIONS_
 
 #include<stdint.h>
-//#include<Arduino.h>
-
-#include"ecu_xx_time.h"
+#include<Arduino.h>
 
 //typedef unsigned char uint8_t;
 

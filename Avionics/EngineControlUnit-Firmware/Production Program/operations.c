@@ -55,7 +55,8 @@ int main(){
             #undef ENGINE_STATE
             #define ENGINE_STATE 0
         }
-
+        #endif
+        
         #if ENGINE_STATE == 3 // BYPASS
         _bypass_();
         #endif

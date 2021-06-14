@@ -24,7 +24,6 @@ SOFTWARE.*/
 #define AETS_
 
 #include"../../Utility/definitions.h"
-#include"../../Utility/ecu_xx_flash.h"
 
 typedef uint8_t AETS_FLAG;
 #define NO_FLAG (uint8_t) 0
@@ -46,12 +45,6 @@ uint32_t measuredData[50][50]; // Data stored in heap is temporary. Will overflo
 //AETS driver
 //+1 Overload
 uint8_t aets(uint8_t dataChannel,uint32_t data, uint32_t time);
-
-uint8_t aets();
-
-
-
-
 
 //AETS VERSION 1
 
