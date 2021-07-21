@@ -23,6 +23,7 @@ Below is a list denoting peripheral action to control assignment number.
 Valve |OPEN| - "1"
 Valve |CLOSE| - "0"
 Measuring device |Reading| = "2" 
+Transmission |Data| = "3"
 
 Principle of operation
 

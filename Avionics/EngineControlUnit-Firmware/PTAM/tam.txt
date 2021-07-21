@@ -6,3 +6,5 @@ Data to be held in Program Temporary Access Memory
 - Sub Controller Comm identifier
 - Sub Controller Comm send-time
 - Sub Controller Comm recieved-time
+
+- data transmission process (general process-batch)
