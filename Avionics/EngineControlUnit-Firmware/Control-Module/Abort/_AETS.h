@@ -23,7 +23,7 @@ SOFTWARE.*/
 #ifndef AETS_
 #define AETS_
 
-#include"../../Utility/definitions.h"
+#include"../../Utility/definitions.hpp"
 
 typedef uint8_t AETS_FLAG;
 #define NO_FLAG (uint8_t) 0

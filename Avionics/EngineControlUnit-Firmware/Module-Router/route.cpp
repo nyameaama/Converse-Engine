@@ -20,19 +20,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"route.h"
+#include"route.hpp"
 
 /*Function to return AETS to module router
 This data is moved to main */
-uint8_t return_AETS_state(){
+uint8_t MODULE_ROUTER::return_AETS_state(){
 
 }
 
 //Component driver for pressure transducer
 //Return peripheral
-double (pressureTransducer)(char* controllerID){
+double MODULE_ROUTER::pressureTransducer(char* controllerID){
+    REQUESTS *ReqObj = new REQUESTS();
+    PTAM *ptamObj = new PTAM();
     //Init request to transducer controller
-    double request = controllerRequest(controllerID,READ);
+    double request = ReqObj -> controllerRequest(controllerID,READ);
     //log value
     //get identifier
     char* identifier;
@@ -44,23 +46,29 @@ double (pressureTransducer)(char* controllerID){
     //time
     char *time;
     //Log to PTAM
-    PTAM_ADD_BASE_DOUBLE(identifier,request);
+    ptamObj -> PTAM_ADD_BASE_DOUBLE(identifier,request);
+    delete ptamObj;
+    delete ReqObj;
     //return value
     return request;
 }
 
 //Component driver for solenoid valve (Open, close)
 //Non-return peripheral
-void (valveState)(char* controllerID, uint8_t state){
+void MODULE_ROUTER::valveState(char* controllerID, uint8_t state){
+    REQUESTS *ReqObj = new REQUESTS();
     //Init request to valve controller
-    controllerRequest(controllerID,state);
+    ReqObj -> controllerRequest(controllerID,state);
+    delete ReqObj;
 }
 
 //Component driver for thermocouple
 //Return peripheral
-double (readThermocouple)(char* controllerID){
+double MODULE_ROUTER::readThermocouple(char* controllerID){
+    REQUESTS *ReqObj = new REQUESTS();
+    PTAM *ptamObj = new PTAM();
     //Init request to thermocouple controller
-    double request = controllerRequest(controllerID,READ);
+    double request = ReqObj -> controllerRequest(controllerID,READ);
     //log value
     //get identifier
     char* identifier;
@@ -72,13 +80,17 @@ double (readThermocouple)(char* controllerID){
     //time
     char *time;
    //Log to PTAM
-    PTAM_ADD_BASE_DOUBLE(identifier,request);
+    ptamObj -> PTAM_ADD_BASE_DOUBLE(identifier,request);
+    delete ptamObj;
+    delete ReqObj;
     //return value
     return request;
 }
 
 //Component driver for chamber igniter
-uint8_t (chamberIgniter)(char* controllerID, uint8_t state){
+uint8_t MODULE_ROUTER::chamberIgniter(char* controllerID, uint8_t state){
+    REQUESTS *ReqObj = new REQUESTS();
     //Init request to igniter controller
-    controllerRequest(controllerID,state);
+    ReqObj -> controllerRequest(controllerID,state);
+    delete ReqObj;
 }

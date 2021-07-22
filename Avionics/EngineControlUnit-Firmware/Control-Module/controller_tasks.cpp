@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"controller_tasks.h"
+#include"controller_tasks.hpp"
 
 //Variable noting whether engine has already been prepped
 uint8_t prep;
@@ -32,27 +32,30 @@ double engine_burn_duration_secs;
 
 //Start comms and attach RF interrupt 
 //ATTACH PIN NUMBERS
-void _init_(){
+void CONTROLLER_TASKS::_init_(){
+    REQUESTS *reqObj = new REQUESTS();
     interrupts();
-    attachInterrupt(digitalPinToInterrupt(0),dPassthroughInterrupt,HIGH);
-    attachInterrupt(digitalPinToInterrupt(0),controllerReceiveInterrupt,HIGH);
+    attachInterrupt(digitalPinToInterrupt(0),reqObj -> dPassthroughInterrupt,HIGH);
+    attachInterrupt(digitalPinToInterrupt(0),reqObj -> controllerReceiveInterrupt,HIGH);
+    delete reqObj;
 }
 
-void _IDLE_(){
+void CONTROLLER_TASKS::_IDLE_(){
     //Controller does nothing
 }
 
 //Telemetry checks, peripheral checks
 //Engine preconditioning
 //Purge, Chill
-void _PREP_(){
+void CONTROLLER_TASKS::_PREP_(){
+    ENGINE_TASKS *obj = new ENGINE_TASKS();
     if(prep != 1){
         //PURGE
-        enginePurge();
+        obj -> enginePurge();
         //Delay 30 seconds for possible ground interrupt
 
         //ENGINE CHILL
-        engineChill();
+        obj -> engineChill();
         //CHECKS
 
 
@@ -62,9 +65,11 @@ void _PREP_(){
         //Do nothing.
         //Engine already prepped
     }
+    delete obj;
 }
 
-void _ARMED_(){
+void CONTROLLER_TASKS::_ARMED_(){
+    ENGINE_TASKS *obj = new ENGINE_TASKS();
     //Engine function wrapped in timer
     if(engineStarted == 1){
         //Get seconds since controller start as current time
@@ -72,16 +77,17 @@ void _ARMED_(){
         //Log seconds since controller start 
         double start_time;
         if((current_time - start_time) >=  engine_burn_duration_secs){
-            engineShutdown();
+            obj -> engineShutdown();
             //Reset engine started tag
             engineStarted = 0;
         }
     }else{
         //Start engine
-        engineStartup();
+        obj -> engineStartup();
         //Set engine started tag
         engineStarted = 1;
     }
+    delete obj;
 }
 
 //For manual testing, implement bypass to respond to sensor and valve
@@ -91,57 +97,58 @@ void _ARMED_(){
 //Bypass
 //No function overloading possible so search SBC table to 
 //determine if return or non-return peripheral !! needs attention !!
-void _bypass_(char* sbc_id){
+void CONTROLLER_TASKS::_bypass_(char* sbc_id){
+    REQUESTS *ReqObj = new REQUESTS();
     if(sbc_id){
         //Valve bypass
         //Open valve
-        controllerRequest(sbc_id,1);
+        ReqObj -> controllerRequest(sbc_id,1);
         //Close valve
-        controllerRequest(sbc_id,0);
+        ReqObj -> controllerRequest(sbc_id,0);
     }else{
         //Sensor bypass
         //Request sensor data
-        double data = controllerRequest(sbc_id,2);
+        double data = ReqObj -> controllerRequest(sbc_id,2);
         transmit_telemetry(data);
     }
 }
  //Sensor bypass
 
 //CHange state to idle
-uint8_t SWITCH2IDLE(){
+uint8_t CONTROLLER_TASKS::SWITCH2IDLE(){
     //Change variable
     uint8_t change = 0;
-    if(compare(recieve_telemetry(),"IDLE")){
+    if(compareX(recieve_telemetry(),"IDLE")){
         change = 1;
     }
     return change;
 }
 
 //CHange state to prep
-uint8_t SWITCH2PREP(){
+uint8_t CONTROLLER_TASKS::SWITCH2PREP(){
     //Change variable
     uint8_t change = 0;
-    if(compare(recieve_telemetry(),"PREP")){
+    if(compareX(recieve_telemetry(),"PREP")){
         change = 1;
     }
     return change;
 }
 
 //CHange state to armed
-uint8_t SWITCH2ARMED(){
+uint8_t CONTROLLER_TASKS::SWITCH2ARMED(){
     //Change variable
     uint8_t change = 0;
-    if(compare(recieve_telemetry(),"ARMED")){
+    if(compareX(recieve_telemetry(),"ARMED")){
         change = 1;
     }
     return change;
 }
 
 //CHange state to bypass
-uint8_t SWITCH2BYPASS(){
+uint8_t CONTROLLER_TASKS::SWITCH2BYPASS(){
     //Change variable
     uint8_t change = 0;
-    if(compare(recieve_telemetry(),"BYPASS")){
+    if(compareX(recieve_telemetry(),"BYPASS")){
         change = 1;
     }
     return change;
@@ -149,7 +156,7 @@ uint8_t SWITCH2BYPASS(){
 
 
 //Reset all tags so engine can be preconditioned for another fire
-void reset_(){
+void CONTROLLER_TASKS::reset_(){
     //Reset prep tag
     prep = 0;
 
@@ -158,7 +165,7 @@ void reset_(){
 }
 
 //If output = 1, strings match
-uint8_t compareX(char* x, char* y){
+uint8_t CONTROLLER_TASKS::compareX(char* x, char* y){
     if (x != y){
         return 0;
     }

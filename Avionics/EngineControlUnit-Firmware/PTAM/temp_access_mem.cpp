@@ -20,12 +20,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"temp_access_mem.h"
+#include"temp_access_mem.hpp"
 
 //Method to add data to program temp access memory
 //Returns the size of data sent
 //+3 Overload
-uint8_t PTAM_ADD_BASE_DOUBLE(char* baseID,double data){
+uint8_t PTAM::PTAM_ADD_BASE_DOUBLE(char* baseID,double data){
     //Convert data to char*
     char converted;
     //Add to floating point array
@@ -34,7 +34,7 @@ uint8_t PTAM_ADD_BASE_DOUBLE(char* baseID,double data){
     return sizeof(data);
 }
 
-uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data){
+uint8_t PTAM::PTAM_ADD_BASE_8(char* baseID,uint8_t data){
     //Convert data to char*
     char converted;
     //Add to eight_bit array
@@ -43,7 +43,7 @@ uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data){
     return sizeof(data);
 }
 
-uint8_t PTAM_ADD_BASE_32(char* baseID,uint32_t data){
+uint8_t PTAM::PTAM_ADD_BASE_32(char* baseID,uint32_t data){
     //Convert data to char*
     char converted = (char*)&data;
     //Add to thirtytwo_bit array
@@ -52,7 +52,7 @@ uint8_t PTAM_ADD_BASE_32(char* baseID,uint32_t data){
     return sizeof(data);
 }
 
-uint8_t PTAM_ADD_BASE_CHAR(char* baseID,char* data){
+uint8_t PTAM::PTAM_ADD_BASE_CHAR(char* baseID,char* data){
     //Add to character array
     character[0] = baseID;
     character[1] = data;
@@ -64,7 +64,7 @@ uint8_t PTAM_ADD_BASE_CHAR(char* baseID,char* data){
 //!!!Disclaimer!!!
 //Unable to use templates so used messy workaround
 //!!!!!!!!!!!!!!!!!!
-char* PTAM_RETRIEVE_BASE_CHAR(char* baseID){
+char* PTAM::PTAM_RETRIEVE_BASE_CHAR(char* baseID){
     char* temp_data;
     for(uint8_t i = 0; i < length;i+=2){
         if(character[i] == baseID){
@@ -77,7 +77,7 @@ char* PTAM_RETRIEVE_BASE_CHAR(char* baseID){
     return temp_data;
 }
 
-uint8_t PTAM_RETRIEVE_BASE_8(char* baseID){
+uint8_t PTAM::PTAM_RETRIEVE_BASE_8(char* baseID){
     char* temp_data;
     for(uint8_t i = 0; i < length;i+=2){
         if(eight_bit[i] == baseID){
@@ -89,7 +89,7 @@ uint8_t PTAM_RETRIEVE_BASE_8(char* baseID){
     //Convert to appropriate format
 }
 
-uint32_t PTAM_RETRIEVE_BASE_32(char* baseID){
+uint32_t PTAM::PTAM_RETRIEVE_BASE_32(char* baseID){
     char* temp_data;
     for(uint8_t i = 0; i < length;i+=2){
         if(thirtytwo_bit[i] == baseID){
@@ -101,7 +101,7 @@ uint32_t PTAM_RETRIEVE_BASE_32(char* baseID){
     //Convert to appropriate format
 }
 
-double PTAM_RETRIEVE_BASE_DOUBLE(char* baseID){
+double PTAM::PTAM_RETRIEVE_BASE_DOUBLE(char* baseID){
     char* temp_data;
     for(uint8_t i = 0; i < length;i+=2){
         if(floatingP[i] == baseID){
@@ -114,7 +114,7 @@ double PTAM_RETRIEVE_BASE_DOUBLE(char* baseID){
 }
 
 //Method to clear entire PTAM data for next program cycle
-void PTAM_CLEAR_ALL(){
+void PTAM::PTAM_CLEAR_ALL(){
     //Set all values to 0
 
 }

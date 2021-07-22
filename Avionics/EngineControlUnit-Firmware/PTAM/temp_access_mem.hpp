@@ -20,8 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef PTAM
-#define PTAM
+#ifndef PTAM_
+#define PTAM_
 
 #include<Arduino.h>
 /*
@@ -41,31 +41,35 @@ char* eight_bit[length];
 char* thirtytwo_bit[length];
 char* character[length];
 
-//Method to add data to program temp access memory
-//Returns the size of data sent
-//+3 Overload
-uint8_t PTAM_ADD_BASE_DOUBLE(char* baseID,double data);
+class PTAM {
+    public:
+        //Method to add data to program temp access memory
+        //Returns the size of data sent
+        //+3 Overload
+        uint8_t PTAM_ADD_BASE_DOUBLE(char* baseID,double data);
 
-uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data);
+        uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data);
 
-uint8_t PTAM_ADD_BASE_32(char* baseID,uint32_t data);
+        uint8_t PTAM_ADD_BASE_32(char* baseID,uint32_t data);
 
-uint8_t PTAM_ADD_BASE_CHAR(char* baseID,char* data);
+        uint8_t PTAM_ADD_BASE_CHAR(char* baseID,char* data);
 
-//Method to retrieve data from program temp access memory
-//Returns queried data
-//!!!Disclaimer!!!
-//Unable to use templates so used messy workaround
-//!!!!!!!!!!!!!!!!!!
-char* PTAM_RETRIEVE_BASE_CHAR(char* baseID);
+        //Method to retrieve data from program temp access memory
+        //Returns queried data
+        //!!!Disclaimer!!!
+        //Unable to use templates so used messy workaround
+        //!!!!!!!!!!!!!!!!!!
+        char* PTAM_RETRIEVE_BASE_CHAR(char* baseID);
 
-uint8_t PTAM_RETRIEVE_BASE_8(char* baseID);
+        uint8_t PTAM_RETRIEVE_BASE_8(char* baseID);
 
-uint32_t PTAM_RETRIEVE_BASE_32(char* baseID);
+        uint32_t PTAM_RETRIEVE_BASE_32(char* baseID);
 
-double PTAM_RETRIEVE_BASE_DOUBLE(char* baseID);
+        double PTAM_RETRIEVE_BASE_DOUBLE(char* baseID);
 
-//Method to clear entire PTAM data for next program cycle
-void PTAM_CLEAR_ALL();
+        //Method to clear entire PTAM data for next program cycle
+        void PTAM_CLEAR_ALL();
+
+};
 
 #endif 

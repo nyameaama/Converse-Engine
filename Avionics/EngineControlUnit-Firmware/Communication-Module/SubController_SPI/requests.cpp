@@ -20,10 +20,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include "requests.h"
+#include "requests.hpp"
 
 //Function executes request for communication with a controller
-double controllerRequest(char* baseID,uint8_t control_assignment){
+double REQUESTS::controllerRequest(char* baseID,uint8_t control_assignment){
     /*System request for communication with a controller
       Retrieval of base ID of destination controller 
       Appending of control assignment to base ID to create "Working ID"
@@ -40,7 +40,7 @@ double controllerRequest(char* baseID,uint8_t control_assignment){
 }
 
 //Interrupt handler for comms passthrough
-double dPassthroughInterrupt(){
+double REQUESTS::dPassthroughInterrupt(){
     //interrupt
 
     //data sent to transmission queue
@@ -49,7 +49,7 @@ double dPassthroughInterrupt(){
 }
 
 //Interrupt handler for general comms
-double controllerReceiveInterrupt(){
+double REQUESTS::controllerReceiveInterrupt(){
     //interrupt
 
     //checksum
@@ -65,7 +65,7 @@ double controllerReceiveInterrupt(){
 
 //Function verifies base ID.
 //Return 0 = Verified | Return 1 = failed
-uint8_t verifyBaseID(char* baseID){
+uint8_t REQUESTS::verifyBaseID(char* baseID){
     //The base ID's consist of two parts. The "SBC" tag and the number preceeding it.
     //The SBC is used to indicate the ECU that it is a sub controller and the 
     //numbers preceeding it indicate the unique number corresponding to the controller.
@@ -85,7 +85,7 @@ uint8_t verifyBaseID(char* baseID){
 }
 
 //Function creates Working ID
-char* createWorkingID(char* baseID, char* control_assignment){
+char* REQUESTS::createWorkingID(char* baseID, char* control_assignment){
     // The control assignment is appended to the base ID
     char* WorkingID = baseID;
     strcat(WorkingID,control_assignment);
@@ -93,7 +93,7 @@ char* createWorkingID(char* baseID, char* control_assignment){
 }
 
 //Function executes sending of Working ID to destination controller
-char* transmitWorkingID(char* WorkingID){
+char* REQUESTS::transmitWorkingID(char* WorkingID){
     //Log transmission
     //log("Sub Controller Comm send-time",time(),WorkingID);
 }

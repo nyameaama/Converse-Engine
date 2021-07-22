@@ -23,9 +23,9 @@ SOFTWARE.*/
 #ifndef TASKS_
 #define TASKS_
 
-#include"../Module-Router/route.h"
-#include"../Utility/definitions.h"
-#include"control/PID.h"
+#include"../Module-Router/route.hpp"
+#include"../Utility/definitions.hpp"
+#include"control/PID.hpp"
 
 #define ARMED
 #define DISARMED
@@ -43,36 +43,43 @@ char* e_abort = "disarmed";
  runs the module router tasks and AETS. AETS is first checked to determine
  engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
  fasle to main which terminates engine */
-void RUN_PROG_CYCLE();
 
-//Engine Startup Task 
-void engineStartup(void);
+class ENGINE_TASKS {
+    private:
+        uint32_t *compile_sensor_data();
 
-//Engine Shutdown Task
-void engineShutdown(void);
+    public:
+        void RUN_PROG_CYCLE();
 
-//Engine Purging
-void enginePurge(void);
+        //Engine Startup Task 
+        void engineStartup(void);
 
-//Engine Chill
-void engineChill(void);
+        //Engine Shutdown Task
+        void engineShutdown(void);
 
-//Safe Engine
-void safeEngine(void);
+        //Engine Purging
+        void enginePurge(void);
 
-//Engine telemetry check
-void commsCheck(char* data);
+        //Engine Chill
+        void engineChill(void);
 
-//Verify Operation of valve suite
-void valveCheck();
+        //Safe Engine
+        void safeEngine(void);
 
-//Verify sensor peripherals
-void spCheck();
+        //Engine telemetry check
+        void commsCheck(char* data);
 
-uint32_t* testSPOperation(char* base_id);
+        //Verify Operation of valve suite
+        void valveCheck();
 
-void abortStatus(char* status);
+        //Verify sensor peripherals
+        void spCheck();
 
+        uint32_t* testSPOperation(char* base_id);
+
+        void abortStatus(char* status);
+
+};
 
 
 #endif //TASKS_

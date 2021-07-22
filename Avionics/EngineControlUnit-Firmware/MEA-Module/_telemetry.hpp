@@ -26,39 +26,41 @@ SOFTWARE.*/
 #define TELEMETRY_
 
 #include"../libs/EngineMath/EngineMath.h"
-#include"../Utility/definitions.h"
+#include"../Utility/definitions.hpp"
 #include"../Communication-Module/External_RF/g_comms.h"
-#include"../PTAM/temp_access_mem.h"
+#include"../PTAM/temp_access_mem.hpp"
 
-//+2 Overload 
-//Raw telemetry data logged
-//Log to memory only (data_destination = 1)
-//Log to memory and ground (data_destination = 2)
-void logCHAR(char* label,char* timestamp,char* data,uint8_t data_destination);
+class TELEMETRY {
+    public:
+        //+2 Overload 
+        //Raw telemetry data logged
+        //Log to memory only (data_destination = 1)
+        //Log to memory and ground (data_destination = 2)
+        void log(char* label,char* timestamp,char* data,uint8_t data_destination);
 
-void logINT(char* label,char* timestamp,int data,uint8_t data_destination);
+        void log(char* label,char* timestamp,int data,uint8_t data_destination);
 
-void logDOUBLE(char* label,char* timestamp,double data,uint8_t data_destination);
+        void log(char* label,char* timestamp,double data,uint8_t data_destination);
 
-void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
+        void TELEMETRY_FEED(uint32_t*(*compiledData)(void));
 
-//Thrust calculation function
-void log_thrust();
+        //Thrust calculation function
+        void LOG_THRUST();
 
-//Function to measure Engine Chamber Pressure and send to ground
-void log_chamber_pressure();
+        //Function to measure Engine Chamber Pressure and send to ground
+        void LOG_CHAMBER_PRESSURE();
 
-//Function to measure ethanol mass flow and send to ground
-//using inlet and pre chamber transducer data
-void log_fuel_mass_flow(char* timestamp);
+        //Function to measure ethanol mass flow and send to ground
+        //using inlet and pre chamber transducer data
+        void LOG_FUEL_MASS_FLOW(char* timestamp);
 
-//Function to measure oxygen mass flow and send to ground
-//using inlet and pre chamber transducer data
-void log_oxidizer_mass_flow(char* timestamp);
+        //Function to measure oxygen mass flow and send to ground
+        //using inlet and pre chamber transducer data
+        void LOG_OXIDIZER_MASS_FLOW(char* timestamp);
 
-void log_gas_mass_flow(double inletPressure, double pressure2,double outlettemp, uint32_t timestamp);
+        void LOG_GAS_MASS_FLOW(double inletPressure, double pressure2,double outlettemp, char* timestamp);
 
-
+};
 
 
 #endif //TELEMETRY_

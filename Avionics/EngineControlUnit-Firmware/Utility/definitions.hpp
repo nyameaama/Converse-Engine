@@ -29,7 +29,7 @@ SOFTWARE.*/
 
 //typedef unsigned char uint8_t;
 
-//typedef unsigned int uint32_t;
+//typedef unsigned int #define;
 
 #define OXYGEN_VALVE_BASE_ID "SBC02"
 
@@ -78,28 +78,28 @@ char* IDS[ID_LEN][2] = {
                 };
 
 //Engine Constants - Changeable
-uint32_t ENGINE_THRUST_LIMIT;
+#define ENGINE_THRUST_LIMIT 0
 
 
-//Engine Constants - 
-uint32_t AimedThrustCapacity;
-uint32_t ChamberPressure;
-uint32_t Inletflow;
-uint32_t OxidizerFlowRate;
-uint32_t FuelFlowRate;
-uint32_t ExitVelocity;
+//Engine Constants -
+#define AimedThrustCapacity 0
+#define ChamberPressure 0
+#define Inletflow 0
+#define OxidizerFlowRate 0
+#define FuelFlowRate 0
+#define ExitVelocity 0
 
 //Engine Constants - Dimensions
-uint32_t ThroatDiameter;
-uint32_t ThroatArea;
-uint32_t ExitArea;
-uint32_t ExitDiameter;
-uint32_t NozzleLength;
-uint32_t ConvergentLength;
-uint32_t DivergentLength;
-uint32_t ChamberVolume;
-uint32_t ChamberDiameter; 
-uint32_t ChamberArea;
-uint32_t ChamberLength;
+#define ThroatDiameter 0
+#define ThroatArea 0
+#define ExitArea 0
+#define ExitDiameter 0
+#define NozzleLength 0
+#define ConvergentLength 0
+#define DivergentLength 0
+#define ChamberVolume 0
+#define ChamberDiameter 0
+#define ChamberArea 0
+#define ChamberLength 0
 
 #endif //DEFINITIONS_

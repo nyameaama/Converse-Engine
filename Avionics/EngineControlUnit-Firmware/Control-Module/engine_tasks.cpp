@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"engine_tasks.h"
+#include"engine_tasks.hpp"
 
 
 /* PROG_CYCLE represents the full feedback cycle of engine control. PROG_CYCLE
@@ -29,97 +29,118 @@ SOFTWARE.*/
  fasle to main which terminates engine */
 
 //Function to compile sensor data from (driver functions)
-uint32_t *compile_sensor_data(){
-    const uint8_t transducerPin;
-    const uint8_t thermocouplePin;
+uint32_t* ENGINE_TASKS::compile_sensor_data(){
+    //Module Router class object
+    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
+    //const uint8_t transducerPin;
+    //const uint8_t thermocouplePin;
     uint32_t compiled[5]; // <- CHANGE TO SENSOR SUITE NUMBER
     //Pressure
-    compiled[0] = (pressureTransducer)(transducerPin);
+    //compiled[0] = MR_obj -> pressureTransducer(transducerPin);
     //Thermocouple
-    compiled[1] = (readThermocouple)(thermocouplePin);
+    //compiled[1] = MR_obj -> readThermocouple(thermocouplePin);
+    delete MR_obj;
     return compiled;
 }
 
 //Engine Startup Task - !! Separate timer from opening sequence !!
-void (engineStartup)(void){
+void ENGINE_TASKS::engineStartup(void){
+    //Module Router class object
+    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
     //logCHAR("EVENT-ENGINE-STARTUP",millis(),"-",0);
     //Open Gas flow route <- Tank computer
     //Open Main Fuel Valve
-    valveState(FUEL_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(FUEL_VALVE_BASE_ID,OPEN);
     //Open Main Oxidizer Valve
-    valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(OXYGEN_VALVE_BASE_ID,OPEN);
     //Timing for igniter start dependent on mass flow and pipe distance
     //See igniter docs
     //Activate Igniter
-    chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
+    MR_obj -> chamberIgniter(CHAMBER_IGNITER_BASE_ID,OPEN);
+    //free
+    delete MR_obj;
 }
 
 //Engine Shutdown Task
-void (engineShutdown)(void){
+void ENGINE_TASKS::engineShutdown(void){
+    //Module Router class object
+    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
     //Log Event
     //logCHAR("EVENT-ENGINE-SHUTDOWN",millis(),"-",0);
     //Shutdown Procedure
     //Close fuel valve
-    valveState(FUEL_VALVE_BASE_ID,CLOSE);
+    MR_obj -> valveState(FUEL_VALVE_BASE_ID,CLOSE);
     //Close oxidizer valve
-    valveState(OXYGEN_VALVE_BASE_ID,CLOSE);
+    MR_obj -> valveState(OXYGEN_VALVE_BASE_ID,CLOSE);
+    //free
+    delete MR_obj;
 }
 
 //Engine Pre-Purging
 //Purging of the main feed lines (Igniter Tap Off Line purged)
-void enginePurge(void){
+void ENGINE_TASKS::enginePurge(void){
+    //Module Router class object
+    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
     //logCHAR("EVENT-ENGINE-PURGE",millis(),"-",0);
     //Request gas tank valve open
     
     //Open purge inlet valve
-    valveState(PURGE_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(PURGE_VALVE_BASE_ID,OPEN);
     //Delay
     //Open all feed valves
-    valveState(FUEL_VALVE_BASE_ID,OPEN);
-    valveState(OXYGEN_VALVE_BASE_ID,OPEN);
-    valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(FUEL_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
     //Delay
     //Purge tap-off line seq
     //Close tap-off A and open tap-Off B valve
-     valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
-     valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
+    MR_obj -> valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
      //Delay
     //Open the tap-off line valve
-     valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
      //Delay
+
+     //free
+    delete MR_obj;
 }
 
 //Engine Chill
-void engineChill(void){
+void ENGINE_TASKS::engineChill(void){
     //logCHAR("EVENT-ENGINE-CHILL",millis(),"-",0);
     //LOX
     //Melting Point = -114
     //Boiling Point
     //Open Oxidizer Valves for --- time
     double kp,kd,ki;
-    createPIDinstance("LOX-CHILL",kp,ki,kd);
+    //createPIDinstance("LOX-CHILL",kp,ki,kd);
     //PID_MAIN("LOX-CHILL,")
 }
 
 
 //Safe Engine - Post-Purge residual fuel
-void safeEngine(void){
+void ENGINE_TASKS::safeEngine(void){
+    //Module Router class object
+    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
     //logCHAR("EVENT-ENGINE-SAFE",millis(),"-",0);
     //Vent gas tank and propellant tanks
     //Open purge inlet valve
-   valveState(PURGE_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(PURGE_VALVE_BASE_ID,OPEN);
     //Delay
     //Open all feed valves
-    valveState(FUEL_VALVE_BASE_ID,OPEN);
-    valveState(OXYGEN_VALVE_BASE_ID,OPEN);
-    valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(FUEL_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(OXYGEN_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_A_VALVE_BASE_ID,OPEN);
     //Delay
     //Purge tap-off line seq
     //Close tap-off A and open tap-Off B valve
-     valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
-     valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_A_VALVE_BASE_ID,CLOSE);
+    MR_obj -> valveState(TAP_OFF_B_VALVE_BASE_ID,OPEN);
      //Delay
     //Open the tap-off line valve
-     valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
+    MR_obj -> valveState(TAP_OFF_LINE_VALVE_BASE_ID,OPEN);
      //Delay
+
+     //free
+    delete MR_obj;
 }

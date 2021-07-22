@@ -20,47 +20,49 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#ifndef MODULE_ROUTER
-#define MODULE_ROUTER
+#ifndef MOD_ROUTER
+#define MOD_ROUTER
 
-#include"../PTAM/temp_access_mem.h"
-#include"../Utility/definitions.h"
-#include"../Communication-Module/SubController_SPI/requests.h"
+#include"../PTAM/temp_access_mem.hpp"
+#include"../Utility/definitions.hpp"
+#include"../Communication-Module/SubController_SPI/requests.hpp"
 #define OPEN (uint8_t) 1
 #define CLOSE (uint8_t) 0
 
 #define READ (uint8_t) 2
 
+class MODULE_ROUTER {
+    public:
+    /*Function to return AETS to module router
+    This data is moved to main */
+    uint8_t return_AETS_state();
 
-/*Function to return AETS to module router
-This data is moved to main */
-uint8_t return_AETS_state();
+    uint8_t telemetry_send();
 
-uint8_t telemetry_send();
+    char* call(char* methodID);
 
-char* call(char* methodID);
+    /////////////////////////////////
 
-/////////////////////////////////
+    //Component driver for pressure transducer
+    double (pressureTransducer)(char* controllerID);
 
-//Component driver for pressure transducer
-double (pressureTransducer)(char* controllerID);
+    //Component driver for solenoid valve (Open, close)
+    void (valveState)(char* controllerID, uint8_t state);
 
-//Component driver for solenoid valve (Open, close)
-void (valveState)(char* controllerID, uint8_t state);
+    //Component driver for thermocouple
+    double (readThermocouple)(char* controllerID);
 
-//Component driver for thermocouple
-double (readThermocouple)(char* controllerID);
+    //Component driver for chamber igniter
+    uint8_t (chamberIgniter)(char* controllerID, uint8_t state);
 
-//Component driver for chamber igniter
-uint8_t (chamberIgniter)(char* controllerID, uint8_t state);
+    ///////////////EF////////////////
 
-///////////////EF////////////////
+    //Fuel Pump task function (ON, OFF)
+    uint8_t FuelPump_task(uint8_t task);
 
-//Fuel Pump task function (ON, OFF)
-uint8_t FuelPump_task(uint8_t task);
+    //Liquid Oxygen Pump task function (ON, OFF)
+    uint8_t LOXPump_task(uint8_t task);
 
-//Liquid Oxygen Pump task function (ON, OFF)
-uint8_t LOXPump_task(uint8_t task);
+};
 
-
-#endif //MODULE_ROUTER
+#endif //MOD_ROUTER

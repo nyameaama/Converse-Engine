@@ -18,43 +18,53 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
+SOFTWARE.*/
 
-#ifndef PID
-#define PID
+#ifndef MAIN_
+#define MAIN_
 
-//#include<Arduino.h>
-//#include"../../Utility/definitions.h"
-//#include"ErrorDump.h"
+#include"../Control-Module/controller_tasks.hpp"
 
-typedef unsigned char uint8_t;
-
-//#include<stdio.h>
-
-//Different instances of PID computation will be called from this class so each unique process will
-//need to have constants stored so individual processes can be continued after end of class call
+//Through spi interface, ECU recieves instructions from main computer
 
 
-uint8_t dt;
+#define ENGINE_STATE 0
+
+int main(){
+    CONTROLLER_TASKS *CTobj = new CONTROLLER_TASKS();
+    CTobj -> _init_();
+    while(1){
+        #if ENGINE_STATE == 0 // IDLE
+        CTobj -> _IDLE_();
+        if(CTobj -> SWITCH2PREP() == 1){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 1
+        }
+        #endif
+
+        #if ENGINE_STATE == 1 // PREP
+        CTobj -> _PREP_();
+        if(CTobj -> SWITCH2ARMED() == 1){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 2
+        }
+        #endif
+
+        #if ENGINE_STATE == 2 // ARMED
+        CTobj -> _ARMED_();
+        if(CTobj -> SWITCH2IDLE() == 1){
+            #undef ENGINE_STATE
+            #define ENGINE_STATE 0
+        }
+        #endif
+        
+        #if ENGINE_STATE == 3 // BYPASS
+        CTobj -> _bypass_();
+        #endif
+
+    }
+    delete CTobj;
+}
 
 
-void updateConstants(char* Process);
-
-double getProportional();
-
-double getIntegral();
-
-double getDerivative();
-
-uint8_t compare(char* x, char* y);
-
-uint8_t checkforInstance(char* tag);
-
-double PID_MAIN(char* Process,double rocketPos,double setpoint);
-
-void createPIDinstance(char* tag,double kp,double ki,double kd);
-
-
-
-#endif
+#endif // MAIN_
