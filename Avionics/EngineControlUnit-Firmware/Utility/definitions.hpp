@@ -23,6 +23,7 @@ SOFTWARE.*/
 //DEFINITIONS FILE 
 
 #ifndef DEFINITIONS_
+#define DEFINITIONS_
 
 #include<stdint.h>
 #include<Arduino.h>
