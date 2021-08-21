@@ -97,3 +97,17 @@ char* REQUESTS::transmitWorkingID(char* WorkingID){
     //Log transmission
     //log("Sub Controller Comm send-time",time(),WorkingID);
 }
+
+char*  REQUESTS::shortestPath(){
+    /*
+    1 -> Set Origin as anchor
+    2 -> Set Goal 
+    3 -> Get neighbouring pairs
+    4 -> For each number in pair
+        Calculate difference with goal
+    5 -> Get smallest difference
+    6 -> Set smallest difference as anchor
+    7 -> REPEAT FROM STEP 3
+    8 -> UNTIL anchor = goal
+    */
+}

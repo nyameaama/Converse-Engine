@@ -46,6 +46,7 @@ Sub Controller
 Sending Data request
 - encode -> receiving controller ID, data
 - checksum
+- shortest path calculation 
 - data transmission process (specialized request module-on demand)
 
 Recieving Data from request

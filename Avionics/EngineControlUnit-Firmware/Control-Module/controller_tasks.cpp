@@ -35,8 +35,8 @@ double engine_burn_duration_secs;
 void CONTROLLER_TASKS::_init_(){
     REQUESTS *reqObj = new REQUESTS();
     interrupts();
-    attachInterrupt(digitalPinToInterrupt(0),reqObj -> dPassthroughInterrupt,HIGH);
-    attachInterrupt(digitalPinToInterrupt(0),reqObj -> controllerReceiveInterrupt,HIGH);
+    //attachInterrupt(digitalPinToInterrupt(0),reqObj -> dPassthroughInterrupt,HIGH);
+    //attachInterrupt(digitalPinToInterrupt(0),reqObj -> controllerReceiveInterrupt,HIGH);
     delete reqObj;
 }
 

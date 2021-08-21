@@ -56,8 +56,11 @@ class REQUESTS {
         //Function executes sending of Working ID to destination controller
         char* transmitWorkingID(char* WorkingID);
 
-        //FUnction executes checksum
+        //Function executes checksum
         char* checksum(char* data);
+
+        //Compute shortest path
+        char* shortestPath();
 
 
 };
