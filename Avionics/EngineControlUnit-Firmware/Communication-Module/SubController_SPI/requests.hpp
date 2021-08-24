@@ -25,6 +25,8 @@ SOFTWARE.*/
 
 #include"../../Utility/definitions.hpp"
 #include"../../MEA-Module/_telemetry.hpp"
+#include"../../config.hpp"
+
 #include<string.h>
 
 //Main
@@ -60,7 +62,8 @@ class REQUESTS {
         char* checksum(char* data);
 
         //Compute shortest path
-        char* shortestPath();
+        //Returns controller no data should be sent to
+        uint8_t shortestPath(uint8_t destination_controller_no);
 
 
 };

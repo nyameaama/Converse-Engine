@@ -46,6 +46,10 @@ class PTAM {
         //Method to add data to program temp access memory
         //Returns the size of data sent
         //+3 Overload
+
+        template <typename PTAM_TYPE>
+        uint8_t PTAM_ADD_BASE(char* baseID, PTAM_TYPE x);
+        
         uint8_t PTAM_ADD_BASE_DOUBLE(char* baseID,double data);
 
         uint8_t PTAM_ADD_BASE_8(char* baseID,uint8_t data);

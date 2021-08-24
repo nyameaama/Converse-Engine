@@ -98,16 +98,22 @@ char* REQUESTS::transmitWorkingID(char* WorkingID){
     //log("Sub Controller Comm send-time",time(),WorkingID);
 }
 
-char*  REQUESTS::shortestPath(){
-    /*
-    1 -> Set Origin as anchor
-    2 -> Set Goal 
-    3 -> Get neighbouring pairs
-    4 -> For each number in pair
-        Calculate difference with goal
-    5 -> Get smallest difference
-    6 -> Set smallest difference as anchor
-    7 -> REPEAT FROM STEP 3
-    8 -> UNTIL anchor = goal
-    */
+
+uint8_t REQUESTS::shortestPath(uint8_t destination_controller_no){
+    //1 -> Set Origin as anchor (Get controller info from config data)
+    uint8_t anchor = CONTROLLER_ID;
+    //2 -> Set Goal (Parse transmission for destination controller) 
+    uint8_t goal = destination_controller_no;
+    //3 -> Get neighbouring pairs (Config data)
+    int pair[2] = {controllerPairs[anchor][0],controllerPairs[anchor][1]};
+    //4 -> For each number in pair
+    uint8_t diff1,diff2;
+    for(uint8_t i = 0; i < 2;i++){
+        //Calculate difference with goal
+        diff1 = (i == 0) ? goal - pair[i] : diff1;
+        diff2 = (i == 1) ? goal - pair[i] : diff2;
+    }
+    //5 -> Return smallest difference
+    uint8_t smallest = (diff1 > diff2) ? diff2 : diff1;
+    return smallest;
 }

@@ -22,6 +22,11 @@ SOFTWARE.*/
 
 #include"temp_access_mem.hpp"
 
+template <typename PTAM_TYPE>
+uint8_t PTAM::PTAM_ADD_BASE(char* baseID, PTAM_TYPE x){
+    
+}
+
 //Method to add data to program temp access memory
 //Returns the size of data sent
 //+3 Overload
