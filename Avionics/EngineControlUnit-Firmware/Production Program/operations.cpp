@@ -30,9 +30,16 @@ SOFTWARE.*/
 
 #define ENGINE_STATE 0
 
-int main(){
+void setup(){
     CONTROLLER_TASKS *CTobj = new CONTROLLER_TASKS();
+    CTobj -> pin_setup();
+    CTobj -> GSE_comms_setup();
     CTobj -> _init_();
+    delete CTobj;
+}
+
+void loop(){
+    CONTROLLER_TASKS *CTobj = new CONTROLLER_TASKS();
     while(1){
         #if ENGINE_STATE == 0 // IDLE
         CTobj -> _IDLE_();

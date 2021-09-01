@@ -30,7 +30,7 @@ SOFTWARE.*/
     uint8_t PTAM_ADD_BASE_CHAR(char* baseID,char* data);
     char* PTAM_RETRIEVE_BASE_CHAR(char* baseID);
 */
-
+/*
 int main(){
     //Test 
     testValueAddRetrieveCHAR();
@@ -77,3 +77,4 @@ void testValueAddRetrieveINT(){
         testOutput("testValueAddRetrieveINT","BAD",false);
     }
 }
+*/

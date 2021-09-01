@@ -1,3 +1,4 @@
+/*
 #include"../temp_access_mem.hpp"
 #include<stdio.h>
 #include<stdint.h>
@@ -11,3 +12,4 @@ void testValueAddRetrieveCHAR();
 void testValueAddRetrieveFLOAT();
 
 void testValueAddRetrieveINT();
+*/

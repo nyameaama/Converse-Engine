@@ -34,6 +34,10 @@ class CONTROLLER_TASKS {
         CONTROLLER_TASKS(){
             
         }
+        //Setup Pins
+        void pin_setup();
+
+        void GSE_comms_setup();
 
         //Start comms and attach RF interrupt 
         void _init_();

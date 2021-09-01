@@ -22,17 +22,13 @@ SOFTWARE.*/
 
 #include"temp_access_mem.hpp"
 
-template <typename PTAM_TYPE>
-uint8_t PTAM::PTAM_ADD_BASE(char* baseID, PTAM_TYPE x){
-    
-}
-
 //Method to add data to program temp access memory
 //Returns the size of data sent
 //+3 Overload
 uint8_t PTAM::PTAM_ADD_BASE_DOUBLE(char* baseID,double data){
     //Convert data to char*
-    char converted;
+    char* converted;
+    itoa(data,converted,10);
     //Add to floating point array
     floatingP[0] = baseID;
     floatingP[1] = converted;
@@ -41,7 +37,8 @@ uint8_t PTAM::PTAM_ADD_BASE_DOUBLE(char* baseID,double data){
 
 uint8_t PTAM::PTAM_ADD_BASE_8(char* baseID,uint8_t data){
     //Convert data to char*
-    char converted;
+    char* converted;
+    itoa(data,converted,10);
     //Add to eight_bit array
     eight_bit[0] = baseID;
     eight_bit[1] = converted;
@@ -50,7 +47,8 @@ uint8_t PTAM::PTAM_ADD_BASE_8(char* baseID,uint8_t data){
 
 uint8_t PTAM::PTAM_ADD_BASE_32(char* baseID,uint32_t data){
     //Convert data to char*
-    char converted = (char*)&data;
+    char* converted;
+    itoa(data,converted,10);
     //Add to thirtytwo_bit array
     thirtytwo_bit[0] = baseID;
     thirtytwo_bit[1] = converted;

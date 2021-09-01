@@ -30,6 +30,16 @@ uint8_t engineStarted;
 //Engine Burn time
 double engine_burn_duration_secs;
 
+//Setup pins based on config
+void CONTROLLER_TASKS::pin_setup(){
+    
+}
+
+//Setup comms to GSE over NodeMCU SP8266 Wifi
+void CONTROLLER_TASKS::GSE_comms_setup(){
+
+
+}
 //Start comms and attach RF interrupt 
 //ATTACH PIN NUMBERS
 void CONTROLLER_TASKS::_init_(){

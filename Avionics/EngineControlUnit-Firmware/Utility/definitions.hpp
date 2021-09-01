@@ -27,6 +27,7 @@ SOFTWARE.*/
 
 #include<stdint.h>
 #include<Arduino.h>
+#include<SPI.h>
 
 //typedef unsigned char uint8_t;
 

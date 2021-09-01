@@ -29,12 +29,14 @@ double REQUESTS::controllerRequest(char* baseID,uint8_t control_assignment){
       Appending of control assignment to base ID to create "Working ID"
       Sending of Working ID to destination controller*/
     char* WorkingID;
+    char* CA_converted;
+    itoa(control_assignment,CA_converted,10);
     if(verifyBaseID(baseID) == 0){
-        WorkingID = createWorkingID(baseID,control_assignment);
+        WorkingID = createWorkingID(baseID,CA_converted);
     }else{
         //Error Handling
     }
-    transmitWorkingID(WorkingID);
+    //transmitWorkingID(WorkingID,);
     //Return
 
 }
@@ -44,7 +46,7 @@ double REQUESTS::dPassthroughInterrupt(){
     //interrupt
 
     //data sent to transmission queue
-
+    
     //hold until data transmission process (general process-batch)
 }
 
@@ -93,8 +95,10 @@ char* REQUESTS::createWorkingID(char* baseID, char* control_assignment){
 }
 
 //Function executes sending of Working ID to destination controller
-char* REQUESTS::transmitWorkingID(char* WorkingID){
+char* REQUESTS::transmitWorkingID(char* WorkingID,uint8_t destination_controller_no){
     //Log transmission
+    uint8_t nextDestination = shortestPath(destination_controller_no);
+
     //log("Sub Controller Comm send-time",time(),WorkingID);
 }
 

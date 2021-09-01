@@ -56,7 +56,7 @@ class REQUESTS {
         char* decWorkingID(char* workingID);
 
         //Function executes sending of Working ID to destination controller
-        char* transmitWorkingID(char* WorkingID);
+        char* transmitWorkingID(char* WorkingID,uint8_t destination_controller);
 
         //Function executes checksum
         char* checksum(char* data);
