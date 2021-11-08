@@ -1,0 +1,31 @@
+Converse
+
+Thrust and mass flow rates
+------------------------------------------
+   Chamber thrust (vac):   10.00000     kN
+ Specific impulse (vac):  280.60984      s
+   Chamber thrust (opt):    9.14135     kN
+ Specific impulse (opt):  256.51519      s
+   Total mass flow rate:    3.63393   kg/s
+Oxidizer mass flow rate:    2.05396   kg/s
+    Fuel mass flow rate:    1.57997   kg/s
+
+Geometry of thrust chamber with parabolic nozzle
+------------------------------------------
+    Dc =   78.59  mm       b =   30.00 deg
+    R2 =   58.59  mm      R1 =   29.47  mm
+    L* = 1000.00  mm
+    Lc =  270.99  mm    Lcyl =  213.36  mm
+    Dt =   39.30  mm
+    Rn =    7.51  mm      Tn =   22.02 deg
+    Le =   93.95  mm      Te =   15.38 deg
+    De =  102.88  mm
+ Ae/At =    6.85    
+ Le/Dt =    2.39    
+Le/c15  =   78.52 % (relative to length of cone nozzle with Te=15 deg)
+
+  Mass =   -1.17  kg
+
+  Divergence efficiency:    0.98439       
+        Drag efficiency:    0.96483       
+     Thrust coefficient:    1.64871  (vac)
