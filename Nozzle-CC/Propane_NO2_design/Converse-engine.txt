@@ -1,0 +1,31 @@
+EGR 120
+
+Thrust and mass flow rates
+------------------------------------------
+   Chamber thrust (vac):    5.39285     kN
+ Specific impulse (vac):  255.36353      s
+   Chamber thrust (opt):    5.12299     kN
+ Specific impulse (opt):  242.58510      s
+   Total mass flow rate:    2.15347   kg/s
+Oxidizer mass flow rate:    1.75468   kg/s
+    Fuel mass flow rate:    0.39879   kg/s
+
+Geometry of thrust chamber with parabolic nozzle
+------------------------------------------
+    Dc =  129.52  mm       b =   30.00 deg
+    R2 =  165.84  mm      R1 =   25.38  mm
+    L* = 1497.69  mm
+    Lc =  160.91  mm    Lcyl =   26.82  mm
+    Dt =   33.85  mm
+    Rn =    6.46  mm      Tn =   27.38 deg
+    Le =  240.86  mm      Te =    8.00 deg
+    De =  169.23  mm
+ Ae/At =   25.00    
+ Le/Dt =    7.12    
+Le/c15  =   95.02 % (relative to length of cone nozzle with Te=15 deg)
+
+  Mass =    0.87  kg
+
+  Divergence efficiency:    0.99131       
+        Drag efficiency:    0.96223       
+     Thrust coefficient:    1.74046  (vac)
