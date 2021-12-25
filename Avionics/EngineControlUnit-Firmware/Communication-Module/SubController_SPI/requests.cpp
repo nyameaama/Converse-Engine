@@ -31,14 +31,11 @@ double REQUESTS::controllerRequest(char* baseID,uint8_t control_assignment){
     char* WorkingID;
     char* CA_converted;
     itoa(control_assignment,CA_converted,10);
-    if(verifyBaseID(baseID) == 0){
-        WorkingID = createWorkingID(baseID,CA_converted);
-    }else{
-        //Error Handling
-    }
+    //Appending of control assignment to base ID to create "Working ID
+    WorkingID = createWorkingID(baseID,CA_converted);
+    //Sending of Working ID to destination controller
     //transmitWorkingID(WorkingID,);
     //Return
-
 }
 
 //Interrupt handler for comms passthrough

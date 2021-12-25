@@ -35,18 +35,10 @@ double MODULE_ROUTER::pressureTransducer(char* controllerID){
     PTAM *ptamObj = new PTAM();
     //Init request to transducer controller
     double request = ReqObj -> controllerRequest(controllerID,READ);
-    //log value
-    //get identifier
-    char* identifier;
-    for(int i = 0; i < ID_LEN;++i){
-        if(controllerID == IDS[i][1]){
-            identifier = IDS[i][0];
-        }
-    }
     //time
-    char *time;
+    //char *time;
     //Log to PTAM
-    ptamObj -> PTAM_ADD_BASE_DOUBLE(identifier,request);
+    ptamObj -> PTAM_ADD_BASE_DOUBLE(controllerID,request);
     delete ptamObj;
     delete ReqObj;
     //return value
@@ -69,18 +61,10 @@ double MODULE_ROUTER::readThermocouple(char* controllerID){
     PTAM *ptamObj = new PTAM();
     //Init request to thermocouple controller
     double request = ReqObj -> controllerRequest(controllerID,READ);
-    //log value
-    //get identifier
-    char* identifier;
-    for(int i = 0; i < ID_LEN;++i){
-        if(controllerID == IDS[i][1]){
-            identifier = IDS[i][0];
-        }
-    }
     //time
-    char *time;
+    //char *time;
    //Log to PTAM
-    ptamObj -> PTAM_ADD_BASE_DOUBLE(identifier,request);
+    ptamObj -> PTAM_ADD_BASE_DOUBLE(controllerID,request);
     delete ptamObj;
     delete ReqObj;
     //return value

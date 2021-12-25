@@ -58,10 +58,10 @@ class MODULE_ROUTER {
     ///////////////EF////////////////
 
     //Fuel Pump task function (ON, OFF)
-    uint8_t FuelPump_task(uint8_t task);
+    //uint8_t FuelPump_task(uint8_t task);
 
     //Liquid Oxygen Pump task function (ON, OFF)
-    uint8_t LOXPump_task(uint8_t task);
+    //uint8_t LOXPump_task(uint8_t task);
 
 };
 

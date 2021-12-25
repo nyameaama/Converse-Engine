@@ -22,27 +22,6 @@ SOFTWARE.*/
 
 #include"engine_tasks.hpp"
 
-
-/* PROG_CYCLE represents the full feedback cycle of engine control. PROG_CYCLE
- runs the module router tasks and AETS. AETS is first checked to determine
- engine state. If engine is nominal, operations run, if false, PROG_CYCLE returns
- fasle to main which terminates engine */
-
-//Function to compile sensor data from (driver functions)
-uint32_t* ENGINE_TASKS::compile_sensor_data(){
-    //Module Router class object
-    MODULE_ROUTER *MR_obj = new MODULE_ROUTER();
-    //const uint8_t transducerPin;
-    //const uint8_t thermocouplePin;
-    uint32_t compiled[5]; // <- CHANGE TO SENSOR SUITE NUMBER
-    //Pressure
-    //compiled[0] = MR_obj -> pressureTransducer(transducerPin);
-    //Thermocouple
-    //compiled[1] = MR_obj -> readThermocouple(thermocouplePin);
-    delete MR_obj;
-    return compiled;
-}
-
 //Engine Startup Task - !! Separate timer from opening sequence !!
 void ENGINE_TASKS::engineStartup(void){
     //Module Router class object

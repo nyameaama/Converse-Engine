@@ -84,24 +84,24 @@ char* IDS[ID_LEN][2] = {
 
 
 //Engine Constants -
-#define AimedThrustCapacity 0
-#define ChamberPressure 0
+#define AimedThrustCapacity 5.39285 //kn
+#define ChamberPressure 700 //psi
 #define Inletflow 0
-#define OxidizerFlowRate 0
-#define FuelFlowRate 0
+#define OxidizerFlowRate 1.75468 //kg/s
+#define FuelFlowRate 0.39879
 #define ExitVelocity 0
 
 //Engine Constants - Dimensions
-#define ThroatDiameter 0
+#define ThroatDiameter 33.85
 #define ThroatArea 0
 #define ExitArea 0
-#define ExitDiameter 0
+#define ExitDiameter 169.23
 #define NozzleLength 0
 #define ConvergentLength 0
 #define DivergentLength 0
 #define ChamberVolume 0
-#define ChamberDiameter 0
+#define ChamberDiameter 129.52
 #define ChamberArea 0
-#define ChamberLength 0
+#define ChamberLength 160.91
 
 #endif //DEFINITIONS_

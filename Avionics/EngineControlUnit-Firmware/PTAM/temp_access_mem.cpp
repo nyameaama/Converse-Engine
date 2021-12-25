@@ -90,6 +90,8 @@ uint8_t PTAM::PTAM_RETRIEVE_BASE_8(char* baseID){
         }else{continue;}
     }
     //Convert to appropriate format
+    uint8_t AP_format = atoi(temp_data);
+    return AP_format;
 }
 
 uint32_t PTAM::PTAM_RETRIEVE_BASE_32(char* baseID){
@@ -102,6 +104,8 @@ uint32_t PTAM::PTAM_RETRIEVE_BASE_32(char* baseID){
         }else{continue;}
     }
     //Convert to appropriate format
+    uint32_t AP_format = atoi(temp_data);
+    return AP_format;
 }
 
 double PTAM::PTAM_RETRIEVE_BASE_DOUBLE(char* baseID){
@@ -114,6 +118,8 @@ double PTAM::PTAM_RETRIEVE_BASE_DOUBLE(char* baseID){
         }else{continue;}
     }
     //Convert to appropriate format
+    double AP_format = atoi(temp_data);
+    return AP_format;
 }
 
 //Method to clear entire PTAM data for next program cycle
