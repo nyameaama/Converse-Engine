@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"Control_methods_unit-tests.h"
+//#include"Control_methods_unit-tests.h"
 
 /* Methods Tested:
     AETS_FLAG compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32_t timestamp_2);
@@ -29,6 +29,7 @@ SOFTWARE.*/
 
 
 */
+/*
 void test_check_in_range();
 
 uint8_t compareX(char* x, char* y){
@@ -67,3 +68,4 @@ void test_check_in_range(){
     
 }
 
+*/

@@ -119,7 +119,7 @@ void CONTROLLER_TASKS::_bypass_(char* sbc_id){
         //Sensor bypass
         //Request sensor data
         double data = ReqObj -> controllerRequest(sbc_id,2);
-        transmit_telemetry(data);
+        //transmit_telemetry(data);
     }
 }
  //Sensor bypass
@@ -128,9 +128,9 @@ void CONTROLLER_TASKS::_bypass_(char* sbc_id){
 uint8_t CONTROLLER_TASKS::SWITCH2IDLE(){
     //Change variable
     uint8_t change = 0;
-    if(compareX(recieve_telemetry(),"IDLE")){
-        change = 1;
-    }
+    //if(compareX(recieve_telemetry(),"IDLE")){
+    //    change = 1;
+    //}
     return change;
 }
 
@@ -138,9 +138,9 @@ uint8_t CONTROLLER_TASKS::SWITCH2IDLE(){
 uint8_t CONTROLLER_TASKS::SWITCH2PREP(){
     //Change variable
     uint8_t change = 0;
-    if(compareX(recieve_telemetry(),"PREP")){
-        change = 1;
-    }
+    //if(compareX(recieve_telemetry(),"PREP")){
+       // change = 1;
+    //}
     return change;
 }
 
@@ -148,9 +148,9 @@ uint8_t CONTROLLER_TASKS::SWITCH2PREP(){
 uint8_t CONTROLLER_TASKS::SWITCH2ARMED(){
     //Change variable
     uint8_t change = 0;
-    if(compareX(recieve_telemetry(),"ARMED")){
-        change = 1;
-    }
+    //if(compareX(recieve_telemetry(),"ARMED")){
+      //  change = 1;
+    //}
     return change;
 }
 
@@ -158,9 +158,9 @@ uint8_t CONTROLLER_TASKS::SWITCH2ARMED(){
 uint8_t CONTROLLER_TASKS::SWITCH2BYPASS(){
     //Change variable
     uint8_t change = 0;
-    if(compareX(recieve_telemetry(),"BYPASS")){
-        change = 1;
-    }
+    //if(compareX(recieve_telemetry(),"BYPASS")){
+      //  change = 1;
+    //}
     return change;
 }
 

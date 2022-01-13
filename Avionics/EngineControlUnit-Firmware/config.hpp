@@ -4,7 +4,7 @@
 #define CONTROLLER_ID 0
 #define CONTROLLER_TAG "SBC"
 
-int controllerPairs[11][2] = {{1,11},
+static int controllerPairs[11][2] = {{1,11},
                               {1,3},
                               {2,4},
                               {3,5},

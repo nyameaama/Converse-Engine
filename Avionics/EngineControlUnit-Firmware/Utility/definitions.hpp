@@ -63,7 +63,7 @@ SOFTWARE.*/
 
 
 #define ID_LEN 13
-char* IDS[ID_LEN][2] = {
+static char* IDS[ID_LEN][2] = {
                     {"OXYGEN_VALVE_BASE_ID","SBC02"},
                     {"FUEL_VALVE_BASE_ID","SBC01"},
                     {"PURGE_VALVE_BASE_ID","SBC04"},

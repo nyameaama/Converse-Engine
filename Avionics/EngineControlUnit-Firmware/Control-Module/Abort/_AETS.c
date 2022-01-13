@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"_AETS.h"
+/*#include"_AETS.h"
 
 //AETS driver
 //+1 Overload
@@ -75,4 +75,4 @@ uint8_t check_if_in_range(uint32_t actual_value,uint32_t rangeLow,uint32_t range
         nominal = 0;
     }
     return nominal;
-}
+}*/

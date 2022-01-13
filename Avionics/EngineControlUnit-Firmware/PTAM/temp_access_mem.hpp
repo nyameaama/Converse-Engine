@@ -36,10 +36,10 @@ SOFTWARE.*/
 #define length 10
 //!!! OVERFLOW UNLIKELY AS THERE IS A SINGLE SENSOR REQUEST EVERY CYCLE !!!
 
-char* floatingP[length];
-char* eight_bit[length];
-char* thirtytwo_bit[length];
-char* character[length];
+static char* floatingP[length];
+static char* eight_bit[length];
+static char* thirtytwo_bit[length];
+static char* character[length];
 
 class PTAM {
     public:

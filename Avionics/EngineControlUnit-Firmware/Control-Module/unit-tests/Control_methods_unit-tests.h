@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include<stdio.h>
+/*#include<stdio.h>
 #include<stdint.h>
 #include<stdbool.h>
 #include<string.h>
@@ -58,3 +58,4 @@ uint8_t check_if_in_range(uint32_t actual_value,uint32_t rangeLow,uint32_t range
     }
     return nominal;
 }
+*/

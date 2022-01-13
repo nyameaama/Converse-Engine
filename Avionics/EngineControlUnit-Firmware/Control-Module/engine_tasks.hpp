@@ -30,7 +30,7 @@ SOFTWARE.*/
 #define ARMED
 #define DISARMED
 
-char* e_abort = "disarmed";
+static char* e_abort = "disarmed";
 
 /*PROG_CYCLE:
     -COMPILE SENSOR DATA (Pressure, Temp,)

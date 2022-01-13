@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
 
-#include"SC_methods_unit-test.h"
+//#include"SC_methods_unit-test.h"
 
 /* Methods Tested:
     char* createWorkingID(char* baseID, char* control_assignment);
@@ -28,7 +28,7 @@ SOFTWARE.*/
     uint8_t verifyBaseID(char* baseID);
 */
 
-void testOutput(char* method,char* result, bool status);
+/*void testOutput(char* method,char* result, bool status);
 void testWorkingID();
 void testVerifyBaseID();
 
@@ -68,3 +68,4 @@ void testWorkingID(){
 void testVerifyBaseID(){
 
 }
+*/

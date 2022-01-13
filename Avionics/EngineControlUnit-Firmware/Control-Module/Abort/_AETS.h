@@ -19,7 +19,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
-
+/*
 #ifndef AETS_
 #define AETS_
 
@@ -61,4 +61,4 @@ AETS_FLAG compare(uint32_t data_1, uint32_t timestamp_1, uint32_t data_2, uint32
 uint8_t check_if_in_range(uint32_t actual_value,uint32_t rangeLow,uint32_t rangeHigh);
 
 
-#endif
+#endif*/

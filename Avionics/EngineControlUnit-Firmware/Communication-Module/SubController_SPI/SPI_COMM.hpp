@@ -19,38 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.*/
-/*
-#include<stdio.h>
-#include<stdint.h>
-#include<stdbool.h>
-#include<string.h>
 
-//Function verifies base ID.
-//Return 0 = Verified | Return 1 = failed
-uint8_t verifyBaseID(char* baseID){
-    //The base ID's consist of two parts. The "SBC" tag and the number preceeding it.
-    //The SBC is used to indicate the ECU that it is a sub controller and the 
-    //numbers preceeding it indicate the unique number corresponding to the controller.
-    uint8_t failed = 0; 
-    //Validate Length
-    uint8_t baseLength = strlen(baseID);
-    if(baseLength != 6){return 0;}
+#include <SPI.h>
 
-    //Verify existence
-    //Search ID data structure for base ID
-    /*for(uint8_t i = 0; i < ID_LEN;++i){
-        if(IDS[i][1]!= baseID){
-            failed = 1;
-        }else{break;}
-    }
-    return failed;
-}
+class SPI_COMM {
+    public:
+void DEVICE_AS_MASTER(int MOSI,int MISO,int SS,int SCK);
+void DEVICE_AS_SLAVE(int MOSI,int MISO,int SS,int SCK);
 
-//Function creates Working ID
-char* createWorkingID(char* baseID, char* control_assignment){
-    // The control assignment is appended to the base ID
-    char* WorkingID = baseID;
-    strcat(WorkingID,control_assignment);
-    return WorkingID;
-}
-*/
+};
