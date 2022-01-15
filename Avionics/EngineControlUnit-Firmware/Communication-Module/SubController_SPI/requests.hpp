@@ -26,13 +26,11 @@ SOFTWARE.*/
 #include"../../Utility/definitions.hpp"
 #include"../../MEA-Module/_telemetry.hpp"
 #include"../../config.hpp"
-#include"SPI_COMM.hpp"
-
 #include<string.h>
 
 //Main
 
-class REQUESTS : public SPI_COMM{
+class REQUESTS{
         public:
         //Function executes request for communication with a controller
         double controllerRequest(char* baseID,uint8_t control_assignment);

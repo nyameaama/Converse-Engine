@@ -32,7 +32,7 @@ SOFTWARE.*/
 
 void setup(){
     CONTROLLER_TASKS *CTobj = new CONTROLLER_TASKS();
-    CTobj -> pin_setup();
+    //CTobj -> pin_setup();
     CTobj -> GSE_comms_setup();
     CTobj -> _init_();
     delete CTobj;

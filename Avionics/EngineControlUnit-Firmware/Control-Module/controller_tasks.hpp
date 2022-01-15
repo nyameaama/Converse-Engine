@@ -28,18 +28,24 @@ SOFTWARE.*/
 #include"engine_tasks.hpp"
 #include"../Module-Router/route.hpp"
 #include"../Communication-Module/SubController_SPI/requests.hpp"
+#include<SPI.h>
 
 class CONTROLLER_TASKS {
-    public: 
-        CONTROLLER_TASKS(){
-            
-        }
+    private:
         //Setup Pins
         void pin_setup();
 
+        //Reset all tag so engine can be preconditioned for another fire
+        void reset_();
+
+        //If output = 1, strings match
+        uint8_t compareX(char* x, char* y);
+
+    public: 
+        //Setup NodeMCU wifi comms
         void GSE_comms_setup();
 
-        //Start comms and attach RF interrupt 
+        //Start comms and attach interrupts 
         void _init_();
 
         void _IDLE_();
@@ -73,15 +79,7 @@ class CONTROLLER_TASKS {
 
         //Change engine state definition 
         //Used for interrupt handlers to change engine state
-        void CHANGE_STATE_DEFINITON();
-
-        //Utility
-
-        //Reset all tag so engine can be preconditioned for another fire
-        void reset_();
-
-        //If output = 1, strings match
-        uint8_t compareX(char* x, char* y);
+        void CHANGE_STATE_DEFINITON();     
 
 };
 

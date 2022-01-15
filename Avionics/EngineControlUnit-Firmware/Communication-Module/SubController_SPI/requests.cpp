@@ -34,8 +34,10 @@ double REQUESTS::controllerRequest(char* baseID,uint8_t control_assignment){
     //Appending of control assignment to base ID to create "Working ID
     WorkingID = createWorkingID(baseID,CA_converted);
     //Sending of Working ID to destination controller
+    //
     //transmitWorkingID(WorkingID,);
     //Return
+
 }
 
 //Interrupt handler for comms passthrough
@@ -91,12 +93,25 @@ char* REQUESTS::createWorkingID(char* baseID, char* control_assignment){
     return WorkingID;
 }
 
-//Function executes sending of Working ID to destination controller
+//Function executes sending of Working ID to destination controller | returns data response
 char* REQUESTS::transmitWorkingID(char* WorkingID,uint8_t destination_controller_no){
     //Log transmission
     uint8_t nextDestination = shortestPath(destination_controller_no);
-
     //log("Sub Controller Comm send-time",time(),WorkingID);
+    //SEND
+    //receiving controller pin / neighbor controller
+    uint8_t recContPin = 0;
+    //Enable slave arduino with setting the SlaveSelection pin to 0Volt
+    digitalWrite(recContPin, LOW);
+    // Wait for a moment 
+    delay(10);
+    //We sent the data here and wait for the response from devic
+    char* dataSent = WorkingID;
+    SPI.transfer(dataSent, sizeof(WorkingID));
+    //In case of buffer transfers the received data is stored in the buffer in-place (the old data is replaced with the data received).
+    char* receivedValue = dataSent;
+    //Disable slave arduino with setting the SlaveSelection pin to 5Volt
+    digitalWrite(recContPin, HIGH);
 }
 
 

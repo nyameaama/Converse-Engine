@@ -32,7 +32,12 @@ double engine_burn_duration_secs;
 
 //Setup pins based on config
 void CONTROLLER_TASKS::pin_setup(){
-    
+    //SPI - Master <- !! Review
+    //Set SlaveSelection pin as output.
+    //uint8_t SlaveSelection = 0; //TEMP
+    //pinMode(SlaveSelection, OUTPUT);
+    //and Make it HIGH to prevent to start communication right away
+    //digitalWrite(SlaveSelection, HIGH);
 }
 
 //Setup comms to GSE over NodeMCU SP8266 Wifi
@@ -43,11 +48,22 @@ void CONTROLLER_TASKS::GSE_comms_setup(){
 //Start comms and attach RF interrupt 
 //ATTACH PIN NUMBERS
 void CONTROLLER_TASKS::_init_(){
+    //Start Serial Communication
+    //Serial.begin(9600);
+    //Setup pins - SPI,sensors, valves
+    //SPI
+    //pin_setup();
+    //SPI.begin();
+    //SENSORS
+
+    //VALVES
+
     REQUESTS *reqObj = new REQUESTS();
     interrupts();
     //attachInterrupt(digitalPinToInterrupt(0),reqObj -> dPassthroughInterrupt,HIGH);
     //attachInterrupt(digitalPinToInterrupt(0),reqObj -> controllerReceiveInterrupt,HIGH);
     delete reqObj;
+
 }
 
 void CONTROLLER_TASKS::_IDLE_(){

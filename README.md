@@ -1,6 +1,6 @@
 # Converse-Engine
 
-Pressure-Fed Cycle Based Liquid Rocket Engine integrated as thruster. 
+Pressure-Fed Cycle Based Liquid Rocket Engine integrated as a thruster.
 
 **Propellants:**
 
