@@ -32,12 +32,14 @@ double engine_burn_duration_secs;
 
 //Setup pins based on config
 void CONTROLLER_TASKS::pin_setup(){
-    //SPI - Master <- !! Review
+    //Setup MASTER connection for forward neighbor
     //Set SlaveSelection pin as output.
     //uint8_t SlaveSelection = 0; //TEMP
     //pinMode(SlaveSelection, OUTPUT);
     //and Make it HIGH to prevent to start communication right away
     //digitalWrite(SlaveSelection, HIGH);
+
+    //Setup SLAVE connection for backwards neighbor
 }
 
 //Setup comms to GSE over NodeMCU SP8266 Wifi

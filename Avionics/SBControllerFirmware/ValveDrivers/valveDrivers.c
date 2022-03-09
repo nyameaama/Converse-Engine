@@ -29,59 +29,11 @@ uint8_t (valveState)(uint8_t valvePin, uint8_t state){
     //HIGH or LOW
     switch(state){
         case OUT:
-            SET_ECU_GPIO_HIGH(valvePin,CLOCK_A); //<- Assume CLOCK PORT A - CHANGE
+           digitalWrite(valvePin,HIGH); //<- Assume CLOCK PORT A - CHANGE
         case IN:
-            SET_ECU_GPIO_LOW(valvePin,CLOCK_A); //<- Assume CLOCK PORT A - CHANGE
+            digitalWrite(valvePin,LOW); //<- Assume CLOCK PORT A - CHANGE
     }
     return 0;
 }
 
- //Pin number in port
- //GPIO_InitTypeDef is a structure defined in gpio header file
-GPIO_InitTypeDef GPIO_STRUCT;
-
-//Set GPIO Pin register to HIGH
-void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_){
-    SET_GPIO_MODE(PIN,OUT,_clock_);
-    //SET HIGH
-    GPIO_WriteBit(_clock_,PIN,Bit_SET);
-}
-
-//Set GPIO Pin register to LOW
-void (SET_ECU_GPIO_LOW)(uint8_t PIN,uint32_t _clock_){
-    SET_GPIO_MODE(PIN,OUT,_clock_);
-    //SET LOW
-    GPIO_WriteBit(_clock_,PIN,Bit_RESET);
-}
-
-void (GPIO_READ_DIGITAL)(uint8_t PIN,uint32_t _clock_){
-    SET_GPIO_MODE(PIN,IN,_clock_);
-    //GPIO_ReadInputData()
-
-}
-
-void (GPIO_READ_ANALOG)(uint8_t PIN,uint32_t _clock_){
-
-}
-
-void (GPIO_WRITE)(uint8_t PIN,uint32_t _clock_){
-
-}
-
-//Set GPIO-Mode (IN,OUT,Analog,Alternate function)
-void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_){
-    //Decide Port
-    //Provide clock to the specific port being used.
-    //Parameter refernece
-    RCC_AHB1PeriphClockCmd(_clock_,ENABLE);
-    //SETUP_GPIO();
-    //Specifies the GPIO pins to be configured.
-    GPIO_STRUCT.GPIO_Pin = PIN;
-    //Configure it as output pin.
-    GPIO_STRUCT.GPIO_Mode = mode;
-    //GPIO speed and Push Pull configuration - configure speed of  GPIO and Push pull register of the pin
-    GPIO_STRUCT.GPIO_Speed=GPIO_Speed_50MHz;
-    GPIO_STRUCT.GPIO_PuPd=GPIO_OType_PP;
-    //GPIO Initialization
-    GPIO_Init(GPIOD,&GPIO_STRUCT);
-}
+ 

@@ -109,7 +109,7 @@ char* REQUESTS::transmitWorkingID(char* WorkingID,uint8_t destination_controller
     char* dataSent = WorkingID;
     SPI.transfer(dataSent, sizeof(WorkingID));
     //In case of buffer transfers the received data is stored in the buffer in-place (the old data is replaced with the data received).
-    char* receivedValue = dataSent;
+    //char* receivedValue = dataSent;
     //Disable slave arduino with setting the SlaveSelection pin to 5Volt
     digitalWrite(recContPin, HIGH);
 }

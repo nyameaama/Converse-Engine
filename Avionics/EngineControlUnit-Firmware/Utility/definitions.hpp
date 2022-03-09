@@ -79,6 +79,7 @@ static char* IDS[ID_LEN][2] = {
                     {"PRE_CHAMBER_LOX_THERMOCOUPLE_BASE_ID","SBC12"}
                 };
 
+static char* masterSlaveLookupTable = {};
 //Engine Constants - Changeable
 #define ENGINE_THRUST_LIMIT 0
 

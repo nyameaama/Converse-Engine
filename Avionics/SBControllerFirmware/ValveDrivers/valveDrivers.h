@@ -23,51 +23,11 @@ SOFTWARE.*/
 #ifndef VALVE_DRIVERS
 #define VALVE_DRIVERS
 
-#define OPEN (uint8_t) 1
-#define CLOSE (uint8_t) 1
+#define 
 
-typedef unsigned char uint8_t;
-
-#include "../libs/stm32/cmsis/variants/stm32f4/stm32f4xx.h"
-
-//0x1
-#define CLOCK_A (RCC_AHB1Periph_GPIOA)
-//0x2
-#define CLOCK_B (RCC_AHB1Periph_GPIOB)
-//0x4
-#define CLOCK_C (RCC_AHB1Periph_GPIOC)
-//0x8
-#define CLOCK_D (RCC_AHB1Periph_GPIOD)
-
-#define IN (GPIO_Mode_IN)
-
-#define OUT (GPIO_Mode_OUT)
-
+#include<Arduino.h>
 
 //Component driver for solenoid valve (Open, close)
-
 uint8_t (valveState)(uint8_t valvePin, uint8_t state);
-
-
-////////////////////GPIO Drivers////////////////////////
-
-//Set GPIO Pin register to HIGH
-void (SET_ECU_GPIO_HIGH)(uint8_t PIN,uint32_t _clock_);
-
-//Set GPIO Pin register to LOW
-void (SET_ECU_GPIO_LOW)(uint8_t PIN,uint32_t _clock_);
-
-//
-void (GPIO_READ_DIGITAL)(uint8_t PIN,uint32_t _clock_);
-
-//
-void (GPIO_READ_ANALOG)(uint8_t PIN,uint32_t _clock_);
-
-//
-void (GPIO_WRITE)(uint8_t PIN,uint32_t _clock_);
-
-//Set GPIO-Mode (IN,OUT,Analog,Alternate function)
-void (SET_GPIO_MODE)(uint8_t PIN,uint8_t mode,uint32_t _clock_);
-
 
 #endif
