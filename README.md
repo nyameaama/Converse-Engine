@@ -19,5 +19,12 @@ Chamber Pressure : 700 psi
 </p>
 <p align = "center">
 <img src = "https://github.com/nyameaama/Converse-Engine/blob/master/assets/exploded.jpg"/>
+</p>
+<p align = "center">
+<img src = "https://github.com/nyameaama/Converse-Engine/blob/master/assets/pic2.jpg"/>
+</p>
+<p align = "center">
+<img src = "https://github.com/nyameaama/Converse-Engine/blob/master/assets/pic3.jpg"/>
+</p>
 
 [A-OneSpace](https://github.com/A-OneSpace)
