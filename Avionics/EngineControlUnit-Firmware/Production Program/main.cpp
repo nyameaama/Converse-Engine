@@ -24,13 +24,16 @@ SOFTWARE.*/
 #define MAIN_
 
 #include"../Control-Module/controller_tasks.hpp"
+#include"../PTAM/temp_access_mem.hpp"
 
 //Through spi interface, ECU recieves instructions from main computer
 
+void testPTAM();
 
 #define ENGINE_STATE 0
 
 void setup(){
+    Serial.begin(9600);
     CONTROLLER_TASKS *CTobj = new CONTROLLER_TASKS();
     //CTobj -> pin_setup();
     CTobj -> GSE_comms_setup();
@@ -71,7 +74,14 @@ void loop(){
 
     }
     delete CTobj;
+    testPTAM();
 }
 
+void testPTAM(){
+    PTAM *obj = new PTAM();
+    uint8_t size = obj -> PTAM_ADD_BASE_DOUBLE("345",65);
+    Serial.println("tEST");
+
+}
 
 #endif // MAIN_

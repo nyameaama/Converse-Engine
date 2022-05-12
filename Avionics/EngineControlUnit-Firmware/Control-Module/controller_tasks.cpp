@@ -101,10 +101,9 @@ void CONTROLLER_TASKS::_ARMED_(){
     //Engine function wrapped in timer
     if(engineStarted == 1){
         //Get seconds since controller start as current time
-        double current_time;
-        //Log seconds since controller start 
-        double start_time;
-        if((current_time - start_time) >=  engine_burn_duration_secs){
+        //Log start time
+        double start_time = millis();
+        if((millis() - start_time) >=  engine_burn_duration_secs){
             obj -> engineShutdown();
             //Reset engine started tag
             engineStarted = 0;
